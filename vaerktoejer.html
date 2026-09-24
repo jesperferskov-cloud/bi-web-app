@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Værktøjer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class", theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+
+    <!-- Dark Mode Init -->
+    <script>
+        if (localStorage.getItem('bi_theme') === 'dark' && localStorage.getItem('bi_is_supporter') === 'true') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-[#f8f9ff] dark:bg-[#161922] dark:text-[#f1f5f9] text-[#0b1c30]">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300 dark:bg-[#11141c] dark:border-[#1e2433]">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start bg-indigo-900/60 text-white font-semibold shadow-sm dark:bg-[#1e2433] dark:text-white">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                
+                <!-- Theme Switcher -->
+                <button onclick="toggleTheme()" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all group mb-1 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-lg">dark_mode</span>
+                        <span>Mørk Tilstand</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="theme-lock-sidebar" class="text-xs" style="display: none;" title="Kræver Supporter">🔒</span>
+                        <div class="relative inline-flex items-center h-4 rounded-full w-8 transition-colors bg-indigo-900/60 dark:bg-indigo-500" id="theme-switch-bg">
+                            <span class="inline-block w-3 h-3 transform bg-white rounded-full transition-transform translate-x-0.5 dark:translate-x-4" id="theme-switch-knob"></span>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol (Kun 1 instans) -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400 dark:bg-amber-950/60 dark:text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar (Eneansvarlig for profil.html) -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group dark:bg-[#1e2330] dark:border-[#2b3245]">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm dark:bg-[#1e2330] dark:border-[#2b3245] dark:text-[#c3c0ff]">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/30 rounded px-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+            const elName = document.getElementById('sidebar-name');
+        });
+
+        // Toggle theme (if needed)
+        function toggleTheme() {
+            if (localStorage.getItem('bi_is_supporter') !== 'true') return;
+            const currentTheme = localStorage.getItem('bi_theme');
+            if (currentTheme === 'dark') {
+                localStorage.setItem('bi_theme', 'light');
+                document.documentElement.classList.remove('dark');
+            } else {
+                localStorage.setItem('bi_theme', 'dark');
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        // Filter Prompts based on pipeline stage
+        window.filterPrompts = function(faseId) {
+            const cards = document.querySelectorAll('.prompt-card');
+            const btns = document.querySelectorAll('.pipeline-btn');
+            
+            // Update active state on buttons
+            btns.forEach(btn => {
+                if (faseId === 'all') {
+                    btn.setAttribute('data-active', 'false');
+                } else if (btn.getAttribute('onclick').includes(faseId)) {
+                    btn.setAttribute('data-active', 'true');
+                } else {
+                    btn.setAttribute('data-active', 'false');
+                }
+            });
+
+            // Filter cards
+            cards.forEach(card => {
+                if (faseId === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.getAttribute('data-fase') === faseId) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        };
+
+        window.copyPromptText = function(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const text = el.innerText || el.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                // visual feedback
+                alert('Prompt kopieret til udklipsholder');
+            });
+        };
+
+        window.runInAssistant = function(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const promptText = el.innerText || el.textContent;
+
+            const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
+            if (!isSupporter) {
+                const modal = document.getElementById('supporter-modal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                } else {
+                    alert('Live kørsel af prompter i dashboardet kræver Supporter-adgang.');
+                }
+                return;
+            }
+
+            // Open slide-over drawer
+            const drawer = document.getElementById('ai-drawer');
+            if (drawer && drawer.classList.contains('translate-x-full')) {
+                const launcherBtn = document.getElementById('ai-launcher-btn');
+                if (launcherBtn) launcherBtn.click(); // toggle open
+            }
+
+            // Enter text and submit
+            const input = document.getElementById('ai-input');
+            const form = document.getElementById('ai-chat-form');
+            if (input && form) {
+                // Focus slightly delayed to ensure drawer animation
+                setTimeout(() => {
+                    input.value = promptText;
+                    // Trigger submit manually
+                    form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+                }, 300);
+            }
+        };
+
+        window.filterSectors = function(filterValue, activeBtn) {
+            // Update button styles
+            const btns = document.querySelectorAll('.sector-filter-btn');
+            btns.forEach(btn => {
+                // Reset all to default inactive style
+                btn.className = 'sector-filter-btn bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] text-on-surface-variant dark:text-slate-300 hover:text-deep-indigo dark:hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all';
+            });
+            // Set active style on the clicked button
+            if (activeBtn) {
+                activeBtn.className = 'sector-filter-btn bg-cyan-50 dark:bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/40 text-xs font-bold px-3.5 py-2 rounded-xl transition-all';
+            }
+
+            // Filter cards with fade effect
+            const cards = document.querySelectorAll('.sector-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'flex';
+                    } else {
+                        if (card.getAttribute('data-type') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                    // small delay for display change to take effect before fading in
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                    }, 50);
+                }, 150); // duration of fade out
+            });
+        };
+    </script>
+
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative dark:bg-[#161922]">
+        <div class="p-4 md:p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-10">
+            
+            <!-- Hero -->
+            <header class="max-w-3xl space-y-4">
+                <div class="flex items-center gap-2 text-deep-indigo dark:text-[#c3c0ff]">
+                    <span class="material-symbols-outlined">construction</span>
+                    <h2 class="font-bold text-sm tracking-wide uppercase">Værktøjer</h2>
+                </div>
+                <h1 class="text-4xl md:text-5xl text-on-background font-headline-lg font-bold dark:text-[#f8fafc]">
+                    Kerneanalyse: Sammenlign Aktier
+                </h1>
+                <p class="text-on-surface-variant dark:text-[#94a3b8]">
+                    Operationelle workflows, AI-prompter til egen research og overblik over aktivklasser.
+                </p>
+            </header>
+
+            <!-- Sektion 1: Dit Investerings-Workflow -->
+            <section class="space-y-6">
+                <header class="flex justify-between items-end">
+                    <div>
+                        <h3 class="text-2xl font-headline-md font-semibold text-deep-indigo dark:text-[#c3c0ff]">Dit Investerings-Workflow</h3>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] mt-1">Klik på en fase for at filtrere de relevante prompter nedenfor.</p>
+                    </div>
+                    <button onclick="filterPrompts('all')" class="text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline">Vis Alle</button>
+                </header>
+                
+                <!-- Pipeline-bar -->
+                <div class="flex flex-col md:flex-row gap-2 bg-white dark:bg-[#1d222e] p-2 rounded-xl border border-slate-border dark:border-[#2a3245] shadow-sm">
+                    <button onclick="filterPrompts('fase-1')" class="pipeline-btn flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-[#252b3b] transition-colors focus:outline-none data-[active=true]:bg-indigo-50 dark:data-[active=true]:bg-indigo-900/30 data-[active=true]:text-indigo-700 dark:data-[active=true]:text-indigo-300">
+                        <span class="w-6 h-6 rounded-full bg-slate-200 dark:bg-[#14171f] text-xs flex items-center justify-center font-bold">1</span>
+                        <span class="font-semibold text-sm">Idé</span>
+                    </button>
+                    <div class="hidden md:flex items-center text-slate-300 dark:text-slate-600">➔</div>
+                    <button onclick="filterPrompts('fase-2')" class="pipeline-btn flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-[#252b3b] transition-colors focus:outline-none data-[active=true]:bg-indigo-50 dark:data-[active=true]:bg-indigo-900/30 data-[active=true]:text-indigo-700 dark:data-[active=true]:text-indigo-300">
+                        <span class="w-6 h-6 rounded-full bg-slate-200 dark:bg-[#14171f] text-xs flex items-center justify-center font-bold">2</span>
+                        <span class="font-semibold text-sm">Research</span>
+                    </button>
+                    <div class="hidden md:flex items-center text-slate-300 dark:text-slate-600">➔</div>
+                    <button onclick="filterPrompts('fase-3')" class="pipeline-btn flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-[#252b3b] transition-colors focus:outline-none data-[active=true]:bg-indigo-50 dark:data-[active=true]:bg-indigo-900/30 data-[active=true]:text-indigo-700 dark:data-[active=true]:text-indigo-300">
+                        <span class="w-6 h-6 rounded-full bg-slate-200 dark:bg-[#14171f] text-xs flex items-center justify-center font-bold">3</span>
+                        <span class="font-semibold text-sm">Modstand</span>
+                    </button>
+                    <div class="hidden md:flex items-center text-slate-300 dark:text-slate-600">➔</div>
+                    <button onclick="filterPrompts('fase-4')" class="pipeline-btn flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-[#252b3b] transition-colors focus:outline-none data-[active=true]:bg-indigo-50 dark:data-[active=true]:bg-indigo-900/30 data-[active=true]:text-indigo-700 dark:data-[active=true]:text-indigo-300">
+                        <span class="w-6 h-6 rounded-full bg-slate-200 dark:bg-[#14171f] text-xs flex items-center justify-center font-bold">4</span>
+                        <span class="font-semibold text-sm">Gatekeeper</span>
+                    </button>
+                    <div class="hidden md:flex items-center text-slate-300 dark:text-slate-600">➔</div>
+                    <button onclick="filterPrompts('fase-5')" class="pipeline-btn flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-[#252b3b] transition-colors focus:outline-none data-[active=true]:bg-indigo-50 dark:data-[active=true]:bg-indigo-900/30 data-[active=true]:text-indigo-700 dark:data-[active=true]:text-indigo-300">
+                        <span class="w-6 h-6 rounded-full bg-slate-200 dark:bg-[#14171f] text-xs flex items-center justify-center font-bold">5</span>
+                        <span class="font-semibold text-sm">Eksekver</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Sektion 2: AI Prompt-Bibliotek -->
+            <section class="space-y-6">
+                <header>
+                    <h3 class="text-2xl font-headline-md font-semibold text-deep-indigo dark:text-[#c3c0ff]">AI Prompt-Bibliotek</h3>
+                    <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] mt-1">Kopiér disse strukturerede prompter og anvend dem direkte i din lokale AI-assistent.</p>
+                </header>
+                
+                <div class="grid grid-cols-1 gap-4" id="prompt-list">
+                    <!-- Prompt 1 -->
+                    <div class="prompt-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] rounded-xl overflow-hidden shadow-sm transition-all" data-fase="fase-2">
+                        <div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h4 class="font-semibold text-lg text-deep-indigo dark:text-slate-200">Prompt 1: "Basis-tjekket"</h4>
+                                    <span class="bg-indigo-50 text-indigo-700 dark:bg-[#14171f] dark:text-slate-400 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-indigo-100 dark:border-[#2a3245]">Fase 2: Research</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant dark:text-slate-400">Hurtig og nøgtern 3-trins basisanalyse af en aktie (Moat, finansiel sundhed, værdiansættelse).</p>
+                            </div>
+                            <div class="flex gap-2 shrink-0">
+                                <button onclick="copyPromptText('prompt-text-1')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-[#252b3b] dark:hover:bg-[#2a3245] dark:text-slate-300 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">content_copy</span> Kopiér
+                                </button>
+                                <button onclick="runInAssistant('prompt-text-1')" class="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm px-4 py-2 rounded-lg transition-all flex items-center gap-2 shadow-md">
+                                    <span class="material-symbols-outlined text-sm">bolt</span> Kør i Assistent
+                                </button>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-border dark:border-[#2a3245] bg-slate-50 dark:bg-[#14171f]">
+                            <details class="group">
+                                <summary class="cursor-pointer p-3 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-cyan-400 flex items-center gap-1 select-none">
+                                    <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span> Vis fuld prompt
+                                </summary>
+                                <div class="px-5 pb-5 pt-1 text-xs font-mono text-slate-600 dark:text-slate-400 whitespace-pre-wrap" id="prompt-text-1">Optræd som aktieanalytiker for en langsigtet investor. Lav en hurtig og nøgtern 3-trins basisanalyse af [Indsæt Ticker & Børs, f.eks. CSE:NOVO-B]:
+1. Forretningsmodel & Moat: Hvordan tjener selskabet primært sine penge, og hvad beskytter dem mod konkurrenter?
+2. Finansiel Sundhed (Hård data): Hvad er seneste P/E, 3-års årlige omsætningsvækst (CAGR), driftsmargin (EBIT) og gældsniveau (Net Debt / EBITDA)?
+3. Værdisætning mod historik & sektor: Handles aktien p.t. med en præmie eller rabat i forhold til sit eget 5-årige historiske gennemsnit og branchen? Giv en kort konklusion.</div>
+                            </details>
+                        </div>
+                    </div>
+                    
+                    <!-- Prompt 2 -->
+                    <div class="prompt-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] rounded-xl overflow-hidden shadow-sm transition-all" data-fase="fase-2">
+                        <div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h4 class="font-semibold text-lg text-deep-indigo dark:text-slate-200">Prompt 2: Komparativ Sektor-duel</h4>
+                                    <span class="bg-indigo-50 text-indigo-700 dark:bg-[#14171f] dark:text-slate-400 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-indigo-100 dark:border-[#2a3245]">Fase 2: Research</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant dark:text-slate-400">Sammenlign to aktier i samme sektor og vurder den stærkeste købskandidat.</p>
+                            </div>
+                            <div class="flex gap-2 shrink-0">
+                                <button onclick="copyPromptText('prompt-text-2')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-[#252b3b] dark:hover:bg-[#2a3245] dark:text-slate-300 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">content_copy</span> Kopiér
+                                </button>
+                                <button onclick="runInAssistant('prompt-text-2')" class="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm px-4 py-2 rounded-lg transition-all flex items-center gap-2 shadow-md">
+                                    <span class="material-symbols-outlined text-sm">bolt</span> Kør i Assistent
+                                </button>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-border dark:border-[#2a3245] bg-slate-50 dark:bg-[#14171f]">
+                            <details class="group">
+                                <summary class="cursor-pointer p-3 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-cyan-400 flex items-center gap-1 select-none">
+                                    <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span> Vis fuld prompt
+                                </summary>
+                                <div class="px-5 pb-5 pt-1 text-xs font-mono text-slate-600 dark:text-slate-400 whitespace-pre-wrap" id="prompt-text-2">Rolle: Optræd som Senior Aktieanalytiker inden for [Indsæt Sektor].
+Opgave: Udfør en komparativ, nøgtern analyse af [Aktie 1] mod [Aktie 2] til vurdering af den stærkeste købskandidat til en 80/20 Core-Satellite portefølje.
+
+Strukturér analysen i følgende 4 afsnit:
+1. Nøgletalsmatrix (Hård data): Sammenlign YoY vækst, EBIT-margin, P/E, FCF yield, Gældsgrad og udbytte.
+2. Vækstmuligheder & Katalysatorer: Hvilke konkrete vækstinitiativer driver toplinjen for de to selskaber?
+3. Risikoprofil & Trusler: Hvilke specifikke modvinde imødeser de to selskaber?
+4. Analytikerens Konklusion: Hvilken aktie fremstår samlet set som den stærkeste købskandidat på 3–5 års sigt?</div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Prompt 3 -->
+                    <div class="prompt-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] rounded-xl overflow-hidden shadow-sm transition-all" data-fase="fase-2">
+                        <div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h4 class="font-semibold text-lg text-deep-indigo dark:text-slate-200">Prompt 3: Gælds- & Likviditetstjek</h4>
+                                    <span class="bg-indigo-50 text-indigo-700 dark:bg-[#14171f] dark:text-slate-400 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-indigo-100 dark:border-[#2a3245]">Fase 2: Research</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant dark:text-slate-400">Gennemfør en finansiel stresstest af et selskabs balance og gældsstruktur.</p>
+                            </div>
+                            <div class="flex gap-2 shrink-0">
+                                <button onclick="copyPromptText('prompt-text-3')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-[#252b3b] dark:hover:bg-[#2a3245] dark:text-slate-300 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">content_copy</span> Kopiér
+                                </button>
+                                <button onclick="runInAssistant('prompt-text-3')" class="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm px-4 py-2 rounded-lg transition-all flex items-center gap-2 shadow-md">
+                                    <span class="material-symbols-outlined text-sm">bolt</span> Kør i Assistent
+                                </button>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-border dark:border-[#2a3245] bg-slate-50 dark:bg-[#14171f]">
+                            <details class="group">
+                                <summary class="cursor-pointer p-3 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-cyan-400 flex items-center gap-1 select-none">
+                                    <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span> Vis fuld prompt
+                                </summary>
+                                <div class="px-5 pb-5 pt-1 text-xs font-mono text-slate-600 dark:text-slate-400 whitespace-pre-wrap" id="prompt-text-3">Foretag en finansiel stresstest af balancen for [Indsæt Ticker, f.eks. ETR:DTG]:
+1. Gældsstruktur: Hvor stor er selskabets rentebærende nettogæld i forhold til dets årlige driftsindtjening (Net Debt / EBITDA)?
+2. Rentedækning: Hvor mange gange dækker selskabets driftsresultat (EBIT) de årlige renteudgifter (Interest Coverage Ratio)?
+3. Pengestrømsrobusthed: Genererer selskabet et positivt Frit Cash Flow (FCF), som reelt kan dække gældsafdrag og eventuelle udbytter, eller låner de penge til driften? Vurder med 'Lav', 'Moderat' eller 'Høj' risiko.</div>
+                            </details>
+                        </div>
+                    </div>
+                    
+                    <!-- Prompt 4 -->
+                    <div class="prompt-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] rounded-xl overflow-hidden shadow-sm transition-all" data-fase="fase-3">
+                        <div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h4 class="font-semibold text-lg text-deep-indigo dark:text-slate-200">Prompt 4: Djævelens Advokat</h4>
+                                    <span class="bg-indigo-50 text-indigo-700 dark:bg-[#14171f] dark:text-slate-400 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-indigo-100 dark:border-[#2a3245]">Fase 3: Modstand</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant dark:text-slate-400">Identificer de 3 største svagheder og risici ved at investere i en specifik aktie lige nu.</p>
+                            </div>
+                            <div class="flex gap-2 shrink-0">
+                                <button onclick="copyPromptText('prompt-text-4')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-[#252b3b] dark:hover:bg-[#2a3245] dark:text-slate-300 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">content_copy</span> Kopiér
+                                </button>
+                                <button onclick="runInAssistant('prompt-text-4')" class="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm px-4 py-2 rounded-lg transition-all flex items-center gap-2 shadow-md">
+                                    <span class="material-symbols-outlined text-sm">bolt</span> Kør i Assistent
+                                </button>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-border dark:border-[#2a3245] bg-slate-50 dark:bg-[#14171f]">
+                            <details class="group">
+                                <summary class="cursor-pointer p-3 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-cyan-400 flex items-center gap-1 select-none">
+                                    <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span> Vis fuld prompt
+                                </summary>
+                                <div class="px-5 pb-5 pt-1 text-xs font-mono text-slate-600 dark:text-slate-400 whitespace-pre-wrap" id="prompt-text-4">Rolle: Skeptisk risikoanalytiker (Djævelens Advokat).
+Opgave: Identificer de 3 største svagheder og risici ved at investere i [Aktie / Ticker] netop nu.
+
+Fokusområder:
+1. Hvad kan gå galt i selskabets forretningsmodel over de næste 3 år?
+2. Hvilke skjulte gældsforpligtelser, konkurrencetrusler eller værdiansættelsesrisici overses i markedets optimisme?
+3. Hvorfor bør en investor overveje at afstå fra handlen under den 48-timers karantæne?</div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sektion 3: Aktivklasser -->
+            <section class="space-y-6">
+                <header>
+                    <h3 class="text-2xl font-headline-md font-semibold text-deep-indigo dark:text-[#c3c0ff]">Aktivklasser</h3>
+                    <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] mt-1">Definition, fordele og ulemper ved de forskellige investeringsformer.</p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- ETF'er -->
+                    <div class="bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245]">
+                        <div class="flex items-center gap-2 text-deep-indigo mb-4 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">pie_chart</span>
+                            <h4 class="font-semibold text-xl">ETF'er (Indeksfonde)</h4>
+                        </div>
+                        <div class="space-y-4 flex-1">
+                            <div>
+                                <h5 class="text-xs uppercase text-on-surface-variant dark:text-[#94a3b8] font-bold mb-1">Hvad er det</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">En børshandlet fond (kurv af aktier).</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-emerald-success font-bold mb-1 dark:bg-emerald-950/60 dark:text-emerald-400">Fordele</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Lav ÅOP, bred risikospredning (diversificering).</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-rose-critical font-bold mb-1 dark:bg-rose-950/60 dark:text-rose-400">Ulemper/Risici</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Markedsrisiko (følger de generelle fald i markedet).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enkeltaktier -->
+                    <div class="bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245]">
+                        <div class="flex items-center gap-2 text-deep-indigo mb-4 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">monitoring</span>
+                            <h4 class="font-semibold text-xl">Enkeltaktier</h4>
+                        </div>
+                        <div class="space-y-4 flex-1">
+                            <div>
+                                <h5 class="text-xs uppercase text-on-surface-variant dark:text-[#94a3b8] font-bold mb-1">Hvad er det</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Direkte ejerskab i et specifikt selskab.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-emerald-success font-bold mb-1 dark:bg-emerald-950/60 dark:text-emerald-400">Fordele</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Højt potentielt afkast, direkte ejerskab/stemmeret.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-rose-critical font-bold mb-1 dark:bg-rose-950/60 dark:text-rose-400">Ulemper/Risici</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Selskabsspecifik risiko (risiko for totalt tab), kræver analyse.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aktive Fonde -->
+                    <div class="bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245]">
+                        <div class="flex items-center gap-2 text-deep-indigo mb-4 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">person_play</span>
+                            <h4 class="font-semibold text-xl">Aktive Fonde</h4>
+                        </div>
+                        <div class="space-y-4 flex-1">
+                            <div>
+                                <h5 class="text-xs uppercase text-on-surface-variant dark:text-[#94a3b8] font-bold mb-1">Hvad er det</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Fonde bestyret af investeringseksperter.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-emerald-success font-bold mb-1 dark:bg-emerald-950/60 dark:text-emerald-400">Fordele</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Ekspertudvælgelse af aktier i forsøg på overafkast.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-rose-critical font-bold mb-1 dark:bg-rose-950/60 dark:text-rose-400">Ulemper/Risici</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Høj ÅOP (årlige omkostninger), slår sjældent markedet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Obligationer -->
+                    <div class="bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245]">
+                        <div class="flex items-center gap-2 text-deep-indigo mb-4 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">account_balance</span>
+                            <h4 class="font-semibold text-xl">Obligationer</h4>
+                        </div>
+                        <div class="space-y-4 flex-1">
+                            <div>
+                                <h5 class="text-xs uppercase text-on-surface-variant dark:text-[#94a3b8] font-bold mb-1">Hvad er det</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Et lån til en stat eller virksomhed.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-emerald-success font-bold mb-1 dark:bg-emerald-950/60 dark:text-emerald-400">Fordele</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Fast renteafkast, markant lavere volatilitet end aktier.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-rose-critical font-bold mb-1 dark:bg-rose-950/60 dark:text-rose-400">Ulemper/Risici</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Lavere langsigtet afkast, renterisiko, inflationstrussel.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Krypto -->
+                    <div class="bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245]">
+                        <div class="flex items-center gap-2 text-deep-indigo mb-4 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">currency_bitcoin</span>
+                            <h4 class="font-semibold text-xl">Krypto</h4>
+                        </div>
+                        <div class="space-y-4 flex-1">
+                            <div>
+                                <h5 class="text-xs uppercase text-on-surface-variant dark:text-[#94a3b8] font-bold mb-1">Hvad er det</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Digitale aktiver baseret på blockchain.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-emerald-success font-bold mb-1 dark:bg-emerald-950/60 dark:text-emerald-400">Fordele</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Høj spekulativ gevinst og uafhængig af fiat-valutaer.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase text-rose-critical font-bold mb-1 dark:bg-rose-950/60 dark:text-rose-400">Ulemper/Risici</h5>
+                                <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Ekstrem risiko, ingen underliggende pengestrømme eller værdi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategiske Værktøjer -->
+            <section class="space-y-6">
+                <header>
+                    <h3 class="text-2xl font-headline-md font-semibold text-deep-indigo dark:text-[#c3c0ff]">Strategiske Værktøjer</h3>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Seniorovergang & Deltidssimulator (+50) -->
+                    <div class="bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245]">
+                        <div class="flex items-center gap-2 text-deep-indigo mb-2 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">hourglass_empty</span>
+                            <h4 class="font-semibold text-xl">⏳ Seniorovergang & Deltidssimulator (+50)</h4>
+                        </div>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] flex-1 mb-4">
+                            Overvejer du at gå ned på 3-4 dage om ugen før folkepensionen? Beregn det nødvendige likviditetsbehov og se hvor længe din opsparing rækker.
+                        </p>
+                        <a href="maal.html?tab=senior" class="inline-block text-center w-full bg-deep-indigo text-white text-sm font-bold py-2.5 px-4 rounded-xl hover:opacity-90 transition-opacity shadow-sm dark:bg-indigo-600 hover:dark:bg-indigo-500">
+                            Åbn Simulatoren →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sektion 4: Sektor-oversigt -->
+            <section class="space-y-6">
+                <header>
+                    <h3 class="text-2xl font-bold text-deep-indigo dark:text-slate-100 font-headline mb-2">Sektor-oversigt: Forstå Markedets 11 Sektorer (GICS)</h3>
+                    <p class="text-sm text-on-surface-variant dark:text-slate-400 mb-6">Opdeling i henhold til Global Industry Classification Standard. Bruges til systematisk måling og styring af porteføljens risikospredning.</p>
+                </header>
+                
+                <!-- Top-Sammenligning -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white dark:bg-[#1d222e] border border-emerald-500/30 rounded-2xl p-6 relative overflow-hidden shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-deep-indigo dark:text-white font-bold text-lg flex items-center gap-2">🛡️ Defensive Sektorer</h4>
+                            <span class="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-500/20">Lav Konjunkturfølsomhed</span>
+                        </div>
+                        <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">Sundhed, Defensivt Forbrug og Forsyning. Mennesker skal bruge mad, medicin og strøm uanset recession. Beskytter bunden under markedsfald.</p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-[#1d222e] border border-amber-500/30 rounded-2xl p-6 relative overflow-hidden shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-deep-indigo dark:text-white font-bold text-lg flex items-center gap-2">⚡ Cykliske Sektorer</h4>
+                            <span class="bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-500/20">Høj Konjunkturfølsomhed</span>
+                        </div>
+                        <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">Industri, Cyklisk Forbrug, Finans, Materialer og Energi. Svinger markant mere med samfundsøkonomien og trækker typisk afkastet i opgangstider.</p>
+                    </div>
+                </div>
+
+                <!-- Interaktivt Filter-Panel -->
+                <div class="flex flex-wrap justify-center gap-2 py-4">
+                    <button onclick="filterSectors('all', this)" class="sector-filter-btn bg-cyan-50 dark:bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/40 text-xs font-bold px-3.5 py-2 rounded-xl transition-all">Alle Sektorer (11)</button>
+                    <button onclick="filterSectors('defensive', this)" class="sector-filter-btn bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] text-on-surface-variant dark:text-slate-300 hover:text-deep-indigo dark:hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all">🛡️ Kun Defensive (3)</button>
+                    <button onclick="filterSectors('cyclical', this)" class="sector-filter-btn bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] text-on-surface-variant dark:text-slate-300 hover:text-deep-indigo dark:hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all">⚡ Kun Cykliske (5)</button>
+                    <button onclick="filterSectors('growth', this)" class="sector-filter-btn bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] text-on-surface-variant dark:text-slate-300 hover:text-deep-indigo dark:hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all">🌐 IT, Renter & Ejendomme (3)</button>
+                </div>
+
+                <!-- 11-Sektor Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="sector-grid">
+                    <!-- 1 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="defensive">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🏥 Sundhed<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Healthcare)</span></h4>
+                                <span class="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-500/20">Defensiv</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Medicin, biotek og udstyr</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Novo Nordisk</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Eli Lilly</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Coloplast</span>
+                        </div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="defensive">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🛒 Defensivt Forbrug<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Consumer Staples)</span></h4>
+                                <span class="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-500/20">Defensiv</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Fødevarer, drikkevarer, husholdning</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Nestlé</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Coca-Cola</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Carlsberg</span>
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="defensive">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">💡 Forsyning<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Utilities)</span></h4>
+                                <span class="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-500/20">Defensiv</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Vand, el og infrastruktur</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Ørsted</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">NextEra Energy</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Enel</span>
+                        </div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="growth">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">💻 IT / Tech<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Information Technology)</span></h4>
+                                <span class="bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-cyan-200 dark:border-cyan-500/20">Vækst</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Software, chips og hardware</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Microsoft</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Nvidia</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Apple</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">ASML</span>
+                        </div>
+                    </div>
+                    <!-- 5 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="cyclical">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🏦 Finans<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Financials)</span></h4>
+                                <span class="bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-200 dark:border-amber-500/20">Cyklisk/Rente</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Banker, forsikring og kapitalforvaltning</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Danske Bank</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Nordea</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">JPMorgan</span>
+                        </div>
+                    </div>
+                    <!-- 6 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="cyclical">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🏭 Industri<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Industrials)</span></h4>
+                                <span class="bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-200 dark:border-amber-500/20">Cyklisk</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Maskiner, logistik og transport</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Volvo</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">DSV</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Daimler Truck</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">NKT</span>
+                        </div>
+                    </div>
+                    <!-- 7 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="cyclical">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🛍️ Cyklisk Forbrug<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Consumer Discretionary)</span></h4>
+                                <span class="bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-200 dark:border-amber-500/20">Cyklisk</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Biler, luksusgoder og rejser</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Amazon</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Tesla</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">LVMH</span>
+                        </div>
+                    </div>
+                    <!-- 8 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="cyclical">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🛢️ Energi<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Energy)</span></h4>
+                                <span class="bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-200 dark:border-amber-500/20">Cyklisk</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Olie, gas og udvinding</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Shell</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Equinor</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">TotalEnergies</span>
+                        </div>
+                    </div>
+                    <!-- 9 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="cyclical">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🧱 Råvarer / Mat.<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Materials)</span></h4>
+                                <span class="bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-200 dark:border-amber-500/20">Cyklisk</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Minedrift, kemi og emballage</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">BHP</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">BASF</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Novonesis</span>
+                        </div>
+                    </div>
+                    <!-- 10 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="growth">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">🏢 Fast Ejendom<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Real Estate)</span></h4>
+                                <span class="bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-cyan-200 dark:border-cyan-500/20">Rente/Defensiv</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Børsnoterede ejendomme (REITs)</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Realty Income</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Vonovia</span>
+                        </div>
+                    </div>
+                    <!-- 11 -->
+                    <div class="sector-card bg-white dark:bg-[#1d222e] border border-slate-border dark:border-[#2a3245] hover:border-indigo-300 dark:hover:border-slate-500/50 rounded-2xl p-5 flex flex-col justify-between shadow-sm transition-all" data-type="growth">
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h4 class="text-deep-indigo dark:text-slate-100 font-bold text-base flex items-center gap-2">📱 Kommunikation<br><span class="text-xs text-on-surface-variant dark:text-slate-400 font-normal">(Communication Services)</span></h4>
+                                <span class="bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-cyan-200 dark:border-cyan-500/20">Vækst</span>
+                            </div>
+                            <p class="text-on-surface-variant dark:text-slate-300 text-xs leading-relaxed mt-2 mb-4">Telekommunikation og sociale medier</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Alphabet (Google)</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Meta</span>
+                            <span class="bg-slate-100 dark:bg-[#14171f] text-deep-indigo dark:text-slate-300 border border-slate-200 dark:border-[#2a3245] text-[11px] font-medium px-2.5 py-1 rounded-md">Netflix</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <!-- Sektion: Print & Download -->
+            <section class="space-y-6">
+                <header>
+                    <div class="flex items-center gap-3 mb-1">
+                        <h3 class="text-2xl font-headline-md font-semibold text-deep-indigo dark:text-[#c3c0ff]">🖨️ Fysiske Referenceark & Tjeklister (A4 Print)</h3>
+                        <span class="bg-indigo-50 text-indigo-700 dark:bg-[#14171f] dark:text-slate-400 text-[10px] uppercase font-bold px-2 py-0.5 rounded border border-indigo-100 dark:border-[#2a3245]">Metodisk Investeringsværktøj • Høj Opløsning</span>
+                    </div>
+                    <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] mt-1">Strukturér dit analysearbejde ved skrivebordet. Hent vores 1-sides A4 referenceark og tjeklister til udskrift, så du har et fast metodisk holdepunkt under dine analyser.</p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Kort 1 -->
+                    <div onclick="openPreviewModal('tjekliste')" class="cursor-pointer hover:border-indigo-300 dark:hover:border-slate-500/50 bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245] transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-50 text-deep-indigo mb-4 dark:bg-indigo-900/30 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">checklist</span>
+                        </div>
+                        <h4 class="font-semibold text-xl mb-2 text-deep-indigo dark:text-white">Den Store Aktie-Tjekliste</h4>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] flex-1 mb-4">Gennemgå de 10 vigtigste punkter før du investerer i en ny aktie.</p>
+                        <a href="assets/guides/aktie-tjekliste.pdf" download="Den_Store_Aktie_Tjekliste.pdf" onclick="handleDownloadFallback(event, this.href, this.closest('div[onclick]').getAttribute('onclick').match(/'([^']+)'/)[1])" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-[#252b3b] dark:hover:bg-[#2a3245] dark:text-slate-300 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm">download</span> Download PDF
+                        </a>
+                    </div>
+
+                    <!-- Kort 2 -->
+                    <div onclick="openPreviewModal('portefolje')" class="cursor-pointer hover:border-indigo-300 dark:hover:border-slate-500/50 bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245] transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-50 text-deep-indigo mb-4 dark:bg-indigo-900/30 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">pie_chart</span>
+                        </div>
+                        <h4 class="font-semibold text-xl mb-2 text-deep-indigo dark:text-white">Portefølje-Skabelon</h4>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] flex-1 mb-4">Design din Core/Satellite struktur og hold styr på din spredning.</p>
+                        <a href="assets/guides/portefolje-skabelon.pdf" download="Portefolje_Skabelon_80_20.pdf" onclick="handleDownloadFallback(event, this.href, this.closest('div[onclick]').getAttribute('onclick').match(/'([^']+)'/)[1])" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-[#252b3b] dark:hover:bg-[#2a3245] dark:text-slate-300 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm">download</span> Download PDF
+                        </a>
+                    </div>
+
+                    <!-- Kort 3 -->
+                    <div onclick="openPreviewModal('noegletal')" class="cursor-pointer hover:border-indigo-300 dark:hover:border-slate-500/50 bg-white border border-slate-border rounded-xl p-6 shadow-sm flex flex-col h-full dark:bg-[#1e2330] dark:border-[#2b3245] transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-50 text-deep-indigo mb-4 dark:bg-indigo-900/30 dark:text-[#c3c0ff]">
+                            <span class="material-symbols-outlined text-2xl">functions</span>
+                        </div>
+                        <h4 class="font-semibold text-xl mb-2 text-deep-indigo dark:text-white">Nøgletal i Praksis (P/E, Moat & ROIC)</h4>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] flex-1 mb-4">Hurtig guide til tolkning af markedets vigtigste nøgletal og værdiansættelse.</p>
+                        <a href="assets/guides/noegletal-i-praksis.pdf" download="Noegletal_i_Praksis_PE_Moat.pdf" onclick="handleDownloadFallback(event, this.href, this.closest('div[onclick]').getAttribute('onclick').match(/'([^']+)'/)[1])" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-[#252b3b] dark:hover:bg-[#2a3245] dark:text-slate-300 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm">download</span> Download PDF
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sektion 5: Søgbar Ordbog -->
+            <section class="space-y-6">
+                <!-- Ordbog -->
+                <div class="space-y-6">
+                    <header>
+                        <h3 class="text-2xl font-headline-md font-semibold text-deep-indigo dark:text-[#c3c0ff]">Søgbar Ordbog</h3>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] mt-1">Slå finansielle begreber op hurtigt.</p>
+                    </header>
+
+                    <div class="bg-white border border-slate-border rounded-xl shadow-sm flex flex-col max-h-[600px] dark:bg-[#1e2330] dark:border-[#2b3245]">
+                        <div class="p-4 border-b border-slate-border dark:border-[#2b3245]">
+                            <div class="relative">
+                                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-[#94a3b8] text-lg">search</span>
+                                <input type="text" id="glossary-search" placeholder="Søg begreb (f.eks. P/E, Moat, ETF)..." class="w-full bg-slate-50 border border-slate-border text-on-background text-sm rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:border-deep-indigo transition-colors dark:border-[#2b3245] dark:text-[#f8fafc] dark:bg-[#252b3b] dark:border-[#323b52]">
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 space-y-4 overflow-y-auto flex-1" id="ordbog-list">
+                            <!-- Items -->
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Afkast</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Det samlede økonomiske resultat af din investering over en given periode, angivet i kroner eller procent. Består af kursændringer samt eventuelt udbetalt udbytte.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Aktie</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">En ejerandel i en virksomhed. Når du køber en aktie, ejer du en lille del af selskabet og får andel i dets fremtidige udvikling.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Aktieindeks</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">En kurv af udvalgte aktier, der repræsenterer et samlet marked eller segment (f.eks. det danske C25 eller det amerikanske S&P 500).</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Aktiekurs</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Den aktuelle pris, som en aktie købes og sælges for på børsen. Kursen fastsættes løbende af udbud og efterspørgsel.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Aktiv Fond</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">En fond hvor en forvalter aktivt forsøger at slå markedet mod højere årlige omkostninger.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Bull- og Bear-Marked</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Et Bull-marked er præget af stigende kurser og optimisme over en længere periode, mens et Bear-marked kendetegnes ved fald (typisk over 20%) og pessimisme.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Børs</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Den markedsplads, hvor værdipapirer handles. Eksempler er Nasdaq Copenhagen (Københavns Fondsbørs) eller New York Stock Exchange (NYSE).</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Diversifikation (Risikospredning)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Princippet om ikke at lægge alle æg i én kurv. Ved at sprede investeringer på tværs af sektorer og lande dæmpes risikoen for store samlede tab.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">ETF (Exchange Traded Fund)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Børshandlet passiv fond, der spreder din investering over hundredvis af selskaber til lav ÅOP.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Investeringsfond (UCITS)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">En fælles pulje, hvor investorer samler midler for at eje en bred kurv af aktier. Giver automatisk høj risikospredning.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Krypto</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Digitale aktiver baseret på blockchain uden underliggende pengestrømme og med ekstrem volatilitet.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Kurtage</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Det transaktionsgebyr eller den kommission, som din bank eller handelsplatform tager for at gennemføre en aktiehandel for dig.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Likviditet</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Hvor hurtigt og let et aktiv kan veksles til kontanter uden væsentligt kurstab.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Markedsværdi (Market Cap)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Den samlede værdi af selskabets aktier på børsen (aktiekurs ganget med det totale antal udestående aktier).</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Moat (Økonomisk Voldgrav)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Virksomhedens varige konkurrencefordel, der beskytter mod konkurrenter (f.eks. patenter eller stærkt brand).</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Obligation</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Et lån til en stat eller virksomhed med fast rente og lavere risiko end aktier.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Ordrebog (Bid/Ask & Spread)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Købskursen (bid) er højeste pris en køber vil give, mens salgskursen (ask) er laveste pris en sælger vil tage. Forskellen kaldes spread.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">P/E-Værdi (Price to Earnings)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Prisen for 1 krones overskud. Viser om aktien er billig eller dyr ift. indtjeningsevne.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Portefølje</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Den samlede samling af aktier, fonde, obligationer og andre investeringer, som en investor råder over.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Realiseret vs. Urealiseret Gevinst/Tab</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">En urealiseret gevinst/tab eksisterer kun på papiret, så længe du ejer aktivet. Den realiseres først som reel gevinst/tab den dag, du sælger.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Regnskab (Kvartals- og Årsrapporter)</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Virksomhedens officielle finansielle rapporter med omsætning, indtjening, pengestrømme samt ledelsens forventninger til fremtiden.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Udbud og Efterspørgsel</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Den grundlæggende prismekanisme på børsen. Hvis efterspørgslen (købelysten) er større end udbuddet (salgsviljen), stiger kursen – og omvendt.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Udbytte</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Den del af selskabets overskud, der udbetales direkte til aktionærerne.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">Volatilitet</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Hvor kraftigt kursen på et værdipapir svinger op og ned over tid.</p>
+                            </div>
+                            <div class="ordbog-item border-b border-slate-border/50 pb-4 last:border-b-0 last:pb-0 dark:border-[#2b3245]/50">
+                                <h4 class="font-semibold text-on-background mb-1 text-sm dark:text-[#f8fafc]">ÅOP</h4>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8]">Årlige Omkostninger i Procent – den samlede årlige pris for at eje en fond/ETF.</p>
+                            </div>
+                        </div>
+                        <div id="ordbog-empty" class="hidden text-center text-on-surface-variant dark:text-[#94a3b8] text-sm py-8 italic border-t border-slate-border dark:border-[#2b3245]">
+                            Ingen begreber fundet
+                        </div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const searchInput = document.getElementById('glossary-search');
+                                const ordbogItems = document.querySelectorAll('.ordbog-item');
+                                const emptyState = document.getElementById('ordbog-empty');
+
+                                if (searchInput && ordbogItems.length > 0) {
+                                    searchInput.addEventListener('input', (e) => {
+                                        const term = e.target.value.toLowerCase();
+                                        let hasVisible = false;
+                                        
+                                        ordbogItems.forEach(item => {
+                                            const text = item.textContent.toLowerCase();
+                                            if (text.includes(term)) {
+                                                item.style.display = '';
+                                                hasVisible = true;
+                                            } else {
+                                                item.style.display = 'none';
+                                            }
+                                        });
+
+                                        if (emptyState) {
+                                            if (hasVisible) {
+                                                emptyState.classList.add('hidden');
+                                            } else {
+                                                emptyState.classList.remove('hidden');
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="mt-8 pt-6 border-t border-slate-border text-center pb-8 dark:border-[#2b3245]">
+                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8] flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-[14px]">info</span>
+                    Denne platform er udelukkende til uddannelses- og simuleringsformål. Indholdet udgør ikke finansiel rådgivning.
+                </p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Custom Toast Banner (Copy Prompt) -->
+    <div id="copy-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 transform translate-y-full opacity-0 transition-all duration-300 z-50 flex items-center gap-3 bg-white border border-slate-border shadow-lg rounded-xl px-5 py-3 pointer-events-none dark:bg-[#1e2330] dark:border-[#2b3245]">
+        <div class="w-8 h-8 rounded-full bg-emerald-success/10 flex items-center justify-center shrink-0 dark:bg-emerald-950/60 dark:text-emerald-400">
+            <span class="material-symbols-outlined text-emerald-success text-sm font-bold dark:bg-emerald-950/60 dark:text-emerald-400">check</span>
+        </div>
+        <p class="text-sm font-medium text-on-background dark:text-[#f8fafc]">Prompt kopieret til udklipsholder!</p>
+    </div>
+
+    
+
+    <!-- Theme Toggle Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
+            const themeLock = document.getElementById('theme-lock-sidebar');
+            
+            if (!isSupporter && themeLock) {
+                themeLock.style.display = 'inline-block';
+            }
+        });
+
+        function toggleTheme() {
+            const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
+            if (!isSupporter) {
+                const modal = document.getElementById('supporter-modal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    const modalTitle = modal.querySelector('h4');
+                    if (modalTitle) modalTitle.textContent = "⭐ Dark Mode er eksklusivt for Supporters";
+                } else {
+                    alert("Dark Mode er en eksklusiv funktion for vores Supporters. Støt serverdriften og lås op for mørkt tema med det samme.");
+                }
+                return;
+            }
+
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('bi_theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('bi_theme', 'dark');
+            }
+        }
+    </script>
+
+    
+<script src="ai-assistant.js"></script>
+
+    <!-- Guide Preview Modal -->
+    <div id="guide-preview-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6">
+        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity" onclick="closePreviewModal()"></div>
+        <div class="relative w-full max-w-4xl bg-white dark:bg-[#1e2330] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="flex items-center justify-between p-4 border-b border-slate-border dark:border-[#2b3245] no-print">
+                <h3 class="font-semibold text-lg text-deep-indigo dark:text-white flex items-center gap-2" id="preview-modal-title">
+                    <span class="material-symbols-outlined">visibility</span> Forhåndsvisning
+                </h3>
+                <div class="flex gap-2">
+                    <button onclick="window.print()" class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-900/50 font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">print</span> Udskriv / Gem som PDF
+                    </button>
+                    <button onclick="closePreviewModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors p-1">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6 md:p-10 overflow-y-auto flex-1 bg-slate-50 dark:bg-[#161922] print-area" id="preview-modal-content">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #guide-preview-modal, #guide-preview-modal * {
+                visibility: visible;
+            }
+            .no-print {
+                display: none !important;
+            }
+            #guide-preview-modal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: white !important;
+            }
+            #preview-modal-content {
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+
+    <script>
+        
+        async function handleDownloadFallback(event, url, type) {
+            event.preventDefault();
+            event.stopPropagation();
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                if (response.ok) {
+                    // Trigger actual download
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = url.split('/').pop();
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                } else {
+                    openPreviewModal(type);
+                }
+            } catch (error) {
+                // Fetch failed (likely due to CORS or file not existing), fallback to modal
+                openPreviewModal(type);
+            }
+        }
+
+        function openPreviewModal(type) {
+            const modal = document.getElementById('guide-preview-modal');
+            const title = document.getElementById('preview-modal-title');
+            const content = document.getElementById('preview-modal-content');
+            
+            if(type === 'tjekliste') {
+                title.innerHTML = '<span class="material-symbols-outlined">visibility</span> Den Store Aktie-Tjekliste';
+                content.innerHTML = `
+                    <div class="max-w-2xl mx-auto bg-white p-8 rounded border border-slate-200 shadow-sm text-slate-900">
+                        <h1 class="text-2xl font-bold text-deep-indigo mb-4 border-b pb-2">Den Store Aktie-Tjekliste</h1>
+                        <p class="mb-4 italic text-sm">Udfyld denne tjekliste før du eksekverer en handel, for at sikre metodisk disciplin.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-4 h-4"> <span><strong>Forretningsmodel:</strong> Forstår jeg præcis hvordan selskabet tjener penge?</span></li>
+                            <li class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-4 h-4"> <span><strong>Moat:</strong> Har selskabet en varig konkurrencefordel?</span></li>
+                            <li class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-4 h-4"> <span><strong>Gæld:</strong> Er gælden (Net Debt / EBITDA) på et bæredygtigt niveau?</span></li>
+                            <li class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-4 h-4"> <span><strong>Vækst:</strong> Er der en realistisk katalysator for fremtidig vækst?</span></li>
+                            <li class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-4 h-4"> <span><strong>Værdiansættelse:</strong> Er P/E-tallet rimeligt sammenlignet med sektoren?</span></li>
+                        </ul>
+                    </div>
+                `;
+            } else if(type === 'portefolje') {
+                title.innerHTML = '<span class="material-symbols-outlined">visibility</span> Portefølje-Skabelon';
+                content.innerHTML = `
+                    <div class="max-w-2xl mx-auto bg-white p-8 rounded border border-slate-200 shadow-sm text-slate-900">
+                        <h1 class="text-2xl font-bold text-deep-indigo mb-4 border-b pb-2">Portefølje-Skabelon (80/20 Core-Satellite)</h1>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">80% Core (Kernen)</h3>
+                                <p class="text-sm mb-2">Brede, passive ETF'er med lav ÅOP, der sikrer langsigtet markedsafkast og stabilitet.</p>
+                                <div class="h-24 border-2 border-dashed border-slate-300 rounded bg-slate-50 flex items-center justify-center text-slate-400">Noter dine udvalgte fonde her...</div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">20% Satellite (Satellitter)</h3>
+                                <p class="text-sm mb-2">Enkeltaktier eller sektor-specifikke fonde med højere risiko/afkast potentiale.</p>
+                                <div class="h-24 border-2 border-dashed border-slate-300 rounded bg-slate-50 flex items-center justify-center text-slate-400">Noter dine udvalgte aktier her...</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if(type === 'noegletal') {
+                title.innerHTML = '<span class="material-symbols-outlined">visibility</span> Nøgletal i Praksis';
+                content.innerHTML = `
+                    <div class="max-w-2xl mx-auto bg-white p-8 rounded border border-slate-200 shadow-sm text-slate-900">
+                        <h1 class="text-2xl font-bold text-deep-indigo mb-4 border-b pb-2">Nøgletal i Praksis</h1>
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-slate-100 font-bold border-b">
+                                <tr>
+                                    <th class="p-3">Nøgletal</th>
+                                    <th class="p-3">Hvad det betyder</th>
+                                    <th class="p-3">Tommelfingerregel</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="p-3 font-semibold">P/E (Price/Earnings)</td>
+                                    <td class="p-3">Prisen for 1 krones overskud.</td>
+                                    <td class="p-3">Sammenlign altid med konkurrenter og branchens gennemsnit.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">ROIC</td>
+                                    <td class="p-3">Afkast på den investerede kapital. Måler ledelsens effektivitet.</td>
+                                    <td class="p-3">Helst over 10-12% konsistent.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">EBIT-margin</td>
+                                    <td class="p-3">Overskudsgraden på selve driften.</td>
+                                    <td class="p-3">Høj margin indikerer ofte "pricing power" (Moat).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePreviewModal() {
+            const modal = document.getElementById('guide-preview-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
+
+</body>
+</html>

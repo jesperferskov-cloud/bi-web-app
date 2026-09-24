@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Lektion: Anti-FOMO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .fast-pulse {
+            animation: heartbeat 0.6s infinite;
+        }
+        .slow-pulse {
+            animation: heartbeat 2s infinite;
+        }
+    </style>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-background">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start bg-indigo-900/60 text-white font-semibold shadow-sm">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol (Kun 1 instans) -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar (Eneansvarlig for profil.html) -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+            const elName = document.getElementById('sidebar-name');
+            
+            
+            
+            
+        });
+    </script>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative">
+        <div class="p-4 md:p-8 max-w-[1000px] w-full mx-auto flex flex-col gap-6">
+            
+            <!-- Top Bar -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
+                <a href="laer.html" class="inline-flex items-center gap-2 text-sm font-semibold text-on-surface-variant hover:text-deep-indigo transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    Tilbage til Læringsakademiet
+                </a>
+                <div class="flex items-center gap-3 flex-wrap">
+                    <span class="bg-indigo-100 text-deep-indigo text-xs font-bold px-2.5 py-1 rounded-md border border-indigo-200">
+                        SPOR 3: MENTAL DISCIPLIN & MARKEDSPSYKOLOGI
+                    </span>
+                    <span class="text-xs font-medium text-on-surface-variant flex items-center gap-1 bg-white px-2.5 py-1 rounded-md border border-slate-border">
+                        ⏱️ 5 minutter • Interaktiv øvelse
+                    </span>
+                </div>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- A. Lektions Hero & Introduktion (Span 3 cols) -->
+                <div class="md:col-span-3 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm flex flex-col">
+                    <h1 class="text-3xl font-bold font-headline-lg text-on-background mb-4">
+                        Anti-FOMO: Håndtering af købstrang & 48-timers karantæne
+                    </h1>
+                    <p class="text-on-surface-variant text-base leading-relaxed max-w-3xl">
+                        FOMO (Fear Of Missing Out) er den største årsag til, at nye investorer køber på toppen og sælger i panik på bunden. Med en obligatorisk 48-timers karantæne slår vi koldt vand i blodet og adskiller følelser fra analyse.
+                    </p>
+                </div>
+
+                <!-- B. De 3 Faser i en Impulshandel (3-kolonne sammenligning) -->
+                <div class="bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col h-full">
+                    <h2 class="font-headline-md text-lg font-semibold text-rose-critical mb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined">trending_up</span> Fase 1: Den Grådige Impuls
+                    </h2>
+                    <p class="text-sm text-on-surface-variant mb-4 flex-grow">En aktie stiger voldsomt (grøn kurve). Sociale medier hypes, og du føler en intens trang til at handle med det samme for ikke at gå glip af profit.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col h-full border-deep-indigo/30 bg-indigo-50/20">
+                    <h2 class="font-headline-md text-lg font-semibold text-deep-indigo mb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined">hourglass_empty</span> Fase 2: 48t Karantænen
+                    </h2>
+                    <p class="text-sm text-on-surface-variant mb-4 flex-grow">Du aktiverer karantænen. Støjen forsvinder langsomt. Du får tid til i ro og mag at undersøge regnskabstal, voldgrave (Moat) og trusler.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col h-full">
+                    <h2 class="font-headline-md text-lg font-semibold text-emerald-success mb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined">gavel</span> Fase 3: Den Rationelle Beslutning
+                    </h2>
+                    <p class="text-sm text-on-surface-variant mb-4 flex-grow">Efter 48 timer tager du en beslutning baseret på fakta. Køb kun hvis selskabet opfylder Pre-Flight tjeklisten – ellers gå videre.</p>
+                </div>
+
+                <!-- C. Interaktiv Øvelse: FOMO-Simulator (Span 3 cols) -->
+                <div class="md:col-span-3 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm flex flex-col">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-6">
+                        Interaktiv Øvelse: FOMO-Simulator & Karantæne-Timer
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-slate-50 border border-slate-border rounded-xl p-6">
+                            <p class="text-sm font-semibold text-on-background mb-1">Scenarie:</p>
+                            <p class="text-base text-on-surface-variant mb-4 italic">
+                                "En grøn energiaktie er steget 24% på to dage efter voldsom omtale i medierne. Flere på sociale medier hævder, at det er den næste Tesla. Hvad gør du?"
+                            </p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <button id="btn-fomo-a" class="flex-1 py-3 px-4 text-sm font-medium border border-slate-border rounded-lg hover:bg-slate-100 transition-colors bg-white shadow-sm text-left flex justify-between items-center group">
+                                    <span>A. Køb straks før den stiger mere</span>
+                                    <span class="material-symbols-outlined text-slate-400 group-hover:text-rose-critical transition-colors">shopping_cart_checkout</span>
+                                </button>
+                                <button id="btn-fomo-b" class="flex-1 py-3 px-4 text-sm font-medium border border-deep-indigo rounded-lg hover:bg-indigo-50 transition-colors bg-deep-indigo text-white shadow-sm text-left flex justify-between items-center group">
+                                    <span>B. Sæt i 48t Karantæne & Kør Analyse</span>
+                                    <span class="material-symbols-outlined text-white/70 group-hover:text-white transition-colors">hourglass_top</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Live Feedback -->
+                        <div id="exercise-feedback-a" class="bg-rose-critical/10 border border-rose-critical/20 rounded-lg p-5 hidden flex items-start gap-3">
+                            <span class="material-symbols-outlined text-rose-critical text-xl shrink-0 fast-pulse">monitor_heart</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-rose-critical mb-1">Høj Puls!</h4>
+                                <p class="text-sm text-rose-critical font-medium">⚠️ Typisk FOMO-fælde. Du køber på toppen uden analyse. Ofte falder aktien kort efter hypen har lagt sig.</p>
+                            </div>
+                        </div>
+
+                        <div id="exercise-feedback-b" class="bg-indigo-50 border border-indigo-200 rounded-lg p-5 hidden flex flex-col gap-4">
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-deep-indigo text-xl shrink-0 slow-pulse" id="heart-icon-b">monitor_heart</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-deep-indigo mb-1">Karantæne Aktiveret</h4>
+                                    <p class="text-sm text-deep-indigo font-medium">✅ Korrekt! Karantænen aktiveret. Pulsen falder, og du kan nu vurdere selskabets P/E-tal og forretningsmodel uden stress.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Visual simulation of 48h timer -->
+                            <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden border border-slate-border">
+                                <div id="timer-bar" class="bg-deep-indigo h-full w-0 transition-all ease-linear" style="transition-duration: 2s;"></div>
+                            </div>
+                            <div class="flex justify-between text-xs text-on-surface-variant font-medium">
+                                <span>Time 0</span>
+                                <span>Time 24</span>
+                                <span>Time 48 (Analyse klar)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- D. Refleksion & Mestring (Tjekliste) (Span 3 cols) -->
+                <div class="md:col-span-3 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4">Refleksion & Mestring</h2>
+                    <p class="text-sm text-on-surface-variant mb-4">Bekræft at du har forstået principperne før du fortsætter.</p>
+                    
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg forpligter mig til 48 timers tænkepause før køb af enkeltaktier.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg lader aldrig kursstigninger på sociale medier diktere mine investeringer.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg handler altid ud fra min 80/20 balance frem for mavefornemmelser.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- E. Afslutnings-CTA & Bridge (Span 3 cols) -->
+                <div class="md:col-span-3 flex justify-end pt-4 border-t border-slate-border">
+                    <button id="complete-fomo-btn" class="bg-deep-indigo text-white font-semibold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                        Gennemfør Modul & Gem Fremskridt
+                    </button>
+                </div>
+
+            </div>
+            
+            <footer class="mt-8 pt-6 border-t border-slate-border text-center pb-8">
+                <p class="text-xs text-on-surface-variant flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-[14px]">info</span>
+                    Denne platform er udelukkende til uddannelses- og simuleringsformål. Indholdet udgør ikke finansiel rådgivning.
+                </p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Success Modal / Toast Overlay for completion choices -->
+    <div id="completion-modal" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden flex flex-col p-8 text-center items-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-success/10 flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-emerald-success text-3xl font-bold">workspace_premium</span>
+            </div>
+            <h3 class="font-headline-md text-2xl font-bold text-deep-indigo mb-2">Modul gennemført!</h3>
+            <p class="text-on-surface-variant text-sm mb-8">Du er nu bedre klædt på til at modstå fristelser og investere rationelt.</p>
+            
+            <div class="flex flex-col gap-3 w-full">
+                <a href="laer.html" class="w-full bg-deep-indigo text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity">
+                    Tilbage til Læringsakademiet
+                </a>
+                <a href="dashboard.html" class="w-full bg-white border border-slate-border text-on-surface-variant font-medium py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                    Gå til Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Toast Banner for short notification -->
+    <div id="toast-banner" class="fixed bottom-6 left-1/2 -translate-x-1/2 transform translate-y-full opacity-0 transition-all duration-300 z-50 flex items-center gap-3 bg-white border border-slate-border shadow-lg rounded-xl px-5 py-3 pointer-events-none">
+        <div class="w-8 h-8 rounded-full bg-emerald-success/10 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-emerald-success text-sm font-bold">check</span>
+        </div>
+        <p class="text-sm font-medium text-on-background">Modul gennemført! Dit overblik er opdateret.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulator Logic
+            const btnA = document.getElementById('btn-fomo-a');
+            const btnB = document.getElementById('btn-fomo-b');
+            const feedbackA = document.getElementById('exercise-feedback-a');
+            const feedbackB = document.getElementById('exercise-feedback-b');
+            const timerBar = document.getElementById('timer-bar');
+
+            btnA.addEventListener('click', () => {
+                feedbackB.classList.add('hidden');
+                feedbackA.classList.remove('hidden');
+                timerBar.style.width = '0%';
+                
+                // Style buttons
+                btnA.classList.add('border-rose-critical', 'bg-rose-50');
+                btnA.classList.remove('border-slate-border', 'bg-white');
+                btnB.classList.remove('bg-indigo-700');
+            });
+
+            btnB.addEventListener('click', () => {
+                feedbackA.classList.add('hidden');
+                feedbackB.classList.remove('hidden');
+                
+                // Style buttons
+                btnB.classList.add('bg-indigo-700');
+                btnA.classList.remove('border-rose-critical', 'bg-rose-50');
+                btnA.classList.add('border-slate-border', 'bg-white');
+                
+                // Animate bar
+                setTimeout(() => {
+                    timerBar.style.width = '100%';
+                }, 50);
+            });
+
+
+            // Completion Logic
+            const checkboxes = document.querySelectorAll('.checklist-item');
+            const completeBtn = document.getElementById('complete-fomo-btn');
+            
+            const checkCompletion = () => {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                completeBtn.disabled = !allChecked;
+            };
+            
+            checkboxes.forEach(cb => cb.addEventListener('change', checkCompletion));
+            checkCompletion(); // Initial check
+            
+            completeBtn.addEventListener('click', () => {
+                // Save progress
+                localStorage.setItem('bi_module_fomo_completed', 'true');
+                
+                // Show toast
+                const toast = document.getElementById('toast-banner');
+                toast.classList.remove('translate-y-full', 'opacity-0');
+                
+                setTimeout(() => {
+                    toast.classList.add('translate-y-full', 'opacity-0');
+                    // Show modal choices
+                    document.getElementById('completion-modal').classList.remove('hidden');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Lær at investere</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glow-indigo {
+            box-shadow: 0 10px 25px -5px rgba(49, 46, 129, 0.08), 0 8px 10px -6px rgba(49, 46, 129, 0.04);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-base">
+
+    <!-- TopAppBar -->
+    <nav class="bg-white/90 backdrop-blur-md w-full h-16 sticky top-0 z-40 border-b border-slate-border flex justify-between items-center px-6 max-w-[1280px] mx-auto">
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <span class="material-symbols-outlined text-deep-indigo text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+            <span class="text-xl font-bold text-deep-indigo tracking-tight font-headline-md">Begynder Investor</span>
+        </a>
+        <!-- Hidden navigation since this is now a one-pager -->
+        <div class="hidden md:flex items-center gap-6"></div>
+        <div class="flex items-center gap-4">
+            <a href="login.html" class="text-sm font-medium text-on-surface-variant hover:text-deep-indigo transition-colors">Log ind</a>
+            <a href="login.html?mode=signup" class="bg-deep-indigo text-white text-xs font-semibold px-4 py-2 rounded-lg glow-indigo hover:opacity-90 transition-opacity inline-flex items-center justify-center">Opret konto</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow w-full max-w-[1280px] mx-auto px-6 py-12 flex flex-col gap-20">
+        
+        <!-- Hero Section -->
+        <section class="w-full rounded-3xl bg-gradient-to-br from-[#1e1b4b] to-[#2e2a72] relative overflow-hidden shadow-2xl p-8 md:p-14">
+            <!-- Grid Background Overlay -->
+            <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 24px 24px;"></div>
+            
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Left Column -->
+                <div class="lg:col-span-6 flex flex-col items-start text-left">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur-md">
+                        <span class="material-symbols-outlined text-white text-sm">science</span>
+                        <span class="text-xs font-semibold text-white tracking-wider">ÅBENT LÆRINGSLABORATORIUM & SIMULERING</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-tight font-headline-md">
+                        Investering kræver ikke en kandidatgrad. <br class='hidden md:inline'/><span class='text-amber-400'>Det kræver et system.</span>
+                    </h1>
+                    <p class="text-indigo-100 text-sm md:text-base leading-relaxed max-w-xl mt-4 mb-8">
+                        Begynder Investor er et transparent læringsunivers og simuleringsværktøj bygget af en begynder — til den seriøse begynder investor. Afprøv strategier, forstå nøgletal og opbyg den mentale disciplin, før du investerer rigtige penge.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <a href="onboarding.html" class="bg-white text-deep-indigo hover:bg-slate-100 font-semibold text-sm px-6 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center gap-2">
+                            Udforsk universet
+                            <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+                        </a>
+                        <a href="#manifest" class="text-indigo-200 hover:text-white text-sm font-medium underline-offset-4 hover:underline flex items-center gap-1">
+                            Læs vores manifest
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="lg:col-span-6 relative w-full h-full min-h-[400px] flex items-center justify-center mt-8 lg:mt-0">
+                    <!-- Main Portfolio Card -->
+                    <div class="relative w-full max-w-md bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-2xl z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs font-bold text-indigo-200 uppercase tracking-wider">Portefølje Værdi</span>
+                                <h3 class="text-3xl font-bold text-white mt-1">DKK 42.500,00</h3>
+                            </div>
+                            <div class="flex items-center gap-1 bg-emerald-500/20 text-[#4ade80] text-[10px] font-bold px-2.5 py-1.5 rounded-full border border-emerald-500/30">
+                                Simuleret Portefølje (80/20 Core-Satellite)
+                            </div>
+                        </div>
+                        <!-- Neon Chart Area -->
+                        <div class="w-full h-32 bg-black/20 rounded-lg border border-white/5 relative overflow-hidden flex items-end">
+                            <svg class="w-full h-full text-[#4ade80] drop-shadow-[0_0_8px_rgba(74,222,128,0.6)]" preserveAspectRatio="none" viewBox="0 0 100 100">
+                                <path d="M 0 85 L 20 70 L 40 75 L 60 50 L 80 55 L 100 20" fill="none" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
+                                <path d="M 0 85 L 20 70 L 40 75 L 60 50 L 80 55 L 100 20 L 100 100 L 0 100 Z" fill="url(#neon-gradient)" opacity="0.3"></path>
+                                <defs>
+                                    <linearGradient id="neon-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#4ade80" stop-opacity="1"></stop>
+                                        <stop offset="100%" stop-color="#4ade80" stop-opacity="0"></stop>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Moat Badge -->
+                    <div class="absolute top-4 lg:top-8 left-[-10px] md:left-4 bg-[#1e1b4b]/80 backdrop-blur-md rounded-xl border border-white/10 p-3 shadow-xl z-20 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[#4ade80] text-sm">shield</span>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-white">Moat Identificeret</div>
+                            <div class="text-[10px] text-indigo-200">Stærk konkurrencefordel</div>
+                        </div>
+                    </div>
+
+                    <!-- Stock Card -->
+                    <div class="absolute bottom-0 lg:bottom-4 right-[-10px] md:right-0 bg-slate-900/90 backdrop-blur-md rounded-xl border border-white/10 p-4 shadow-xl z-20 w-56 md:w-64">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-[10px] text-deep-indigo border border-slate-border shrink-0">VOLV</div>
+                            <div>
+                                <div class="text-sm font-bold text-white">Volvo Car B</div>
+                                <div class="text-[10px] text-indigo-300">Industri</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-end border-t border-white/10 pt-2 mt-2">
+                            <div class="text-sm font-bold text-white">34,15 SEK</div>
+                            <div class="text-xs font-bold text-rose-400">-1.12%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Købekraft-Paradokset Section -->
+        <section class="flex flex-col gap-6 w-full">
+            <div class="text-center mb-2">
+                <h2 class="text-2xl md:text-3xl font-bold font-headline-lg text-on-background">Købekraft-Paradokset: Hvorfor kontanter taber værdi</h2>
+                <p class="text-sm md:text-base text-on-surface-variant mt-2 max-w-2xl mx-auto">At lade opsparingen stå passivt på en bankkonto føles trygt, men koster dyrt i købekraft. Se forskellen på 10 år med 2% inflation vs. 7-8% historisk markedsafkast.</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm flex flex-col gap-8">
+                <!-- Slider -->
+                <div class="flex flex-col items-center gap-3 w-full max-w-md mx-auto">
+                    <label for="time-slider" class="text-sm font-semibold text-deep-indigo">Tidshorisont: <span id="slider-val" class="font-bold">10 år</span></label>
+                    <input type="range" id="time-slider" min="5" max="20" step="5" value="10" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-deep-indigo" oninput="updateSimulation()">
+                    <div class="flex justify-between w-full text-xs text-on-surface-variant px-1">
+                        <span>5 år</span>
+                        <span>10 år</span>
+                        <span>15 år</span>
+                        <span>20 år</span>
+                    </div>
+                </div>
+
+                <!-- 2-Column Comparison -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Card 1: Bank -->
+                    <div class="bg-rose-critical/5 border border-rose-critical/20 rounded-xl p-6 flex flex-col">
+                        <h3 class="font-headline-md font-semibold text-rose-critical text-lg mb-2">🏦 Bankkonto (Passiv Opsparing)</h3>
+                        <div class="my-4">
+                            <span class="text-xs uppercase tracking-wider font-semibold text-on-surface-variant">Reel købekraft</span>
+                            <div class="text-3xl md:text-4xl font-bold font-metric-lg text-on-background mt-1 flex items-baseline gap-2">
+                                <span id="bank-val">82.000 kr.</span> 
+                                <span id="bank-pct" class="text-sm font-bold text-rose-critical bg-rose-critical/10 px-2 py-0.5 rounded">-18%</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-on-surface-variant leading-relaxed mt-auto">
+                            Med 2% årlig inflation udhules din formue år for år. Dine penge mister købekraft.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Market -->
+                    <div class="bg-emerald-success/5 border border-emerald-success/20 rounded-xl p-6 flex flex-col">
+                        <h3 class="font-headline-md font-semibold text-emerald-success text-lg mb-2">📈 Investeret i Verdensindeks (Core)</h3>
+                        <div class="my-4">
+                            <span class="text-xs uppercase tracking-wider font-semibold text-on-surface-variant">Nominel værdi</span>
+                            <div class="text-3xl md:text-4xl font-bold font-metric-lg text-on-background mt-1 flex items-baseline gap-2">
+                                <span id="market-val">206.000 kr.</span>
+                                <span id="market-pct" class="text-sm font-bold text-emerald-success bg-emerald-success/10 px-2 py-0.5 rounded">+106%</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-on-surface-variant leading-relaxed mt-auto">
+                            Historisk har det globale aktiemarked givet 7-8% i gennemsnitligt årligt afkast, hvilket beskytter og fordobler din købekraft.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Struktureret Overblik (Dashboard Preview) -->
+        <section class="flex flex-col gap-6 relative">
+            <div class="text-center mb-2">
+                <h2 class="text-2xl font-bold text-on-background">Simulering af 50.000 kr.</h2>
+                <p class="text-sm text-on-surface-variant mt-1">Få adgang til et interface, hvor ro og forståelse er i fokus.</p>
+            </div>
+            
+            <div class="w-full bg-[#f1f5f9]/60 rounded-2xl border border-slate-border p-6 flex flex-col md:flex-row gap-6 shadow-sm relative">
+                <!-- Main Chart Bento Area -->
+                <div class="flex-grow bg-white rounded-xl border border-slate-border p-6 flex flex-col justify-between relative">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Simuleret Portefølje</span>
+                                <div class="flex items-center gap-3 mt-1">
+                                    <h3 class="text-3xl font-bold text-on-background font-metric-lg">DKK 50.000,00</h3>
+                                    <span class="bg-emerald-50 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-full border border-emerald-100">+2.4% i dag</span>
+                                </div>
+                                <div class="text-sm font-medium text-slate-500 mt-2">10.000,00 DKK til rådighed</div>
+                            </div>
+                        </div>
+                        
+                        <!-- 80/20 Core-Satellite Distribution Bar -->
+                        <div class="mt-4 mb-2">
+                            <div class="h-2.5 rounded-full overflow-hidden bg-slate-100 flex mt-2 mb-3">
+                                <div class="bg-deep-indigo h-full" style="width: 80%;"></div>
+                                <div class="bg-emerald-500 h-full" style="width: 20%;"></div>
+                            </div>
+                            <div class="text-xs text-on-surface-variant font-medium">
+                                80% Core (MSCI World) &bull; 20% Satellit (Novo & Volvo)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <button id="sim-buy-btn" onclick="triggerSimBuy()" class="bg-deep-indigo hover:bg-indigo-900 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all flex-1 flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm">bolt</span> <span id="sim-buy-text">Test Købssimulering</span>
+                        </button>
+                        <button id="sim-thesis-btn" onclick="openThesisModal()" class="bg-white border border-slate-border text-deep-indigo hover:bg-slate-50 font-medium py-2.5 px-4 rounded-xl transition-all flex-1 flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm">description</span> Læs Investeringstese
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar Bento Area -->
+                <div class="w-full md:w-80 flex flex-col gap-4">
+                    <!-- Anti-FOMO Assistent -->
+                    <div class="bg-white rounded-xl border border-slate-border p-5 relative shadow-sm flex flex-col h-full">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-deep-indigo text-xl">hourglass_top</span>
+                            <h2 class="font-headline-md text-sm font-bold text-deep-indigo">Anti-FOMO Assistent</h2>
+                        </div>
+                        <div class="mb-4">
+                            <span id="fomo-status-badge" class="bg-rose-50 text-rose-700 border border-rose-200 text-xs px-2.5 py-1 rounded-full font-bold inline-block my-2 transition-all duration-300">Købsordre i karantæne</span>
+                            <p id="fomo-text" class="text-xs text-on-surface-variant leading-relaxed mt-1 transition-opacity duration-300">
+                                Vi har indført en obligatorisk 48-timers karantæne på din ordre. Slå koldt vand i blodet og se tiden an, før du allokerer kapital.
+                            </p>
+                        </div>
+                        <div class="mt-auto pt-4">
+                            <div class="flex justify-between text-[10px] font-bold text-slate-500 mb-1.5 uppercase">
+                                <span>Karantæne</span>
+                                <span id="fomo-time-left">48 TIMER TILBAGE</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden mt-1">
+                                <div id="fomo-progress" class="bg-deep-indigo h-full w-[65%] rounded-full animate-pulse transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fast Forbindelses-CTA -->
+            <div class="text-center mt-4 mb-2">
+                <p class="text-sm font-semibold text-deep-indigo mb-3">Vil du have din egen 50.000 kr. simuleret portefølje og teste strategier risikofrit?</p>
+                <a href="login.html?mode=signup" class="inline-flex items-center gap-2 text-sm font-bold text-deep-indigo hover:text-indigo-700 hover:underline underline-offset-4 transition-all">
+                    Opret gratis profil og start her &rarr;
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Værktøjer: Kerneanalyse -->
+        <section class="flex flex-col gap-6">
+            <div class="text-center mb-2">
+                <h2 class="text-2xl font-bold text-on-background">Kerneanalyse: Sammenlign Aktier</h2>
+                <p class="text-sm text-on-surface-variant mt-1">Fra komplekse spørgsmål til dyb indsigt på få sekunder.</p>
+            </div>
+            <div class="bg-[#f8faff] rounded-2xl border border-slate-border p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="flex flex-col gap-4">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-border w-fit">
+                            <span class="material-symbols-outlined text-deep-indigo text-xs">bolt</span>
+                            <span class="text-[11px] font-bold text-deep-indigo uppercase tracking-wider">AI Prompt Runner</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-on-background">Sammenlign aktier med ét klik</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">
+                            Brug 'Kerneanalyse: Sammenlign Aktier' til at analysere svære emner. Vælg et eksempel herunder for at se, hvordan vi lynhurtigt benchmark'er konkurrenter.
+                        </p>
+                        
+                        <div class="flex flex-col gap-2 mt-2" id="compare-buttons">
+                            <button onclick="updateCompareCard('novo')" class="compare-btn w-full text-left px-4 py-2 rounded-lg border-2 border-deep-indigo bg-indigo-50/40 text-deep-indigo text-sm font-semibold transition-colors flex justify-between items-center">
+                                Novo Nordisk vs. Eli Lilly <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+                            <button onclick="updateCompareCard('volvo')" class="compare-btn w-full text-left px-4 py-2 rounded-lg border-2 border-slate-border bg-white text-on-surface-variant text-sm font-semibold hover:border-deep-indigo/50 transition-colors flex justify-between items-center">
+                                Volvo vs. Daimler Truck <span class="material-symbols-outlined text-sm hidden">chevron_right</span>
+                            </button>
+                            <button onclick="updateCompareCard('apple')" class="compare-btn w-full text-left px-4 py-2 rounded-lg border-2 border-slate-border bg-white text-on-surface-variant text-sm font-semibold hover:border-deep-indigo/50 transition-colors flex justify-between items-center">
+                                Apple vs. Microsoft <span class="material-symbols-outlined text-sm hidden">chevron_right</span>
+                            </button>
+                        </div>
+                        
+                        <button onclick="openComparePreviewModal(event)" class="bg-deep-indigo text-white text-xs font-semibold px-6 py-3.5 rounded-lg glow-indigo hover:opacity-90 transition-opacity w-fit mt-4">Prøv en kerneanalyse</button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg border border-slate-border p-5 h-full flex flex-col transition-all duration-300" id="compare-result-card">
+                        <div class="flex items-center gap-2 mb-4 border-b border-slate-border pb-2 text-deep-indigo">
+                            <span class="material-symbols-outlined text-base">smart_toy</span>
+                            <span class="text-xs font-bold" id="compare-title">AI Analyse: Novo Nordisk vs Eli Lilly</span>
+                        </div>
+                        <div class="flex-1 flex flex-col gap-4">
+                            <!-- P/E -->
+                            <div>
+                                <div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Værdiansættelse (P/E)</div>
+                                <div class="grid grid-cols-2 gap-2" id="compare-pe">
+                                    <div class="p-2 bg-emerald-success/10 border border-emerald-success/20 rounded text-xs font-semibold text-emerald-700 flex justify-between">
+                                        <span>Novo (38.5)</span>
+                                        <span class="material-symbols-outlined text-sm">thumb_up</span>
+                                    </div>
+                                    <div class="p-2 bg-rose-critical/10 border border-rose-critical/20 rounded text-xs font-semibold text-rose-700 flex justify-between">
+                                        <span>Lilly (62.1)</span>
+                                        <span class="material-symbols-outlined text-sm">warning</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Moat -->
+                            <div>
+                                <div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Konkurrencefordel (Moat)</div>
+                                <div class="p-2 bg-indigo-50/40 border border-indigo-100 rounded text-sm text-on-background leading-relaxed" id="compare-moat">
+                                    Begge har en stærk moat via patenter og duopol på GLP-1 markedet. Novo vinder på produktionskapacitet.
+                                </div>
+                            </div>
+                            <!-- Risikofaktor -->
+                            <div>
+                                <div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Største Risikofaktor</div>
+                                <div class="p-2 bg-slate-50 border border-slate-border rounded text-sm text-on-background leading-relaxed" id="compare-risk">
+                                    Prispres i USA og politisk regulering af medicinpriser.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaser Section (Supporter/Freemium) -->
+        <section class="w-full">
+            <div class="bg-slate-50 border border-slate-border rounded-3xl p-8 md:p-12 text-center shadow-sm">
+                <span class="bg-indigo-100 text-deep-indigo text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Demokratisk Investering</span>
+                <h2 class="font-headline-md text-2xl md:text-3xl font-bold text-on-background mt-3 mb-2">100% Gratis at Lære. Drevet af Fællesskabet.</h2>
+                <p class="font-body-md text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mb-6 leading-relaxed">
+                    Begynder Investor er et uafhængigt uddannelsesrum uden reklamer eller skjulte gebyrer. Du kan bruge alle moduler gratis for altid, eller blive Supporter og hjælpe med at dække vores AI- og serverdrift.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button id="open-pricing-modal-btn" onclick="openPricingModal(event)" class="bg-deep-indigo text-white font-bold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity w-full sm:w-auto shadow-md">Se Medlemskaber & Vilkår ⭐</button>
+                    <a href="login.html?mode=signup" class="bg-white text-deep-indigo border border-slate-border font-bold py-3 px-6 rounded-xl hover:bg-slate-100 transition-colors w-full sm:w-auto shadow-sm">Start Gratis Profil Nu &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifest & Filosofi -->
+        <section id="manifest" class="max-w-[1280px] mx-auto w-full flex flex-col gap-8 mt-12">
+            <!-- A. Manifest Hovedkort -->
+            <div class="bg-white border border-slate-border rounded-2xl p-8 md:p-12 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-50/40 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 pointer-events-none"></div>
+                <div class="relative z-10 max-w-3xl">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-slate-border w-fit mb-6">
+                        <span class="text-[11px] font-bold text-deep-indigo uppercase tracking-wider">Åbent Læringslaboratorium</span>
+                    </div>
+                    <h2 class="font-headline-md font-bold text-2xl md:text-3xl text-on-background mb-6">Bygget af en begynder — til den seriøse begynder investor</h2>
+                    <div class="space-y-3">
+                        <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                            Begynder Investor er skabt ud fra en personlig rejse på bar bund. Uden en formel finansiel baggrund, men med en dyb nysgerrighed, autodidakt research og et kritisk mindset, opstod behovet for et trygt og gennemskueligt sted at starte.
+                        </p>
+                        <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                            Hele platformen er udviklet som et åbent læringslaboratorium, hvor egne investeringstanker forenes med kunstig intelligens (AI) som byggefundament og analytisk sparringspartner. AI hjælper med at afkode komplekse mekanismer og filtrere markedsstøj – altid afstemt med sund fornuft, tålmodighed og metodisk disciplin.
+                        </p>
+                        <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                            Platformen er ikke et finanshus eller et rådgivningsorgan, men et transparent lærings- og simuleringsværktøj, der skal bidrage til at demokratisere investering for alle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B. De 3 Filosofiske Grundpiller -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Kort 1 -->
+                <div class="bg-white border border-slate-border rounded-2xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50/40 border border-indigo-100 flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-deep-indigo">hourglass_top</span>
+                    </div>
+                    <h3 class="font-bold text-on-background text-lg mb-3">Tålmodighed <span class="block text-xs font-normal text-on-surface-variant mt-1">(Det tidsmæssige fundament)</span></h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Renters rente-effekten er eksponentiel over 10–20+ år. Vi fjerner trangen til markeds-timing – fordi tid i markedet altid slår timing af markedet.
+                    </p>
+                </div>
+                
+                <!-- Kort 2 -->
+                <div class="bg-white border border-slate-border rounded-2xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50/40 border border-indigo-100 flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-deep-indigo">verified_user</span>
+                    </div>
+                    <h3 class="font-bold text-on-background text-lg mb-3">Disciplin <span class="block text-xs font-normal text-on-surface-variant mt-1">(Det strategiske filter)</span></h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Modvirk FOMO og impulsive køb. Vi arbejder med en fast 80/20 Core-Satellite struktur og obligatorisk 48–72 timers karantæne før kapitalallokering.
+                    </p>
+                </div>
+
+                <!-- Kort 3 -->
+                <div class="bg-white border border-slate-border rounded-2xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50/40 border border-indigo-100 flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-deep-indigo">balance</span>
+                    </div>
+                    <h3 class="font-bold text-on-background text-lg mb-3">Rebalancering <span class="block text-xs font-normal text-on-surface-variant mt-1">(Systematisk risikostyring)</span></h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Fasthold din målallokering via systematisk, opadgående rebalancering med frisk likviditet for at minimere unødvendig skat og handelsomkostninger.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-surface border-t border-slate-border w-full mt-auto">
+        <div class="py-12 px-6 max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-deep-indigo text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="font-headline-md font-bold text-deep-indigo text-lg">Begynder Investor</span>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+                <span class="font-bold text-on-background">Ansvarsfraskrivelse:</span> Information på denne platform er udelukkende til undervisningsbrug og udgør ikke finansiel rådgivning. Investering indebærer risiko for tab. Undersøg altid markedet selv eller rådfør dig med en professionel rådgiver, før du træffer investeringsbeslutninger.
+            </p>
+            <div class="flex items-center justify-center gap-6 text-xs text-on-surface-variant">
+                <a href="#" class="hover:text-deep-indigo transition-colors">Vilkår & Betingelser</a>
+                <a href="#" class="hover:text-deep-indigo transition-colors">Privatlivspolitik</a>
+                <a href="#" class="hover:text-deep-indigo transition-colors">Kontakt</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function updateSimulation() {
+            const years = parseInt(document.getElementById('time-slider').value);
+            document.getElementById('slider-val').textContent = years + ' år';
+            
+            const startAmount = 100000;
+            const inflationRate = 0.02;
+            const marketRate = 0.075; // Using 7.5% as median for 7-8%
+            
+            const bankValue = Math.round(startAmount / Math.pow(1 + inflationRate, years));
+            const bankPct = Math.round(((bankValue - startAmount) / startAmount) * 100);
+            
+            const marketValue = Math.round(startAmount * Math.pow(1 + marketRate, years));
+            const marketPct = Math.round(((marketValue - startAmount) / startAmount) * 100);
+            
+            document.getElementById('bank-val').textContent = bankValue.toLocaleString('da-DK') + ' kr.';
+            document.getElementById('bank-pct').textContent = bankPct + '%';
+            
+            document.getElementById('market-val').textContent = marketValue.toLocaleString('da-DK') + ' kr.';
+            document.getElementById('market-pct').textContent = '+' + marketPct + '%';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('time-slider');
+            if(slider) {
+                slider.value = 10;
+                updateSimulation();
+            }
+        });
+    </script>
+
+    <!-- Explore Modal -->
+    <div id="explore-modal" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeExploreModal()">
+        <div class="bg-slate-surface rounded-2xl shadow-xl w-full max-w-lg overflow-hidden flex flex-col transform transition-transform duration-300 scale-95" id="explore-modal-inner" onclick="event.stopPropagation()">
+            <div class="p-6 border-b border-slate-border flex justify-between items-center bg-white">
+                <h3 class="font-headline-md text-xl font-bold text-deep-indigo flex items-center gap-2">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Smagsprøve på Universet
+                </h3>
+                <button onclick="closeExploreModal()" class="text-on-surface-variant hover:text-deep-indigo transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <div class="p-6 md:p-8 relative min-h-[250px] bg-slate-surface">
+                <!-- Step 1 -->
+                <div id="explore-step-1" class="explore-step absolute inset-0 p-6 md:p-8 flex flex-col items-center text-center transition-opacity duration-300">
+                    <div class="w-16 h-16 rounded-full bg-indigo-50 flex items-center justify-center mb-4 border border-indigo-100">
+                        <span class="material-symbols-outlined text-deep-indigo text-3xl">school</span>
+                    </div>
+                    <h4 class="font-bold text-on-background text-lg mb-3">1. Læring uden støj</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Følg 4 modulære læringsspor inklusiv hands-on skatteguides og praktisk viden.
+                    </p>
+                </div>
+                <!-- Step 2 -->
+                <div id="explore-step-2" class="explore-step absolute inset-0 p-6 md:p-8 flex flex-col items-center text-center transition-opacity duration-300 opacity-0 pointer-events-none">
+                    <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mb-4 border border-emerald-100">
+                        <span class="material-symbols-outlined text-emerald-success text-3xl">pie_chart</span>
+                    </div>
+                    <h4 class="font-bold text-on-background text-lg mb-3">2. Simuleret Portefølje</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Start med 50.000 fiktive kr. og afprøv 80/20 Core-Satellite strategien.
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div id="explore-step-3" class="explore-step absolute inset-0 p-6 md:p-8 flex flex-col items-center text-center transition-opacity duration-300 opacity-0 pointer-events-none">
+                    <div class="w-16 h-16 rounded-full bg-rose-50 flex items-center justify-center mb-4 border border-rose-100">
+                        <span class="material-symbols-outlined text-rose-critical text-3xl">psychology</span>
+                    </div>
+                    <h4 class="font-bold text-on-background text-lg mb-3">3. Mental Disciplin</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        48-timers Anti-FOMO karantæne og obligatorisk Pre-Flight tjekliste til hver handel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-slate-border bg-white flex justify-between items-center">
+                <div class="flex gap-1.5 pl-2">
+                    <div id="dot-1" class="w-2 h-2 rounded-full bg-deep-indigo"></div>
+                    <div id="dot-2" class="w-2 h-2 rounded-full bg-slate-300"></div>
+                    <div id="dot-3" class="w-2 h-2 rounded-full bg-slate-300"></div>
+                </div>
+                <div class="flex gap-3">
+                    <button id="btn-prev" onclick="prevStep()" class="px-4 py-2 text-sm font-semibold text-on-surface-variant border border-slate-border rounded-lg hover:bg-slate-50 transition-colors hidden">
+                        Forrige
+                    </button>
+                    <button id="btn-next" onclick="nextStep()" class="px-6 py-2 bg-deep-indigo text-white text-sm font-bold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm">
+                        Næste <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                    <button id="guest-explore-btn" class="px-6 py-2 bg-emerald-600 text-white text-sm font-bold rounded-lg hover:bg-emerald-700 transition-colors hidden flex items-center gap-2 shadow-sm">
+                        Opret gratis profil & start læring &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openExploreModal() {
+            const modal = document.getElementById('explore-modal');
+            const inner = document.getElementById('explore-modal-inner');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                inner.classList.remove('scale-95');
+                inner.classList.add('scale-100');
+            }, 10);
+            currentStep = 1;
+            updateStepView();
+        }
+
+        function closeExploreModal() {
+            const modal = document.getElementById('explore-modal');
+            const inner = document.getElementById('explore-modal-inner');
+            modal.classList.add('opacity-0');
+            inner.classList.remove('scale-100');
+            inner.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const guestBtn = document.getElementById('guest-explore-btn');
+            if (guestBtn) {
+                guestBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Visuel feedback
+                    guestBtn.style.opacity = '0.9';
+                    guestBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-sm">autorenew</span> Gør klar...';
+                    guestBtn.disabled = true;
+
+                    setTimeout(() => {
+                        window.location.href = 'onboarding.html';
+                    }, 300);
+                });
+            }
+        });
+        
+        let currentStep = 1;
+        function updateStepView() {
+            for (let i = 1; i <= 3; i++) {
+                const step = document.getElementById('explore-step-' + i);
+                const dot = document.getElementById('dot-' + i);
+                if (i === currentStep) {
+                    step.classList.remove('opacity-0', 'pointer-events-none');
+                    dot.classList.replace('bg-slate-300', 'bg-deep-indigo');
+                } else {
+                    step.classList.add('opacity-0', 'pointer-events-none');
+                    dot.classList.replace('bg-deep-indigo', 'bg-slate-300');
+                }
+            }
+            
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            const btnFinish = document.getElementById('guest-explore-btn');
+            
+            if (currentStep === 1) {
+                btnPrev.classList.add('hidden');
+                btnNext.classList.remove('hidden');
+                btnFinish.classList.add('hidden');
+            } else if (currentStep === 2) {
+                btnPrev.classList.remove('hidden');
+                btnNext.classList.remove('hidden');
+                btnFinish.classList.add('hidden');
+            } else {
+                btnPrev.classList.remove('hidden');
+                btnNext.classList.add('hidden');
+                btnFinish.classList.remove('hidden');
+            }
+        }
+        
+        function nextStep() {
+            if (currentStep < 3) {
+                currentStep++;
+                updateStepView();
+            }
+        }
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepView();
+            }
+        }
+
+        const compareData = {
+            'novo': {
+                title: 'AI Analyse: Novo Nordisk vs Eli Lilly',
+                pe: `
+                    <div class="p-2 bg-emerald-success/10 border border-emerald-success/20 rounded text-xs font-semibold text-emerald-700 flex justify-between items-center">
+                        <span>Novo (38.5)</span>
+                        <span class="material-symbols-outlined text-sm">thumb_up</span>
+                    </div>
+                    <div class="p-2 bg-rose-critical/10 border border-rose-critical/20 rounded text-xs font-semibold text-rose-700 flex justify-between items-center">
+                        <span>Lilly (62.1)</span>
+                        <span class="material-symbols-outlined text-sm">warning</span>
+                    </div>`,
+                moat: 'GLP-1 duopol og patenter',
+                risk: 'Prispres og regulering i USA.'
+            },
+            'volvo': {
+                title: 'AI Analyse: Volvo vs Daimler Truck',
+                pe: `
+                    <div class="p-2 bg-emerald-success/10 border border-emerald-success/20 rounded text-xs font-semibold text-emerald-700 flex justify-between items-center">
+                        <span>Volvo (10.8)</span>
+                        <span class="material-symbols-outlined text-sm">thumb_up</span>
+                    </div>
+                    <div class="p-2 bg-emerald-success/10 border border-emerald-success/20 rounded text-xs font-semibold text-emerald-700 flex justify-between items-center">
+                        <span>Daimler (9.4)</span>
+                        <span class="material-symbols-outlined text-sm">thumb_up</span>
+                    </div>`,
+                moat: 'Globalt distributionsnet og tunge flåder',
+                risk: 'Cyklisk afmatning og grøn omstilling.'
+            },
+            'apple': {
+                title: 'AI Analyse: Apple vs Microsoft',
+                pe: `
+                    <div class="p-2 bg-slate-100 border border-slate-300 rounded text-xs font-semibold text-on-surface-variant flex justify-between items-center">
+                        <span>Apple (32.4)</span>
+                        <span class="material-symbols-outlined text-sm">horizontal_rule</span>
+                    </div>
+                    <div class="p-2 bg-slate-100 border border-slate-300 rounded text-xs font-semibold text-on-surface-variant flex justify-between items-center">
+                        <span>Microsoft (34.1)</span>
+                        <span class="material-symbols-outlined text-sm">horizontal_rule</span>
+                    </div>`,
+                moat: 'Økosystem, iOS lock-in og Azure cloud',
+                risk: 'Antitrust-undersøgelser og hardware-mætning.'
+            }
+        };
+
+        function updateCompareCard(caseId) {
+            currentCompareCase = caseId;
+            // Update buttons styling
+            const buttons = document.querySelectorAll('.compare-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-deep-indigo', 'bg-indigo-50/40', 'text-deep-indigo');
+                btn.classList.add('border-slate-border', 'bg-white', 'text-on-surface-variant');
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if(icon) icon.classList.add('hidden');
+            });
+            
+            const activeBtn = event.currentTarget;
+            activeBtn.classList.remove('border-slate-border', 'bg-white', 'text-on-surface-variant');
+            activeBtn.classList.add('border-deep-indigo', 'bg-indigo-50/40', 'text-deep-indigo');
+            const activeIcon = activeBtn.querySelector('.material-symbols-outlined');
+            if(activeIcon) activeIcon.classList.remove('hidden');
+
+            // Update card content
+            const data = compareData[caseId];
+            document.getElementById('compare-title').textContent = data.title;
+            document.getElementById('compare-pe').innerHTML = data.pe;
+            document.getElementById('compare-moat').textContent = data.moat;
+            document.getElementById('compare-risk').textContent = data.risk;
+            
+            // Add a subtle blink effect
+            const card = document.getElementById('compare-result-card');
+            card.classList.add('opacity-50');
+            setTimeout(() => card.classList.remove('opacity-50'), 150);
+        }
+    </script>
+
+    <!-- Compare Preview Modal -->
+    <div id="compare-preview-modal" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeComparePreviewModal()">
+        <div class="bg-slate-surface rounded-2xl shadow-xl w-full max-w-lg overflow-hidden flex flex-col transform transition-transform duration-300 scale-95" id="compare-preview-modal-inner" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-slate-border flex justify-between items-start bg-white">
+                <div>
+                    <h3 class="font-headline-md text-xl font-bold text-deep-indigo flex items-center gap-2">
+                        <span class="material-symbols-outlined text-amber-500">bolt</span>
+                        Simuleret Aktie-Sammenligning
+                    </h3>
+                    <p class="text-sm text-on-surface-variant mt-1">Test vores hurtige AI-benchmark direkte her på siden.</p>
+                </div>
+                <button onclick="closeComparePreviewModal()" class="text-on-surface-variant hover:text-deep-indigo transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 md:p-8 bg-slate-surface flex flex-col gap-6">
+                <!-- Dropdowns -->
+                <div class="flex gap-4">
+                    <div class="flex-1 flex flex-col gap-2">
+                        <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Aktie A</label>
+                        <select id="sim-stock-a" class="w-full bg-white border border-slate-border text-on-background rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-deep-indigo/50">
+                            <option value="novo">Novo Nordisk (NOVO-B)</option>
+                            <option value="apple">Apple (AAPL)</option>
+                            <option value="volvo">Volvo (VOLV-B)</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-center pt-6">
+                        <span class="font-bold text-slate-400 text-sm">VS</span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-2">
+                        <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Aktie B</label>
+                        <select id="sim-stock-b" class="w-full bg-white border border-slate-border text-on-background rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-deep-indigo/50">
+                            <option value="lilly">Eli Lilly (LLY)</option>
+                            <option value="microsoft">Microsoft (MSFT)</option>
+                            <option value="daimler">Daimler Truck (DTG)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <button onclick="runSimulation()" class="bg-deep-indigo text-white font-bold py-2.5 px-5 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 w-full">
+                    <span class="material-symbols-outlined text-sm">bolt</span> Kør Hurtig-Analyse ⚡
+                </button>
+
+                <!-- Results Area -->
+                <div id="sim-results-area" class="hidden">
+                    <!-- Skeleton Loader -->
+                    <div id="sim-skeleton" class="flex flex-col gap-4 animate-pulse">
+                        <div class="h-6 bg-slate-200 rounded w-1/3"></div>
+                        <div class="h-16 bg-slate-200 rounded w-full"></div>
+                        <div class="h-16 bg-slate-200 rounded w-full"></div>
+                        <div class="h-16 bg-slate-200 rounded w-full"></div>
+                    </div>
+                    
+                    <!-- Result Card -->
+                    <div id="sim-result-card" class="hidden flex-col gap-4 bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                        <!-- Valuation -->
+                        <div>
+                            <div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Værdiansættelse (P/E)</div>
+                            <div class="grid grid-cols-2 gap-2" id="sim-res-pe">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                        <!-- Moat -->
+                        <div>
+                            <div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Økonomisk Voldgrav (Moat)</div>
+                            <div class="p-2 bg-indigo-50/40 border border-indigo-100 rounded text-sm text-on-background leading-relaxed" id="sim-res-moat">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                        <!-- Risk -->
+                        <div>
+                            <div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Største Risikofaktor</div>
+                            <div class="p-2 bg-slate-50 border border-slate-border rounded text-sm text-on-background leading-relaxed font-medium text-rose-800" id="sim-res-risk">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="p-6 border-t border-slate-border bg-white flex flex-col gap-3 text-center">
+                <p class="text-sm font-semibold text-deep-indigo">Vil du analysere dine egne frie aktier?</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button onclick="openPricingModal(event); closeComparePreviewModal();" class="flex-1 bg-emerald-600 text-white text-sm font-bold py-2.5 px-4 rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-1">
+                        Opret gratis konto & Gem analyse &rarr;
+                    </button>
+                    <button onclick="closeComparePreviewModal()" class="flex-1 bg-white border border-slate-border text-on-surface-variant text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-slate-50 transition-colors">
+                        Luk overblik
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentCompareCase = 'novo';
+        
+        function openComparePreviewModal(e) {
+            if(e) e.preventDefault();
+            const modal = document.getElementById('compare-preview-modal');
+            const inner = document.getElementById('compare-preview-modal-inner');
+            
+            // Set dropdowns based on current case
+            const stockA = document.getElementById('sim-stock-a');
+            const stockB = document.getElementById('sim-stock-b');
+            
+            if(currentCompareCase === 'novo') { stockA.value = 'novo'; stockB.value = 'lilly'; }
+            if(currentCompareCase === 'volvo') { stockA.value = 'volvo'; stockB.value = 'daimler'; }
+            if(currentCompareCase === 'apple') { stockA.value = 'apple'; stockB.value = 'microsoft'; }
+        
+            // Reset results area
+            document.getElementById('sim-results-area').classList.add('hidden');
+            document.getElementById('sim-skeleton').classList.remove('hidden');
+            document.getElementById('sim-result-card').classList.add('hidden');
+            document.getElementById('sim-result-card').classList.remove('flex');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                inner.classList.remove('scale-95');
+                inner.classList.add('scale-100');
+            }, 10);
+        }
+        
+        function closeComparePreviewModal() {
+            const modal = document.getElementById('compare-preview-modal');
+            const inner = document.getElementById('compare-preview-modal-inner');
+            modal.classList.add('opacity-0');
+            inner.classList.remove('scale-100');
+            inner.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+        
+        const simPreviewData = {
+            'novo-lilly': {
+                pe: `
+                    <div class="p-2 bg-emerald-success/10 border border-emerald-success/20 rounded text-xs font-semibold text-emerald-700 flex justify-between items-center">
+                        <span>Novo (38.5)</span>
+                        <span class="material-symbols-outlined text-sm">thumb_up</span>
+                    </div>
+                    <div class="p-2 bg-rose-critical/10 border border-rose-critical/20 rounded text-xs font-semibold text-rose-700 flex justify-between items-center">
+                        <span>Lilly (62.1)</span>
+                        <span class="material-symbols-outlined text-sm">warning</span>
+                    </div>`,
+                moat: 'GLP-1 duopol og patenter. Novo vinder på produktionskapacitet.',
+                risk: 'Prispres i USA og politisk regulering af medicinpriser.'
+            },
+            'volvo-daimler': {
+                pe: `
+                    <div class="p-2 bg-emerald-success/10 border border-emerald-success/20 rounded text-xs font-semibold text-emerald-700 flex justify-between items-center">
+                        <span>Volvo (10.8)</span>
+                        <span class="material-symbols-outlined text-sm">thumb_up</span>
+                    </div>
+                    <div class="p-2 bg-emerald-success/10 border border-emerald-success/20 rounded text-xs font-semibold text-emerald-700 flex justify-between items-center">
+                        <span>Daimler (9.4)</span>
+                        <span class="material-symbols-outlined text-sm">thumb_up</span>
+                    </div>`,
+                moat: 'Globalt distributionsnet og tunge flåder. Høje adgangsbarrierer.',
+                risk: 'Cyklisk afmatning og grøn omstilling.'
+            },
+            'apple-microsoft': {
+                pe: `
+                    <div class="p-2 bg-slate-100 border border-slate-300 rounded text-xs font-semibold text-on-surface-variant flex justify-between items-center">
+                        <span>Apple (32.4)</span>
+                        <span class="material-symbols-outlined text-sm">horizontal_rule</span>
+                    </div>
+                    <div class="p-2 bg-slate-100 border border-slate-300 rounded text-xs font-semibold text-on-surface-variant flex justify-between items-center">
+                        <span>Microsoft (34.1)</span>
+                        <span class="material-symbols-outlined text-sm">horizontal_rule</span>
+                    </div>`,
+                moat: 'Økosystem lock-in (Apple) vs. Enterprise & Cloud dominans (Microsoft).',
+                risk: 'Antitrust-undersøgelser og hardware-mætning / AI-investeringsafkast.'
+            }
+        };
+        
+        function runSimulation() {
+            const stockA = document.getElementById('sim-stock-a').value;
+            const stockB = document.getElementById('sim-stock-b').value;
+            
+            document.getElementById('sim-results-area').classList.remove('hidden');
+            document.getElementById('sim-skeleton').classList.remove('hidden');
+            document.getElementById('sim-result-card').classList.add('hidden');
+            document.getElementById('sim-result-card').classList.remove('flex');
+            
+            setTimeout(() => {
+                document.getElementById('sim-skeleton').classList.add('hidden');
+                document.getElementById('sim-result-card').classList.remove('hidden');
+                document.getElementById('sim-result-card').classList.add('flex');
+                
+                const key = `${stockA}-${stockB}`;
+                
+                let data = simPreviewData[key];
+                if (!data) {
+                     data = {
+                         pe: `<div class="p-2 col-span-2 bg-slate-100 border border-slate-300 rounded text-xs font-semibold text-on-surface-variant text-center">Generisk værdiansættelse (simuleret)</div>`,
+                         moat: 'Simuleret AI analyse af konkurrencefordel.',
+                         risk: 'Generisk risikofaktor for valgte aktier.'
+                     };
+                }
+                
+                document.getElementById('sim-res-pe').innerHTML = data.pe;
+                document.getElementById('sim-res-moat').textContent = data.moat;
+                document.getElementById('sim-res-risk').textContent = data.risk;
+            }, 800);
+        }
+    </script>
+    <!-- Pricing Modal -->
+    <div id="pricing-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden" onclick="closePricingModal()">
+        <div class="max-w-4xl w-full bg-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-border mx-4 max-h-[90vh] overflow-y-auto relative" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <button onclick="closePricingModal()" class="absolute top-6 right-6 text-on-surface-variant hover:text-deep-indigo transition-colors bg-slate-100 rounded-full p-1.5 hover:bg-slate-200 flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">close</span>
+            </button>
+            <div class="text-center mb-8 pr-8 pl-8">
+                <h2 class="font-headline-md text-2xl md:text-3xl font-bold text-deep-indigo mb-3">Vælg Dit Medlemskab & Støt Missionen ⭐</h2>
+                <p class="text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                    Begynder Investor er et uafhængigt læringsunivers. Vælg mellem en gratis profil eller støt vores AI- og serverdrift.
+                </p>
+            </div>
+
+            <!-- 2-Column Comparison Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Card 1: Freemium -->
+                <div class="bg-slate-50 border border-slate-border rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-2">
+                            <span class="text-4xl font-bold text-on-background">0 kr.</span>
+                            <span class="text-xs text-slate-500 font-normal">/ for altid</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-deep-indigo mb-2">Freemium Medlem</h3>
+                        <p class="text-sm text-on-surface-variant mb-6 h-10">Fri adgang til grundlæggende læring og simulationsmiljø.</p>
+                        
+                        <ul class="flex flex-col gap-3 mb-8">
+                            <li class="flex items-start gap-2 text-sm text-on-background">
+                                <span class="material-symbols-outlined text-emerald-success text-base">check_circle</span>
+                                Fuld adgang til alle 4 læringsspor (12 moduler).
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-on-background">
+                                <span class="material-symbols-outlined text-emerald-success text-base">check_circle</span>
+                                50.000 kr. fiktiv startkapital & 80/20 Core-Satellite model.
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-on-background">
+                                <span class="material-symbols-outlined text-emerald-success text-base">check_circle</span>
+                                Fair-use kvote: Op til 5 automatiske AI-analyser pr. måned.
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-on-background">
+                                <span class="material-symbols-outlined text-emerald-success text-base">check_circle</span>
+                                Standard 'Begynder' profilstatus.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-auto">
+                        <div class="text-xs text-slate-500 text-center mb-4 leading-relaxed">
+                            Gratis for altid &bull; Intet kreditkort påkrævet &bull; Uddannelsesformål
+                        </div>
+                        <a href="login.html?mode=signup" class="block bg-deep-indigo text-white font-bold py-3 px-4 rounded-xl hover:opacity-90 transition-opacity w-full text-center">
+                            Opret Gratis Profil &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Supporter -->
+                <div class="bg-indigo-950 text-white border-2 border-amber-400 rounded-2xl p-6 flex flex-col justify-between relative shadow-lg">
+                    <span class="absolute -top-3 right-6 bg-amber-400 text-indigo-950 text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">⭐ Støt Serverdriften</span>
+                    
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-2">
+                            <span class="text-4xl font-bold text-white">29 kr.</span>
+                            <span class="text-xs text-indigo-200 font-normal">/ måned (el. valgfrit engangsbeløb)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-amber-400 mb-2">Supporter Medlem</h3>
+                        <p class="text-sm text-indigo-200 mb-6 h-10">Dækker API-kald, LLM-tokens og serverdrift så platformen forbliver 100% uafhængig.</p>
+                        
+                        <ul class="flex flex-col gap-3 mb-8">
+                            <li class="flex items-start gap-2 text-sm text-white">
+                                <span class="material-symbols-outlined text-amber-400 text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+                                Alt i Freemium + tidlig adgang til nye lektioner.
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-white">
+                                <span class="material-symbols-outlined text-amber-400 text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+                                50.000 kr. startkapital + udvidede stresstest-værktøjer.
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-white">
+                                <span class="material-symbols-outlined text-amber-400 text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+                                Ubegrænsede AI-analyser og dybdegående regnskabstjek.
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-white">
+                                <span class="material-symbols-outlined text-amber-400 text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+                                ⭐ Gyldent Supporter Badge ved din avatar og i dashboardet.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-auto">
+                        <div class="text-xs text-indigo-300 text-center mb-4 leading-relaxed">
+                            Ingen binding &bull; Opsig med ét klik &bull; Uddannelsesformål (ingen rådgivning)
+                        </div>
+                        <button onclick="becomeSupporter()" class="block bg-amber-400 hover:bg-amber-300 text-indigo-950 font-bold py-3 px-4 rounded-xl transition-all w-full text-center shadow-md">
+                            Bliv Supporter (29 kr.) ⭐
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+                <p class="text-xs text-on-surface-variant flex items-center justify-center gap-1.5 leading-relaxed">
+                    <span class="material-symbols-outlined text-sm text-slate-500">lock</span>
+                    <span class="font-bold">Fortrolighedsgaranti:</span> Dine oplysninger sælges eller videregives aldrig. Begynder Investor drives uden reklamer eller skjulte provisioner.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openPricingModal(e) {
+            if(e) e.preventDefault();
+            const modal = document.getElementById('pricing-modal');
+            modal.classList.remove('hidden');
+        }
+        
+        function closePricingModal() {
+            const modal = document.getElementById('pricing-modal');
+            modal.classList.add('hidden');
+        }
+        
+        // Close on ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePricingModal();
+            }
+        });
+        
+        function becomeSupporter() {
+            localStorage.setItem('bi_is_supporter', 'true');
+            window.location.href = 'login.html?mode=signup';
+        }
+    </script>
+    <!-- Thesis Popover/Modal -->
+    <div id="thesis-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300" onclick="closeThesisModal()">
+        <div class="max-w-md w-full bg-white rounded-2xl p-6 shadow-2xl border border-slate-border mx-4 transform transition-transform duration-300 scale-95" id="thesis-modal-inner" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-5 pb-4 border-b border-slate-border">
+                <h3 class="font-headline-md text-lg font-bold text-deep-indigo flex items-center gap-2">
+                    <span class="material-symbols-outlined">description</span> Investeringstese: Novo Nordisk B
+                </h3>
+                <button onclick="closeThesisModal()" class="text-slate-400 hover:text-deep-indigo transition-colors p-1">
+                    <span class="material-symbols-outlined text-xl">close</span>
+                </button>
+            </div>
+            
+            <div class="flex flex-col gap-4">
+                <div class="flex gap-3">
+                    <div class="w-6 h-6 rounded-full bg-indigo-100 text-deep-indigo text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-on-background">Forretningsmodel</h4>
+                        <p class="text-xs text-on-surface-variant mt-1">Stærk, tilbagevendende indtjening på kroniske sygdomme (diabetes/fedme).</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="w-6 h-6 rounded-full bg-indigo-100 text-deep-indigo text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-on-background">Moat (Voldgrav)</h4>
+                        <p class="text-xs text-on-surface-variant mt-1">Duopol-lignende tilstand på GLP-1 markedet. Høje adgangsbarrierer og patentbeskyttelse.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="w-6 h-6 rounded-full bg-indigo-100 text-deep-indigo text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-on-background">Værdiansættelse (P/E 38.5)</h4>
+                        <p class="text-xs text-on-surface-variant mt-1">Prisfastsat til høj vækst. Kræver at pipelinen leverer konsistent.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-rose-700">Risiko</h4>
+                        <p class="text-xs text-on-surface-variant mt-1">Politisk prisregulering i USA og øget konkurrence kan presse marginerne.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 pt-4 border-t border-slate-border text-center">
+                <button onclick="closeThesisModal()" class="bg-slate-100 hover:bg-slate-200 text-on-surface-variant font-bold py-2 px-6 rounded-lg transition-colors text-sm w-full">Luk tese</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function triggerSimBuy() {
+            const btn = document.getElementById('sim-buy-btn');
+            const btnText = document.getElementById('sim-buy-text');
+            const icon = btn.querySelector('.material-symbols-outlined');
+            
+            // Show spinner
+            icon.textContent = 'autorenew';
+            icon.classList.add('animate-spin');
+            btnText.textContent = 'Indlæser...';
+            btn.classList.add('opacity-80', 'pointer-events-none');
+            
+            setTimeout(() => {
+                // Restore button
+                icon.textContent = 'check';
+                icon.classList.remove('animate-spin');
+                btnText.textContent = 'Ordre Sendt';
+                btn.classList.replace('bg-deep-indigo', 'bg-emerald-600');
+                btn.classList.replace('hover:bg-indigo-900', 'hover:bg-emerald-700');
+                
+                // Update Anti-FOMO card dynamically
+                const badge = document.getElementById('fomo-status-badge');
+                badge.className = 'bg-amber-100 text-amber-800 border border-amber-300 text-xs px-2.5 py-1 rounded-full font-bold inline-block my-2 transition-all duration-300 animate-pulse';
+                badge.textContent = 'Ny ordre modtaget: Novo Nordisk B (2.500 kr.)';
+                
+                const text = document.getElementById('fomo-text');
+                text.style.opacity = '0';
+                setTimeout(() => {
+                    text.textContent = 'Ordren er sat på pause i 48 timer for at undgå impuls-køb. Tjek analysen i mellemtiden!';
+                    text.style.opacity = '1';
+                }, 200);
+                
+                document.getElementById('fomo-time-left').textContent = '48 TIMER TILBAGE';
+                
+                const progress = document.getElementById('fomo-progress');
+                progress.classList.remove('animate-pulse');
+                progress.style.transitionDuration = '0s';
+                progress.style.width = '0%';
+                
+                // Force reflow
+                void progress.offsetWidth;
+                
+                progress.style.transitionDuration = '2s';
+                progress.style.width = '5%';
+                progress.classList.replace('bg-deep-indigo', 'bg-amber-500');
+                
+                setTimeout(() => {
+                    progress.style.width = '65%';
+                    progress.classList.add('animate-pulse');
+                }, 100);
+                
+                setTimeout(() => {
+                    // Reset button for replayability
+                    icon.textContent = 'bolt';
+                    btnText.textContent = 'Test Købssimulering';
+                    btn.classList.replace('bg-emerald-600', 'bg-deep-indigo');
+                    btn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-900');
+                    btn.classList.remove('opacity-80', 'pointer-events-none');
+                }, 3000);
+            }, 500);
+        }
+        
+        function openThesisModal() {
+            const modal = document.getElementById('thesis-modal');
+            const inner = document.getElementById('thesis-modal-inner');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                inner.classList.remove('scale-95');
+                inner.classList.add('scale-100');
+            }, 10);
+        }
+        
+        function closeThesisModal() {
+            const modal = document.getElementById('thesis-modal');
+            const inner = document.getElementById('thesis-modal-inner');
+            modal.classList.add('opacity-0');
+            inner.classList.remove('scale-100');
+            inner.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body>
+</html>

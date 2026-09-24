@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Profil</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "amber-400": "#FBBF24",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "dark-canvas": "#0b1326",
+                        "dark-card": "#131b2e",
+                        "dark-elevated": "#1c2640",
+                        "dark-border": "#1e293b",
+                        "dark-text": "#f8fafc",
+                        "dark-muted": "#94a3b8"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glow-indigo {
+            box-shadow: 0 10px 25px -5px rgba(49, 46, 129, 0.08), 0 8px 10px -6px rgba(49, 46, 129, 0.04);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+
+    <!-- Dark Mode Init -->
+    <script>
+        if (localStorage.getItem('bi_theme') === 'dark' && localStorage.getItem('bi_is_supporter') === 'true') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-[#f8f9ff] dark:bg-[#161922] dark:text-[#f1f5f9] text-[#0b1c30]">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300 dark:bg-[#11141c] dark:border-[#1e2433]">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                
+                <!-- Theme Switcher -->
+                <button onclick="toggleTheme()" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all group mb-1 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-lg">dark_mode</span>
+                        <span>Mørk Tilstand</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="theme-lock-sidebar" class="text-xs" style="display: none;" title="Kræver Supporter">🔒</span>
+                        <div class="relative inline-flex items-center h-4 rounded-full w-8 transition-colors bg-indigo-900/60 dark:bg-indigo-500" id="theme-switch-bg">
+                            <span class="inline-block w-3 h-3 transform bg-white rounded-full transition-transform translate-x-0.5 dark:translate-x-4" id="theme-switch-knob"></span>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400 dark:bg-amber-950/60 dark:text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl bg-white/10 transition-all group border border-white/20 dark:bg-[#1e2330] dark:border-[#2b3245]">
+                    <div id="sidebar-initials" class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm dark:bg-[#1e2330] dark:border-[#2b3245] dark:text-[#c3c0ff]">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span id="sidebar-name" class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span id="sidebar-badge" class="text-[11px] font-medium flex items-center gap-1 text-amber-400 dark:bg-amber-950/60 dark:text-amber-400">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-full overflow-y-auto">
+        <div class="max-w-[1280px] w-full mx-auto p-6 md:p-8">
+            
+            <!-- Header -->
+            <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h1 class="font-headline-lg text-3xl font-bold text-deep-indigo mb-2 dark:text-[#c3c0ff]">Indstillinger / Profil</h1>
+                    <p class="text-on-surface-variant dark:text-[#94a3b8] font-body-md">Administrer dine personlige oplysninger og din investorrejse.</p>
+                </div>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="flex flex-col lg:flex-row gap-6 mb-6">
+                
+                <!-- Sektion 1: Din Investorprofil & Læringsmål (2/3 width) -->
+                <div class="w-full lg:w-2/3 flex flex-col gap-6">
+                    <div class="bg-white dark:bg-[#1e2330] border border-slate-border dark:border-[#2b3245] rounded-2xl p-6 md:p-8 shadow-sm h-full flex flex-col">
+                        <h2 class="text-xl font-bold font-headline-md text-deep-indigo mb-6 dark:text-[#c3c0ff]">Din Investorprofil & Læringsmål</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="fullName" class="block text-sm font-medium text-on-surface mb-2">Fulde Navn</label>
+                                <input type="text" id="fullName" class="w-full rounded-xl border-slate-border shadow-sm focus:border-deep-indigo focus:ring-deep-indigo sm:text-sm p-3 border dark:border-[#2b3245]">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-on-surface mb-2">E-mail</label>
+                                <input type="email" id="email" class="w-full rounded-xl border-slate-border shadow-sm focus:border-deep-indigo focus:ring-deep-indigo sm:text-sm p-3 border dark:border-[#2b3245]">
+                            </div>
+                        </div>
+
+                        <hr class="border-slate-border mb-6 dark:border-[#2b3245]">
+
+                        <!-- Erfaringsniveau -->
+                        <h3 class="font-semibold text-on-surface mb-3">Erfaringsniveau</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                            <div class="profile-level cursor-pointer bg-white border border-slate-border rounded-xl p-4 hover:bg-slate-50 transition-colors text-center dark:bg-[#1e2330] dark:border-[#2b3245]" data-level="🌱 Helt grøn">
+                                <span class="block text-2xl mb-1">🌱</span>
+                                <span class="font-medium text-sm">Helt grøn</span>
+                            </div>
+                            <div class="profile-level cursor-pointer bg-white border border-slate-border rounded-xl p-4 hover:bg-slate-50 transition-colors text-center dark:bg-[#1e2330] dark:border-[#2b3245]" data-level="📚 Lidt kendskab">
+                                <span class="block text-2xl mb-1">📚</span>
+                                <span class="font-medium text-sm">Lidt kendskab</span>
+                            </div>
+                            <div class="profile-level cursor-pointer bg-white border border-slate-border rounded-xl p-4 hover:bg-slate-50 transition-colors text-center dark:bg-[#1e2330] dark:border-[#2b3245]" data-level="📈 Har handlet lidt">
+                                <span class="block text-2xl mb-1">📈</span>
+                                <span class="font-medium text-sm">Har handlet lidt</span>
+                            </div>
+                        </div>
+
+                        <!-- Demografi & Risiko -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="age" class="block text-sm font-medium text-on-surface mb-2">Alderstrin</label>
+                                <select id="age" class="w-full rounded-xl border-slate-border shadow-sm focus:border-deep-indigo focus:ring-deep-indigo sm:text-sm p-3 border dark:border-[#2b3245]">
+                                    <option value="Under 18 år">Under 18 år</option>
+                                    <option value="18–35 år">18–35 år</option>
+                                    <option value="36–50 år">36–50 år</option>
+                                    <option value="50+ år (Senior/Pension)">50+ år (Senior/Pension)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="risk" class="block text-sm font-medium text-on-surface mb-2">Risikovillighed</label>
+                                <select id="risk" class="w-full rounded-xl border-slate-border shadow-sm focus:border-deep-indigo focus:ring-deep-indigo sm:text-sm p-3 border dark:border-[#2b3245]">
+                                    <option value="Lav">Lav</option>
+                                    <option value="Middel">Middel</option>
+                                    <option value="Høj">Høj</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Mål -->
+                        <div class="mb-8 flex-grow">
+                            <label for="primaryGoal" class="block text-sm font-medium text-on-surface mb-2">Primært Investeringsmål</label>
+                            <select id="primaryGoal" class="w-full rounded-xl border-slate-border shadow-sm focus:border-deep-indigo focus:ring-deep-indigo sm:text-sm p-3 border dark:border-[#2b3245]">
+                                <option value="Pension">Pension</option>
+                                <option value="Opsparing til bolig">Opsparing til bolig</option>
+                                <option value="Lær om aktier">Lær om aktier</option>
+                                <option value="Generel formuepleje">Generel formuepleje</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-end mt-auto">
+                            <button id="btn-save-profile" class="bg-deep-indigo text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-900 transition-colors shadow-sm glow-indigo dark:bg-indigo-600 hover:dark:bg-indigo-500">Gem Ændringer & Opdater Rejseplan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sektion 2: Dit Medlemskab & CFO Finans (1/3 width) -->
+                <div class="w-full lg:w-1/3 flex flex-col gap-6">
+                    
+                    <!-- Membership Card (Dynamic) -->
+                    <div id="membership-card" class="bg-white dark:bg-[#1e2330] border border-slate-border dark:border-[#2b3245] rounded-2xl p-6 shadow-sm flex-grow">
+                        <!-- Indholdet injiceres via JS -->
+                    </div>
+
+                    <!-- Sektion 4: Datasikkerhed (GDPR) -->
+                    <div class="bg-white dark:bg-[#1e2330] border border-slate-border dark:border-[#2b3245] rounded-2xl p-6 shadow-sm">
+                        <h2 class="text-lg font-bold font-headline-md text-deep-indigo mb-4 dark:text-[#c3c0ff]">Datasikkerhed</h2>
+                        
+                        <div class="flex items-start gap-3 mb-6 bg-slate-50 p-4 rounded-xl border border-slate-border dark:border-[#2b3245] dark:bg-[#252b3b] dark:border-[#323b52]">
+                            <span class="material-symbols-outlined text-deep-indigo dark:text-[#c3c0ff]">lock</span>
+                            <div>
+                                <p class="font-medium text-sm text-on-surface">Fortrolighed</p>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8] mt-1">Dine data sælges eller deles aldrig. Alt gemmes lokalt eller sikkert i skyen.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-3">
+                            <button class="w-full bg-white text-deep-indigo border border-slate-border px-4 py-2.5 rounded-xl font-medium text-sm hover:bg-slate-50 transition-colors shadow-sm flex items-center justify-center gap-2 dark:bg-[#1e2330] dark:border-[#2b3245] dark:text-[#c3c0ff]">
+                                <span class="material-symbols-outlined text-sm">download</span> Eksportér Mine Data (JSON)
+                            </button>
+                            <button id="btn-reset-progress" class="w-full text-rose-critical text-sm font-medium hover:bg-rose-50 border border-transparent hover:border-rose-200 py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 dark:bg-rose-950/60 dark:text-rose-400 dark:border-rose-800/40">
+                                <span class="material-symbols-outlined text-sm">warning</span> Nulstil Læringsfremskridt
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sektion 3: Aktiv Rejseplan -->
+            <div class="bg-white dark:bg-[#1e2330] border border-slate-border dark:border-[#2b3245] rounded-2xl p-6 md:p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold font-headline-md text-deep-indigo dark:text-[#c3c0ff]">Din Aktive Rejseplan</h2>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8]">Anbefalede moduler baseret på din profil og mål.</p>
+                    </div>
+                </div>
+
+                <div id="journey-plan" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Kort genereres dynamisk -->
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Elements
+            const elFullName = document.getElementById('fullName');
+            const elEmail = document.getElementById('email');
+            const elAge = document.getElementById('age');
+            const elRisk = document.getElementById('risk');
+            const elPrimaryGoal = document.getElementById('primaryGoal');
+            const levelCards = document.querySelectorAll('.profile-level');
+            const membershipCard = document.getElementById('membership-card');
+            const journeyPlan = document.getElementById('journey-plan');
+            
+            // Sidebar
+            const elSidebarName = document.getElementById('sidebar-name');
+            const elSidebarBadge = document.getElementById('sidebar-badge');
+            const elSidebarInitials = document.getElementById('sidebar-initials');
+
+            // Default State
+            let userProfile = {
+                name: 'Jesper Ferskov',
+                email: 'jesper@example.com',
+                level: '🌱 Helt grøn',
+                age: '18–35 år',
+                risk: 'Middel',
+                goal: 'Lær om aktier'
+            };
+            let isSupporter = true;
+
+            // Load Data
+            function loadData() {
+                const storedName = localStorage.getItem('bi_user_name');
+                const storedProfile = localStorage.getItem('bi_user_profile');
+                const storedSupporter = localStorage.getItem('bi_is_supporter');
+
+                if (storedProfile) {
+                    try {
+                        userProfile = { ...userProfile, ...JSON.parse(storedProfile) };
+                    } catch (e) {}
+                }
+                if (storedName && !storedProfile) {
+                    userProfile.name = storedName;
+                }
+                
+                if (storedSupporter !== null) {
+                    isSupporter = storedSupporter === 'true';
+                }
+
+                populateForm();
+                updateUI();
+            }
+
+            function populateForm() {
+                elFullName.value = userProfile.name || '';
+                elEmail.value = userProfile.email || '';
+                if(userProfile.age) elAge.value = userProfile.age;
+                if(userProfile.risk) elRisk.value = userProfile.risk;
+                if(userProfile.goal) elPrimaryGoal.value = userProfile.goal;
+                
+                updateLevelSelection();
+            }
+
+            function updateLevelSelection() {
+                levelCards.forEach(card => {
+                    if (card.dataset.level === userProfile.level) {
+                        card.classList.add('border-2', 'border-deep-indigo', 'bg-indigo-50/50');
+                        card.classList.remove('border-slate-border');
+                    } else {
+                        card.classList.remove('border-2', 'border-deep-indigo', 'bg-indigo-50/50');
+                        card.classList.add('border-slate-border');
+                    }
+                });
+            }
+
+            // Save Data
+            function saveProfile() {
+                userProfile.name = elFullName.value.trim();
+                userProfile.email = elEmail.value.trim();
+                userProfile.age = elAge.value;
+                userProfile.risk = elRisk.value;
+                userProfile.goal = elPrimaryGoal.value;
+
+                localStorage.setItem('bi_user_profile', JSON.stringify(userProfile));
+                localStorage.setItem('bi_user_name', userProfile.name);
+                
+                updateUI();
+                
+                // Opdater rejseplan med lille animation for feedback
+                journeyPlan.style.opacity = '0.5';
+                setTimeout(() => {
+                    renderJourney();
+                    journeyPlan.style.opacity = '1';
+                }, 300);
+            }
+
+            // Update UI
+            function updateUI() {
+                // 1. Sidebar
+                const name = userProfile.name || 'Bruger';
+                const initials = name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+                
+                if (elSidebarName) elSidebarName.textContent = name;
+                if (elSidebarInitials) elSidebarInitials.textContent = initials;
+                
+                if (elSidebarBadge) {
+                    if (isSupporter) {
+                        elSidebarBadge.innerHTML = '⭐ Supporter';
+                        elSidebarBadge.className = 'text-[11px] font-medium flex items-center gap-1 text-amber-400';
+                    } else {
+                        elSidebarBadge.innerHTML = '🌱 Freemium';
+                        elSidebarBadge.className = 'text-[11px] font-medium flex items-center gap-1 text-emerald-success';
+                    }
+                }
+
+                // 2. Membership Card
+                if (isSupporter) {
+                    membershipCard.className = 'bg-indigo-950 text-white border-2 border-amber-400 rounded-2xl p-6 shadow-md flex-grow flex flex-col';
+                    membershipCard.innerHTML = `
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-lg font-bold font-headline-md">Medlemskab</h2>
+                            <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-2.5 py-1 text-xs font-bold text-amber-300 border border-amber-400/30 dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">
+                                ⭐ Supporter (Aktiv)
+                            </span>
+                        </div>
+                        <div class="space-y-4 mb-6 flex-grow">
+                            <div>
+                                <p class="text-sm text-indigo-200 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">Pris</p>
+                                <p class="font-medium text-lg">29 DKK / mdr</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-indigo-200 mb-2 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">Dine Fordele:</p>
+                                <ul class="text-sm space-y-2">
+                                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-amber-400 text-sm dark:bg-amber-950/60 dark:text-amber-400">check_circle</span> Ubegrænset AI-analyse</li>
+                                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-amber-400 text-sm dark:bg-amber-950/60 dark:text-amber-400">check_circle</span> Dækning af serverdrift</li>
+                                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-amber-400 text-sm dark:bg-amber-950/60 dark:text-amber-400">check_circle</span> Ingen binding</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <button class="w-full bg-amber-400 text-indigo-950 px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-amber-300 transition-colors shadow-sm dark:bg-amber-950/60 dark:text-amber-400">Administrer Støtte</button>
+                            <button class="w-full text-indigo-300 text-sm font-medium hover:text-white transition-colors py-2" onclick="toggleSupporter(false)">Opsig Støtte (Demo)</button>
+                        </div>
+                    `;
+                } else {
+                    membershipCard.className = 'bg-white dark:bg-[#1e2330] border border-slate-border dark:border-[#2b3245] rounded-2xl p-6 shadow-sm flex-grow flex flex-col';
+                    membershipCard.innerHTML = `
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-lg font-bold font-headline-md text-deep-indigo dark:text-[#c3c0ff]">Medlemskab</h2>
+                            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-success border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-400 dark:border-emerald-800/40">
+                                🌱 Freemium (Gratis)
+                            </span>
+                        </div>
+                        <div class="space-y-4 mb-6 flex-grow">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-border dark:border-[#2b3245] dark:bg-[#252b3b] dark:border-[#323b52]">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-on-surface">AI Analyser</span>
+                                    <span class="text-xs font-bold text-on-surface-variant dark:text-[#94a3b8]">2 / 5</span>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-deep-indigo h-2 rounded-full" style="width: 40%"></div>
+                                </div>
+                                <p class="text-xs text-on-surface-variant dark:text-[#94a3b8] mt-2 text-center">Brugt denne måned</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <button class="w-full bg-deep-indigo text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-indigo-900 transition-colors shadow-sm flex items-center justify-center gap-2 dark:bg-indigo-600 hover:dark:bg-indigo-500" onclick="toggleSupporter(true)">
+                                ⭐ Bliv Supporter (29 kr.)
+                            </button>
+                        </div>
+                    `;
+                }
+
+                // 3. Render Journey Plan
+                renderJourney();
+            }
+
+            // Render Recommended Journey (Mock logic based on user profile)
+            function renderJourney() {
+                const modules = [];
+
+                if (userProfile.goal === 'Pension' || userProfile.age === '50+ år (Senior/Pension)') {
+                    modules.push({ title: 'Skatteoptimering (Pension)', icon: 'account_balance', desc: 'Lær at udnytte aktiesparekonto og aldersopsparing.', status: 'not_started' });
+                    modules.push({ title: 'Defensive Udbytteaktier', icon: 'shield', desc: 'Fokus på stabilitet og løbende udbetalinger.', status: 'not_started' });
+                } else {
+                    modules.push({ title: 'Kom Godt I Gang', icon: 'rocket_launch', desc: 'Opret dit første depot og køb din første aktie.', status: 'completed' });
+                    modules.push({ title: 'Forstå ETF\'er', icon: 'pie_chart', desc: 'Byg en bred og sikker portefølje let.', status: 'in_progress' });
+                }
+
+                if (userProfile.risk === 'Høj') {
+                    modules.push({ title: 'Enkeltaktier & Vækst', icon: 'trending_up', desc: 'Hvordan man udvælger selskaber med højt potentiale.', status: 'not_started' });
+                } else {
+                    modules.push({ title: 'Rebalancering', icon: 'sync', desc: 'Hold din risiko nede over tid.', status: 'not_started' });
+                }
+
+                journeyPlan.innerHTML = modules.slice(0,3).map(m => `
+                    <div class="border border-slate-border rounded-xl p-5 hover:shadow-md transition-shadow bg-slate-50 flex flex-col cursor-pointer dark:border-[#2b3245] dark:bg-[#252b3b] dark:border-[#323b52]">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-deep-indigo shadow-sm border border-slate-border dark:bg-[#1e2330] dark:border-[#2b3245] dark:text-[#c3c0ff]">
+                                <span class="material-symbols-outlined text-[20px]">${m.icon}</span>
+                            </div>
+                            ${m.status === 'completed' ? '<span class="material-symbols-outlined text-emerald-success dark:bg-emerald-950/60 dark:text-emerald-400">check_circle</span>' : 
+                              m.status === 'in_progress' ? '<span class="text-xs font-bold text-amber-500 bg-amber-50 px-2 py-1 rounded-md border border-amber-200 dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">I GANG</span>' : 
+                              '<span class="text-xs font-medium text-slate-400">NY</span>'}
+                        </div>
+                        <h3 class="font-bold text-on-surface mb-1">${m.title}</h3>
+                        <p class="text-sm text-on-surface-variant dark:text-[#94a3b8] flex-grow mb-4">${m.desc}</p>
+                        <a href="laer.html" class="text-sm font-semibold text-deep-indigo hover:underline mt-auto flex items-center gap-1 dark:text-[#c3c0ff]">
+                            Gå til lektion <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                `).join('');
+            }
+
+            // Global Helpers for Demo
+            window.toggleSupporter = function(val) {
+                isSupporter = val;
+                localStorage.setItem('bi_is_supporter', val);
+                updateUI();
+            };
+
+            // Event Listeners
+            levelCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    userProfile.level = card.dataset.level;
+                    updateLevelSelection();
+                });
+            });
+
+            document.getElementById('btn-save-profile').addEventListener('click', saveProfile);
+            
+            document.getElementById('btn-reset-progress').addEventListener('click', () => {
+                if(confirm('Er du sikker på, at du vil slette alle lokale data og nulstille din profil?')) {
+                    localStorage.removeItem('bi_user_name');
+                    localStorage.removeItem('bi_user_profile');
+                    localStorage.removeItem('bi_is_supporter');
+                    localStorage.removeItem('bi_cash_balance');
+                    localStorage.removeItem('bi_portfolio_holdings');
+                    
+                    Object.keys(localStorage).forEach(key => {
+                        if (key.startsWith('bi_module_')) {
+                            localStorage.removeItem(key);
+                        }
+                    });
+                    
+                    const toast = document.createElement('div');
+                    toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-4 py-2 rounded-lg shadow-lg z-50 text-sm';
+                    toast.innerText = 'Alle lokale data er slettet. Omdirigerer...';
+                    document.body.appendChild(toast);
+                    
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 500);
+                }
+            });
+
+            // Init
+            loadData();
+        });
+    </script>
+
+    <!-- Theme Toggle Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
+            const themeLock = document.getElementById('theme-lock-sidebar');
+            
+            if (!isSupporter && themeLock) {
+                themeLock.style.display = 'inline-block';
+            }
+        });
+
+        function toggleTheme() {
+            const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
+            if (!isSupporter) {
+                const modal = document.getElementById('supporter-modal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    const modalTitle = modal.querySelector('h4');
+                    if (modalTitle) modalTitle.textContent = "⭐ Dark Mode er eksklusivt for Supporters";
+                } else {
+                    alert("Dark Mode er en eksklusiv funktion for vores Supporters. Støt serverdriften og lås op for mørkt tema med det samme.");
+                }
+                return;
+            }
+
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('bi_theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('bi_theme', 'dark');
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Markeder</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class", theme: {
+                extend: {
+                    colors: {
+                        surface: '#f8f9ff',
+                        'surface-dim': '#cbdbf5',
+                        'surface-bright': '#f8f9ff',
+                        'surface-container-lowest': '#ffffff',
+                        'surface-container-low': '#eff4ff',
+                        'surface-container': '#e5eeff',
+                        'surface-container-high': '#dce9ff',
+                        'surface-container-highest': '#d3e4fe',
+                        'on-surface': '#0b1c30',
+                        'on-surface-variant': '#474651',
+                        'inverse-surface': '#213145',
+                        'inverse-on-surface': '#eaf1ff',
+                        outline: '#777682',
+                        'outline-variant': '#c8c5d3',
+                        'surface-tint': '#5654a8',
+                        primary: '#1a146b',
+                        'on-primary': '#ffffff',
+                        'primary-container': '#312e81',
+                        'on-primary-container': '#9c9af4',
+                        'inverse-primary': '#c3c0ff',
+                        secondary: '#006c49',
+                        'on-secondary': '#ffffff',
+                        'secondary-container': '#6cf8bb',
+                        'on-secondary-container': '#00714d',
+                        tertiary: '#372000',
+                        'on-tertiary': '#ffffff',
+                        'tertiary-container': '#543300',
+                        'on-tertiary-container': '#e49200',
+                        error: '#ba1a1a',
+                        'on-error': '#ffffff',
+                        'error-container': '#ffdad6',
+                        'on-error-container': '#93000a',
+                        background: '#f8f9ff',
+                        'on-background': '#0b1c30',
+                        'slate-surface': '#F8FAFC',
+                        'slate-border': '#E2E8F0',
+                        'deep-indigo': '#312E81',
+                        'emerald-success': '#059669',
+                        'rose-critical': '#E11D48'
+                    },
+                    fontFamily: {
+                        metric: ['"IBM Plex Sans"', 'sans-serif'],
+                        headline: ['"IBM Plex Sans"', 'sans-serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                        label: ['"Inter"', 'sans-serif'],
+                    },
+                    spacing: {
+                        'container-max': '1280px',
+                        'gutter': '1.5rem',
+                    },
+                    boxShadow: {
+                        'none': 'none',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glow-indigo {
+            box-shadow: 0 10px 25px -5px rgba(49, 46, 129, 0.08), 0 8px 10px -6px rgba(49, 46, 129, 0.04);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .bento-card {
+                @apply bg-surface-container-lowest border border-slate-border rounded-xl p-6;
+            }
+        }
+        body {
+            @apply font-body text-on-surface bg-background;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-headline;
+        }
+    </style>
+
+    <!-- Dark Mode Init -->
+    <script>
+        if (localStorage.getItem('bi_theme') === 'dark' && localStorage.getItem('bi_is_supporter') === 'true') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-[#f8f9ff] dark:bg-[#161922] dark:text-[#f1f5f9] text-[#0b1c30]">
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300 dark:bg-[#11141c] dark:border-[#1e2433]">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start bg-indigo-900/60 text-white font-semibold shadow-sm dark:bg-[#1e2433] dark:text-white">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                
+                <!-- Theme Switcher -->
+                <button onclick="toggleTheme()" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all group mb-1 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-lg">dark_mode</span>
+                        <span>Mørk Tilstand</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="theme-lock-sidebar" class="text-xs" style="display: none;" title="Kræver Supporter">🔒</span>
+                        <div class="relative inline-flex items-center h-4 rounded-full w-8 transition-colors bg-indigo-900/60 dark:bg-indigo-500" id="theme-switch-bg">
+                            <span class="inline-block w-3 h-3 transform bg-white rounded-full transition-transform translate-x-0.5 dark:translate-x-4" id="theme-switch-knob"></span>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol (Kun 1 instans) -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400 dark:bg-amber-950/60 dark:text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-800/40">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar (Eneansvarlig for profil.html) -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group dark:bg-[#1e2330] dark:border-[#2b3245]">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm dark:bg-[#1e2330] dark:border-[#2b3245] dark:text-[#c3c0ff]">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/30 rounded px-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+            const elName = document.getElementById('sidebar-name');
+            
+            
+            
+            
+        });
+    </script>
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative dark:bg-[#161922]">
+        <div class="p-4 md:p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-6">
+            
+        
+        <!-- Hero / Header -->
+        <header class="max-w-3xl space-y-4">
+            <h1 class="text-4xl md:text-5xl text-on-surface leading-tight font-semibold">
+                Markeder: Få overblik uden støj
+            </h1>
+            <p class="text-body-lg text-on-surface-variant dark:text-[#94a3b8]">
+                Se de mest populære aktier, filtrer på det der betyder noget for dig, og find roen i et uoverskueligt marked. Vi viser dig kun de data, der rent faktisk hjælper din beslutning.
+            </p>
+        </header>
+
+        <!-- Dagens Overblik som banner -->
+        <div class="border border-slate-border bg-white rounded-2xl p-5 mb-2 dark:bg-[#1e2330] dark:border-[#2b3245]">
+            <div class="flex items-center gap-2 mb-4 text-deep-indigo dark:text-[#c3c0ff]">
+                <span class="material-symbols-outlined text-lg">lightbulb</span>
+                <h3 class="font-bold text-xs uppercase tracking-wider">Dagens Overblik</h3>
+            </div>
+            <p class="text-slate-700 text-sm leading-relaxed">
+                Markedet er præget af regnskabssæsonen i USA. Store tech-selskaber har leveret pæne tal, hvilket løfter humøret. Herhjemme er der stille og roligt. Hold øje med dine mere risikable vækstaktier – de kan svinge lidt ekstra i dag.
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-8">
+            
+            <!-- Main Content (Left Col) -->
+            <div class="flex-1 space-y-6 min-w-0">
+                
+                <!-- Filtrering / Tabs -->
+                <div class="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
+                    <button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label text-sm font-bold whitespace-nowrap">Alle</button>
+                    <button class="bg-surface-container-lowest border border-slate-border text-on-surface-variant dark:text-[#94a3b8] hover:bg-surface-container-low px-4 py-2 rounded-full font-label text-sm font-medium transition-colors whitespace-nowrap dark:border-[#2b3245]">Danske C25</button>
+                    <button class="bg-surface-container-lowest border border-slate-border text-on-surface-variant dark:text-[#94a3b8] hover:bg-surface-container-low px-4 py-2 rounded-full font-label text-sm font-medium transition-colors whitespace-nowrap dark:border-[#2b3245]">Globale Vækst</button>
+                    <button class="bg-surface-container-lowest border border-slate-border text-on-surface-variant dark:text-[#94a3b8] hover:bg-surface-container-low px-4 py-2 rounded-full font-label text-sm font-medium transition-colors whitespace-nowrap dark:border-[#2b3245]">Udbytteaktier</button>
+                </div>
+
+                <!-- Markeds-tabel / Aktieliste -->
+                <div class="bento-card overflow-hidden !p-0">
+                    <div class="overflow-x-auto sm:overflow-visible">
+                        <table class="w-full table-fixed text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-border bg-surface-container-low text-[10px] font-bold text-on-surface-variant dark:text-[#94a3b8] uppercase tracking-wider dark:border-[#2b3245]">
+                                    <th class="p-3 md:p-4 font-semibold w-[35%]">Aktie</th>
+                                    <th class="p-3 md:p-4 font-semibold w-[20%] hidden sm:table-cell">Sektor</th>
+                                    <th class="p-3 md:p-4 font-semibold w-[15%]">Kurs</th>
+                                    <th class="p-3 md:p-4 font-semibold w-[15%]">Dagsændring</th>
+                                    <th class="p-3 md:p-4 font-semibold text-center w-[15%]">Handling</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-border">
+                                
+                                <!-- Novo Nordisk -->
+                                <tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+                                    <td class="p-3 md:p-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-sm shrink-0">NO</div>
+                                            <div>
+                                                <div class="font-semibold text-on-surface group-hover:text-primary transition-colors">Novo Nordisk B</div>
+                                                <div class="text-xs text-on-surface-variant dark:text-[#94a3b8]">NOVO-B.CO</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm text-on-surface-variant dark:text-[#94a3b8] hidden sm:table-cell truncate">Sundhed</td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm font-metric truncate">875,20 DKK</td>
+                                    <td class="p-3 md:p-4">
+                                        <div class="inline-flex items-center gap-1 bg-emerald-success/10 text-emerald-success px-2 py-1 rounded font-label text-sm font-medium dark:bg-emerald-950/60 dark:text-emerald-400">
+                                            <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                            1,2%
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="p-3 md:p-4 text-center">
+                                        <button onclick="simulerKoeb('Novo Nordisk B', 'novo')" class="bg-deep-indigo text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity dark:bg-indigo-600 hover:dark:bg-indigo-500">Simulér Køb</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Volvo Car -->
+                                <tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+                                    <td class="p-3 md:p-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-sm shrink-0">VO</div>
+                                            <div>
+                                                <div class="font-semibold text-on-surface group-hover:text-primary transition-colors">Volvo Car AB</div>
+                                                <div class="text-xs text-on-surface-variant dark:text-[#94a3b8]">VOLCAR-B.ST</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm text-on-surface-variant dark:text-[#94a3b8] hidden sm:table-cell truncate">Industri / Auto</td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm font-metric truncate">32,45 SEK</td>
+                                    <td class="p-3 md:p-4">
+                                        <div class="inline-flex items-center gap-1 bg-rose-critical/10 text-rose-critical px-2 py-1 rounded font-label text-sm font-medium dark:bg-rose-950/60 dark:text-rose-400">
+                                            <span class="material-symbols-outlined text-sm">arrow_downward</span>
+                                            0,8%
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="p-3 md:p-4 text-center">
+                                        <button onclick="simulerKoeb('Volvo Car AB', 'volvo')" class="bg-deep-indigo text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity dark:bg-indigo-600 hover:dark:bg-indigo-500">Simulér Køb</button>
+                                    </td>
+                                </tr>
+
+                                <!-- ASML -->
+                                <tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+                                    <td class="p-3 md:p-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-sm shrink-0">AS</div>
+                                            <div>
+                                                <div class="font-semibold text-on-surface group-hover:text-primary transition-colors">ASML Holding</div>
+                                                <div class="text-xs text-on-surface-variant dark:text-[#94a3b8]">ASML.AS</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm text-on-surface-variant dark:text-[#94a3b8] hidden sm:table-cell truncate">Teknologi</td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm font-metric truncate">845,10 EUR</td>
+                                    <td class="p-3 md:p-4">
+                                        <div class="inline-flex items-center gap-1 bg-emerald-success/10 text-emerald-success px-2 py-1 rounded font-label text-sm font-medium dark:bg-emerald-950/60 dark:text-emerald-400">
+                                            <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                            2,4%
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="p-3 md:p-4 text-center">
+                                        <button onclick="simulerKoeb('ASML Holding', 'asml')" class="bg-deep-indigo text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity dark:bg-indigo-600 hover:dark:bg-indigo-500">Simulér Køb</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Microsoft -->
+                                <tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+                                    <td class="p-3 md:p-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-sm shrink-0">MS</div>
+                                            <div>
+                                                <div class="font-semibold text-on-surface group-hover:text-primary transition-colors">Microsoft Corp.</div>
+                                                <div class="text-xs text-on-surface-variant dark:text-[#94a3b8]">MSFT</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm text-on-surface-variant dark:text-[#94a3b8] hidden sm:table-cell truncate">Teknologi</td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm font-metric truncate">415,32 USD</td>
+                                    <td class="p-3 md:p-4">
+                                        <div class="inline-flex items-center gap-1 bg-emerald-success/10 text-emerald-success px-2 py-1 rounded font-label text-sm font-medium dark:bg-emerald-950/60 dark:text-emerald-400">
+                                            <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                            0,5%
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="p-3 md:p-4 text-center">
+                                        <button onclick="simulerKoeb('Microsoft Corp.', 'msft')" class="bg-deep-indigo text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity dark:bg-indigo-600 hover:dark:bg-indigo-500">Simulér Køb</button>
+                                    </td>
+                                </tr>
+
+                                <!-- DSV -->
+                                <tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+                                    <td class="p-3 md:p-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-sm shrink-0">DS</div>
+                                            <div>
+                                                <div class="font-semibold text-on-surface group-hover:text-primary transition-colors">DSV A/S</div>
+                                                <div class="text-xs text-on-surface-variant dark:text-[#94a3b8]">DSV.CO</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm text-on-surface-variant dark:text-[#94a3b8] hidden sm:table-cell truncate">Transport</td>
+                                    <td class="p-3 md:p-4 text-xs md:text-sm font-metric truncate">1.045,50 DKK</td>
+                                    <td class="p-3 md:p-4">
+                                        <div class="inline-flex items-center gap-1 bg-rose-critical/10 text-rose-critical px-2 py-1 rounded font-label text-sm font-medium dark:bg-rose-950/60 dark:text-rose-400">
+                                            <span class="material-symbols-outlined text-sm">arrow_downward</span>
+                                            1,1%
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="p-3 md:p-4 text-center">
+                                        <button onclick="simulerKoeb('DSV A/S', 'dsv')" class="bg-deep-indigo text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity dark:bg-indigo-600 hover:dark:bg-indigo-500">Simulér Køb</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    
+        </div>
+    </main>
+    
+
+    <script>
+        function simulerKoeb(navn, id) {
+            // Sæt karantæne i localStorage
+            const now = new Date().getTime();
+            const quarantineEnd = now + (48 * 60 * 60 * 1000); // 48 timer frem
+            
+            let orders = JSON.parse(localStorage.getItem('bi_pending_orders') || '[]');
+            orders.push({
+                assetName: navn,
+                assetId: id,
+                timestamp: now,
+                quarantineEnd: quarantineEnd
+            });
+            localStorage.setItem('bi_pending_orders', JSON.stringify(orders));
+            
+            // Vis toast
+            const toast = document.getElementById('toast-banner');
+            toast.querySelector('#toast-msg').textContent = `Købsordre på ${navn} er sendt til 48-timers karantæne.`;
+            toast.classList.remove('translate-y-full', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-full', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+
+    <!-- Custom Toast Banner -->
+    <div id="toast-banner" class="fixed bottom-6 left-1/2 -translate-x-1/2 transform translate-y-full opacity-0 transition-all duration-300 z-50 flex items-center gap-3 bg-white border border-slate-border shadow-lg rounded-xl px-5 py-3 dark:bg-[#1e2330] dark:border-[#2b3245]">
+        <div class="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0 dark:bg-amber-950/60 dark:text-amber-400">
+            <span class="material-symbols-outlined text-amber-600 text-sm font-bold dark:bg-amber-950/60 dark:text-amber-400">hourglass_empty</span>
+        </div>
+        <p id="toast-msg" class="text-sm font-medium text-on-background dark:text-[#f8fafc]">Købsordre er sendt til karantæne.</p>
+    </div>
+
+    <!-- Theme Toggle Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
+            const themeLock = document.getElementById('theme-lock-sidebar');
+            
+            if (!isSupporter && themeLock) {
+                themeLock.style.display = 'inline-block';
+            }
+        });
+
+        function toggleTheme() {
+            const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
+            if (!isSupporter) {
+                const modal = document.getElementById('supporter-modal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    const modalTitle = modal.querySelector('h4');
+                    if (modalTitle) modalTitle.textContent = "⭐ Dark Mode er eksklusivt for Supporters";
+                } else {
+                    alert("Dark Mode er en eksklusiv funktion for vores Supporters. Støt serverdriften og lås op for mørkt tema med det samme.");
+                }
+                return;
+            }
+
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('bi_theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('bi_theme', 'dark');
+            }
+        }
+    </script>
+
+    
+<script src="ai-assistant.js"></script>
+</body>
+</html>

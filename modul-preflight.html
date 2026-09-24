@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Pre-Flight Tjeklisten</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "amber-warning": "#F59E0B",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-background">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start bg-indigo-900/60 text-white font-semibold shadow-sm">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol (Kun 1 instans) -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar (Eneansvarlig for profil.html) -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+            const elName = document.getElementById('sidebar-name');
+            
+            
+            
+            
+        });
+    </script>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative">
+        <div class="p-4 md:p-8 max-w-[900px] w-full mx-auto flex flex-col gap-8">
+            
+            <!-- Breadcrumb & Badge -->
+            <div>
+                <a href="laer.html" class="inline-flex items-center text-sm font-medium text-deep-indigo hover:underline mb-6">
+                    <span class="material-symbols-outlined text-[16px] mr-1">arrow_back</span>
+                    Tilbage til Læringsakademiet
+                </a>
+                
+                <div class="inline-block bg-indigo-50 border border-indigo-200 text-deep-indigo text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4 shadow-sm">
+                    SPOR 3: MENTAL DISCIPLIN & MARKEDSPSYKOLOGI • ⏱️ 6 minutter • Interaktiv portvogter
+                </div>
+
+                <h1 class="font-headline-lg font-bold text-3xl text-deep-indigo mb-4">
+                    Pre-Flight Tjeklisten: Den obligatoriske portvogter
+                </h1>
+                
+                <p class="font-body-lg text-on-surface-variant leading-relaxed text-lg">
+                    Flypiloter letter aldrig uden en tjekliste – uanset hvor erfarne de er. På aktiemarkedet er Pre-Flight tjeklisten dit faste sikkerhedsnet, der forhindrer følelsesmæssige impulshandler og sikrer, at hver eneste investering følger din strategi.
+                </p>
+            </div>
+
+            <!-- De 4 Obligatoriske Sikkerhedstjek -->
+            <section class="bg-white rounded-2xl border border-slate-border p-6 shadow-sm">
+                <h2 class="font-headline-md font-bold text-xl text-deep-indigo mb-6">De 4 Obligatoriske Sikkerhedstjek</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Tjek 1 -->
+                    <div class="bg-slate-surface border border-slate-border rounded-xl p-5 hover:border-indigo-300 transition-colors flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-indigo-100 text-deep-indigo flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">pie_chart</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-on-background mb-1">Tjek 1: Allokerings-tjek</h3>
+                            <p class="text-sm text-on-surface-variant font-medium mb-1">Er 80/20 balancen overholdt?</p>
+                            <p class="text-sm text-on-surface-variant"><strong>Formål:</strong> Sikre at satellit-positioner aldrig overskrider 20% af din samlede portefølje.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tjek 2 -->
+                    <div class="bg-slate-surface border border-slate-border rounded-xl p-5 hover:border-indigo-300 transition-colors flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-indigo-100 text-deep-indigo flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">castle</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-on-background mb-1">Tjek 2: Voldgravs-tjek</h3>
+                            <p class="text-sm text-on-surface-variant font-medium mb-1">Har selskabet en Moat?</p>
+                            <p class="text-sm text-on-surface-variant"><strong>Formål:</strong> Bekræfte at virksomheden har en reel konkurrencefordel (patenter, skifteomk. eller brand).</p>
+                        </div>
+                    </div>
+
+                    <!-- Tjek 3 -->
+                    <div class="bg-slate-surface border border-slate-border rounded-xl p-5 hover:border-indigo-300 transition-colors flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-indigo-100 text-deep-indigo flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">price_change</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-on-background mb-1">Tjek 3: Pris- & Værdiansættelsestjek</h3>
+                            <p class="text-sm text-on-surface-variant font-medium mb-1">Er P/E-tallet rimeligt?</p>
+                            <p class="text-sm text-on-surface-variant"><strong>Formål:</strong> Sammenligne prisen med historisk niveau og branchekonkurrenter.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tjek 4 -->
+                    <div class="bg-slate-surface border border-slate-border rounded-xl p-5 hover:border-indigo-300 transition-colors flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-indigo-100 text-deep-indigo flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">hourglass_empty</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-on-background mb-1">Tjek 4: 48-Timers Karantæne</h3>
+                            <p class="text-sm text-on-surface-variant font-medium mb-1">Er pulsen faldet til ro?</p>
+                            <p class="text-sm text-on-surface-variant"><strong>Formål:</strong> Sikre at købet er baseret på analyse frem for FOMO eller nyhedshype.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interaktiv Simulator -->
+            <section class="bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm">
+                <h2 class="font-headline-md font-bold text-xl text-deep-indigo mb-2">Prøv det i praksis: Godkend en aktiecase til takeoff</h2>
+                <p class="text-sm text-on-surface-variant mb-6">Udfyld tjeklisten for den valgte case og se, om den godkendes.</p>
+
+                <div class="mb-6 flex flex-wrap gap-2">
+                    <button class="sim-case-btn px-4 py-2 rounded-lg border border-slate-border hover:bg-slate-50 transition-colors text-sm font-semibold active-case bg-indigo-50 border-deep-indigo text-deep-indigo" data-case="novo">Novo Nordisk B</button>
+                    <button class="sim-case-btn px-4 py-2 rounded-lg border border-slate-border hover:bg-slate-50 transition-colors text-sm font-semibold" data-case="apple">Apple Inc.</button>
+                    <button class="sim-case-btn px-4 py-2 rounded-lg border border-slate-border hover:bg-slate-50 transition-colors text-sm font-semibold" data-case="impuls">Impuls-aktie (uden analyse)</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Venstre: Tjekliste -->
+                    <div class="flex flex-col gap-3">
+                        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-border hover:bg-slate-50 cursor-pointer transition-colors group bg-white">
+                            <div class="mt-0.5">
+                                <input type="checkbox" class="flight-check w-5 h-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 cursor-pointer"/>
+                            </div>
+                            <span class="text-sm font-medium text-on-background group-hover:text-deep-indigo transition-colors select-none">1. Core-Satellite balance intakt (Maks 20% i satellit).</span>
+                        </label>
+                        
+                        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-border hover:bg-slate-50 cursor-pointer transition-colors group bg-white">
+                            <div class="mt-0.5">
+                                <input type="checkbox" class="flight-check w-5 h-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 cursor-pointer"/>
+                            </div>
+                            <span class="text-sm font-medium text-on-background group-hover:text-deep-indigo transition-colors select-none">2. Økonomisk voldgrav identificeret og dokumenteret.</span>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-border hover:bg-slate-50 cursor-pointer transition-colors group bg-white">
+                            <div class="mt-0.5">
+                                <input type="checkbox" class="flight-check w-5 h-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 cursor-pointer"/>
+                            </div>
+                            <span class="text-sm font-medium text-on-background group-hover:text-deep-indigo transition-colors select-none">3. P/E og nøgletal vurderet i forhold til vækst.</span>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-border hover:bg-slate-50 cursor-pointer transition-colors group bg-white">
+                            <div class="mt-0.5">
+                                <input type="checkbox" class="flight-check w-5 h-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 cursor-pointer"/>
+                            </div>
+                            <span class="text-sm font-medium text-on-background group-hover:text-deep-indigo transition-colors select-none">4. 48 timers karantæne gennemført uden panik.</span>
+                        </label>
+                    </div>
+
+                    <!-- Højre: Flight Status -->
+                    <div class="flex flex-col h-full">
+                        <h3 class="font-semibold text-sm text-on-background uppercase tracking-wide mb-3">Flight Status</h3>
+                        
+                        <div id="flight-status-box" class="h-full rounded-xl border p-6 flex flex-col items-center justify-center text-center transition-all bg-rose-critical/10 border-rose-critical/20 text-rose-critical">
+                            <span id="flight-icon" class="material-symbols-outlined text-4xl mb-3">cancel</span>
+                            <p id="flight-status-title" class="font-bold text-lg mb-2">⛔ Flight Denied</p>
+                            <p id="flight-status-text" class="text-sm font-medium">Mangelfuld analyse. Risikoen for fejlbeslutning er for høj.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Refleksions-Tjekliste -->
+            <section class="bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-deep-indigo shrink-0">
+                        <span class="material-symbols-outlined">fact_check</span>
+                    </div>
+                    <div>
+                        <h2 class="font-headline-md font-bold text-xl text-deep-indigo">Refleksions-tjekliste</h2>
+                        <p class="text-sm text-on-surface-variant">Bekræft at du forstår principperne før du går videre.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-border hover:bg-slate-50 cursor-pointer transition-colors group">
+                        <div class="mt-0.5">
+                            <input type="checkbox" class="reflection-check w-5 h-5 rounded border-gray-300 text-emerald-success focus:ring-emerald-success cursor-pointer"/>
+                        </div>
+                        <span class="text-on-background group-hover:text-deep-indigo transition-colors select-none">Jeg forpligter mig til aldrig at placere en satellit-ordre uden en gennemført Pre-Flight tjekliste.</span>
+                    </label>
+                    
+                    <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-border hover:bg-slate-50 cursor-pointer transition-colors group">
+                        <div class="mt-0.5">
+                            <input type="checkbox" class="reflection-check w-5 h-5 rounded border-gray-300 text-emerald-success focus:ring-emerald-success cursor-pointer"/>
+                        </div>
+                        <span class="text-on-background group-hover:text-deep-indigo transition-colors select-none">Jeg forstår, at disciplin og systematik beskytter min formue mod unødige impulstab.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-border hover:bg-slate-50 cursor-pointer transition-colors group">
+                        <div class="mt-0.5">
+                            <input type="checkbox" class="reflection-check w-5 h-5 rounded border-gray-300 text-emerald-success focus:ring-emerald-success cursor-pointer"/>
+                        </div>
+                        <span class="text-on-background group-hover:text-deep-indigo transition-colors select-none">Jeg bruger 48 timers karantænen som en naturlig del af min godkendelsesproces.</span>
+                    </label>
+                </div>
+                
+                <div class="mt-8 flex justify-end">
+                    <button id="complete-preflight-btn" disabled class="bg-deep-indigo text-white font-semibold py-3 px-6 rounded-lg hover:bg-indigo-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-sm">
+                        <span class="material-symbols-outlined">task_alt</span>
+                        Gennemfør Modul & Gem Fremskridt
+                    </button>
+                </div>
+            </section>
+            
+            <footer class="mt-8 pt-6 border-t border-slate-border text-center pb-8">
+                <p class="text-xs text-on-surface-variant flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-[14px]">info</span>
+                    Denne platform er udelukkende til uddannelses- og simuleringsformål. Indholdet udgør ikke finansiel rådgivning.
+                </p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="completion-modal" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden flex flex-col p-8 text-center items-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-success/10 flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-emerald-success text-3xl font-bold">workspace_premium</span>
+            </div>
+            <h3 class="font-headline-md text-2xl font-bold text-deep-indigo mb-2">Lektion gennemført!</h3>
+            <p class="text-on-surface-variant text-sm mb-8">Dit overblik er opdateret. Du er nu udstyret med din egen portvogter mod dårlige investeringer.</p>
+            
+            <div class="flex flex-col gap-3 w-full">
+                <a href="laer.html" class="w-full bg-deep-indigo text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity">
+                    Tilbage til Læringsakademiet
+                </a>
+                <a href="analyse.html" class="w-full bg-white border border-slate-border text-on-surface-variant font-medium py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                    Gå til Min Analyse
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Toast Banner for short notification -->
+    <div id="toast-banner" class="fixed bottom-6 left-1/2 -translate-x-1/2 transform translate-y-full opacity-0 transition-all duration-300 z-50 flex items-center gap-3 bg-white border border-slate-border shadow-lg rounded-xl px-5 py-3 pointer-events-none">
+        <div class="w-8 h-8 rounded-full bg-emerald-success/10 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-emerald-success text-sm font-bold">check</span>
+        </div>
+        <p class="text-sm font-medium text-on-background">Lektion gennemført! Dit overblik er opdateret.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sidebar user name
+            const userName = localStorage.getItem('bi_user_name') || 'Alex';
+            document.getElementById('sidebar-name').textContent = userName;
+            if(userName && userName.length > 0) {
+                document.getElementById('sidebar-initials').textContent = userName.substring(0,2).toUpperCase();
+            }
+
+            // Case Selection Logic
+            const caseBtns = document.querySelectorAll('.sim-case-btn');
+            const flightChecks = document.querySelectorAll('.flight-check');
+            
+            caseBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    caseBtns.forEach(b => {
+                        b.classList.remove('bg-indigo-50', 'border-deep-indigo', 'text-deep-indigo', 'active-case');
+                    });
+                    btn.classList.add('bg-indigo-50', 'border-deep-indigo', 'text-deep-indigo', 'active-case');
+                    
+                    // Reset checks
+                    flightChecks.forEach(cb => cb.checked = false);
+                    updateFlightStatus();
+                });
+            });
+
+            // Simulator Flight Status Logic
+            const flightStatusBox = document.getElementById('flight-status-box');
+            const flightIcon = document.getElementById('flight-icon');
+            const flightStatusTitle = document.getElementById('flight-status-title');
+            const flightStatusText = document.getElementById('flight-status-text');
+
+            const updateFlightStatus = () => {
+                const checkedCount = Array.from(flightChecks).filter(cb => cb.checked).length;
+                
+                if (checkedCount <= 2) {
+                    flightStatusBox.className = 'h-full rounded-xl border p-6 flex flex-col items-center justify-center text-center transition-all bg-rose-critical/10 border-rose-critical/20 text-rose-critical';
+                    flightIcon.textContent = 'cancel';
+                    flightStatusTitle.textContent = '⛔ Flight Denied';
+                    flightStatusText.textContent = 'Mangelfuld analyse. Risikoen for fejlbeslutning er for høj.';
+                } else if (checkedCount === 3) {
+                    flightStatusBox.className = 'h-full rounded-xl border p-6 flex flex-col items-center justify-center text-center transition-all bg-amber-warning/10 border-amber-warning/20 text-amber-600';
+                    flightIcon.textContent = 'warning';
+                    flightStatusTitle.textContent = '⚠️ Flight Warning';
+                    flightStatusText.textContent = 'Ét kontrolpunkt mangler. Gennemfør det sidste tjek før handel.';
+                } else if (checkedCount === 4) {
+                    flightStatusBox.className = 'h-full rounded-xl border p-6 flex flex-col items-center justify-center text-center transition-all bg-emerald-success/10 border-emerald-success/20 text-emerald-success';
+                    flightIcon.textContent = 'flight_takeoff';
+                    flightStatusTitle.textContent = '🛫 Flight Cleared';
+                    flightStatusText.textContent = 'Alle systemer godkendt. Aktien er klar til din simulerede satellit-portefølje.';
+                }
+            };
+
+            flightChecks.forEach(cb => cb.addEventListener('change', updateFlightStatus));
+
+            // Completion Logic
+            const reflectionChecks = document.querySelectorAll('.reflection-check');
+            const completeBtn = document.getElementById('complete-preflight-btn');
+            
+            const checkCompletion = () => {
+                const allChecked = Array.from(reflectionChecks).every(cb => cb.checked);
+                completeBtn.disabled = !allChecked;
+            };
+            
+            reflectionChecks.forEach(cb => cb.addEventListener('change', checkCompletion));
+            
+            completeBtn.addEventListener('click', () => {
+                localStorage.setItem('bi_module_preflight_completed', 'true');
+                
+                const toast = document.getElementById('toast-banner');
+                toast.classList.remove('translate-y-full', 'opacity-0');
+                
+                setTimeout(() => {
+                    toast.classList.add('translate-y-full', 'opacity-0');
+                    document.getElementById('completion-modal').classList.remove('hidden');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

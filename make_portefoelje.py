@@ -1,0 +1,273 @@
+import re
+
+with open('dashboard.html', 'r') as f:
+    content = f.read()
+
+# Extract the header/sidebar/footer structure
+head_end = content.find('</head>')
+body_start = content.find('<body')
+sidebar_start = content.find('<!-- Left Sidebar')
+main_start = content.find('<!-- Main Content Area')
+
+header_content = content[:main_start]
+
+# We need to change the active class in the sidebar for portefoelje.html
+# Dashboard goes from active to inactive
+header_content = header_content.replace(
+    '''<a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-indigo-500/30 text-white font-medium border border-indigo-400/30 transition-colors justify-center md:justify-start">''',
+    '''<a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-indigo-200 hover:bg-white/10 hover:text-white transition-colors justify-center md:justify-start">'''
+)
+# Min Portefølje goes from inactive to active
+header_content = header_content.replace(
+    '''<a href="portefoelje.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-indigo-200 hover:bg-white/10 hover:text-white transition-colors justify-center md:justify-start">''',
+    '''<a href="portefoelje.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-indigo-500/30 text-white font-medium border border-indigo-400/30 transition-colors justify-center md:justify-start">'''
+)
+
+main_content = """
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative">
+        <div class="p-4 md:p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-6">
+            
+            <!-- Hero Header -->
+            <div class="bg-white rounded-2xl border border-slate-border p-6 md:p-8 flex flex-col justify-center items-start shadow-sm relative overflow-hidden">
+                <div class="flex items-center gap-3 mb-3 relative z-10">
+                    <span class="bg-indigo-100 text-deep-indigo text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Fiktivt Øve-Miljø • 50.000 kr. Startkapital</span>
+                </div>
+                <h1 class="text-3xl font-bold font-headline-lg text-deep-indigo mb-2 relative z-10">
+                    Min Simulerede Portefølje
+                </h1>
+                <p class="text-on-surface-variant text-base max-w-2xl relative z-10 leading-relaxed">
+                    Følg dine simulerede investeringer, overvåg 80/20 Core-Satellite balancen og praktisér systematisk rebalancering.
+                </p>
+                <div class="absolute right-0 top-0 opacity-5 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+                    <span class="material-symbols-outlined" style="font-size: 200px;">pie_chart</span>
+                </div>
+            </div>
+
+            <!-- Hovedtal Bento (3 kasser) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Kasse 1: Samlet Værdi -->
+                <div class="bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col">
+                    <p class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Samlet Værdi</p>
+                    <div class="flex items-end gap-3 mb-1">
+                        <h2 class="text-3xl font-bold text-deep-indigo" id="port-total-value">50.000,00 DKK</h2>
+                    </div>
+                    <p class="text-sm font-bold text-emerald-600">+1,8% / +900 DKK i dag</p>
+                </div>
+                
+                <!-- Kasse 2: Kontant Beholdning -->
+                <div class="bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col">
+                    <p class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Kontant Beholdning</p>
+                    <div class="flex items-end gap-3 mb-1">
+                        <h2 class="text-3xl font-bold text-deep-indigo" id="port-cash-value">7.500,00 DKK</h2>
+                    </div>
+                    <p class="text-sm text-on-surface-variant">Klar til investering</p>
+                </div>
+                
+                <!-- Kasse 3: Strategisk Allokering -->
+                <div class="bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col justify-center">
+                    <p class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Strategisk Allokering</p>
+                    <h3 class="text-xl font-bold text-deep-indigo mb-3" id="port-alloc-text">85% Core / 15% Satellit</h3>
+                    <div class="w-full h-4 bg-slate-100 rounded-full flex overflow-hidden">
+                        <div class="bg-deep-indigo h-full transition-all duration-500" id="port-alloc-core" style="width: 85%;"></div>
+                        <div class="bg-emerald-500 h-full transition-all duration-500" id="port-alloc-sat" style="width: 15%;"></div>
+                    </div>
+                    <div class="flex justify-between text-xs font-semibold text-on-surface-variant mt-2">
+                        <span>Mål: 80%</span>
+                        <span>Mål: 20%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Positionstabel -->
+            <div class="bg-white rounded-2xl border border-slate-border shadow-sm overflow-hidden flex flex-col">
+                <div class="p-6 border-b border-slate-border">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo">Dine Positioner</h2>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-border text-xs uppercase tracking-wider font-semibold text-on-surface-variant">
+                                <th class="p-4 pl-6">Aktiv / Ticker</th>
+                                <th class="p-4">Type</th>
+                                <th class="p-4 text-right">Kurs / Værdi (DKK)</th>
+                                <th class="p-4 text-right">Vægtning (%)</th>
+                                <th class="p-4 text-right">Urealiseret Afkast</th>
+                                <th class="p-4 text-center pr-6">Handling</th>
+                            </tr>
+                        </thead>
+                        <tbody id="port-holdings-table" class="divide-y divide-slate-border">
+                            <!-- Dynamic rows injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Rebalancerings-Simulator -->
+            <div class="bg-gradient-to-br from-[#1e1b4b] to-[#312E81] rounded-2xl border border-deep-indigo p-6 shadow-md text-white flex flex-col md:flex-row items-center gap-6 relative overflow-hidden">
+                <div class="flex-1 z-10 relative">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="material-symbols-outlined text-amber-400">balance</span>
+                        <h2 class="font-headline-md text-xl font-semibold">Rebalancerings-Simulator</h2>
+                    </div>
+                    <p class="text-sm text-indigo-200 mb-4 max-w-xl">
+                        Afprøv opadgående rebalancering (uden skat). Tilfør fiktiv opsparing og se hvordan indskuddet i Core eller Satellit påvirker din 80/20 balance.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="number" id="sim-amount" placeholder="Tilfør fiktiv opsparing (f.eks. 2500)" class="px-4 py-2 rounded-lg text-on-background w-full sm:w-64 border-0 focus:ring-2 focus:ring-amber-400">
+                        <button onclick="simulateRebalance()" class="bg-amber-400 text-deep-indigo font-bold px-6 py-2 rounded-lg hover:bg-amber-300 transition-colors shadow-sm whitespace-nowrap">
+                            Simulér Indskud
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 z-10 relative">
+                    <p class="text-xs font-semibold text-indigo-200 uppercase tracking-wider mb-2">Ny Allokering (Simuleret)</p>
+                    <h3 class="text-2xl font-bold text-white mb-2" id="sim-alloc-text">--% Core / --% Satellit</h3>
+                    <div class="w-full h-2 bg-black/20 rounded-full flex overflow-hidden">
+                        <div class="bg-indigo-300 h-full transition-all duration-300" id="sim-alloc-core" style="width: 0%;"></div>
+                        <div class="bg-emerald-400 h-full transition-all duration-300" id="sim-alloc-sat" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-x-1/4 translate-y-1/4">
+                    <span class="material-symbols-outlined" style="font-size: 150px;">calculate</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal for "Se Tese" -->
+    <div id="tese-modal" class="fixed inset-0 bg-on-background/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" onclick="closeTeseModal()">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden flex flex-col" onclick="event.stopPropagation()">
+            <div class="p-6 border-b border-slate-border flex justify-between items-center bg-slate-surface">
+                <h3 class="font-headline-md text-xl font-semibold text-deep-indigo flex items-center gap-2">
+                    <span class="material-symbols-outlined">description</span>
+                    Min Investeringstese
+                </h3>
+                <button onclick="closeTeseModal()" class="text-on-surface-variant hover:text-deep-indigo transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-sm text-on-background leading-relaxed">
+                <p><strong>Aktiv:</strong> <span id="tese-aktiv">Novo Nordisk B</span></p>
+                <p><strong>Tese:</strong> Stærk moat indenfor diabetes og svær overvægt. Høj ROIC og stabil indtjening.</p>
+                <p><strong>Karantæne status:</strong> Godkendt. Følg op om 6 måneder ift. P/E udvikling.</p>
+            </div>
+            <div class="p-6 border-t border-slate-border bg-slate-surface text-center">
+                <button onclick="closeTeseModal()" class="px-6 py-2 bg-deep-indigo text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">Luk</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPortfolio();
+        });
+
+        function renderPortfolio() {
+            // Default data if empty
+            let holdings = JSON.parse(localStorage.getItem('bi_portfolio_holdings') || '[]');
+            let cash = parseFloat(localStorage.getItem('bi_cash_balance') || '7500');
+
+            if (holdings.length === 0) {
+                holdings = [
+                    { name: 'iShares Core MSCI World', ticker: 'EUNL', type: 'core', value: 35000 },
+                    { name: 'Apple Inc.', ticker: 'AAPL', type: 'satellite', value: 2500 },
+                    { name: 'Novo Nordisk B', ticker: 'NOVO B', type: 'satellite', value: 5000 }
+                ];
+                localStorage.setItem('bi_portfolio_holdings', JSON.stringify(holdings));
+            }
+
+            let totalInvested = holdings.reduce((sum, h) => sum + h.value, 0);
+            let totalValue = totalInvested + cash;
+            let coreValue = holdings.filter(h => h.type === 'core').reduce((sum, h) => sum + h.value, 0);
+            let satValue = holdings.filter(h => h.type === 'satellite').reduce((sum, h) => sum + h.value, 0);
+
+            let corePct = totalInvested > 0 ? Math.round((coreValue / totalInvested) * 100) : 0;
+            let satPct = totalInvested > 0 ? 100 - corePct : 0;
+
+            document.getElementById('port-total-value').textContent = totalValue.toLocaleString('da-DK', {minimumFractionDigits: 2}) + ' DKK';
+            document.getElementById('port-cash-value').textContent = cash.toLocaleString('da-DK', {minimumFractionDigits: 2}) + ' DKK';
+            
+            document.getElementById('port-alloc-text').textContent = `${corePct}% Core / ${satPct}% Satellit`;
+            document.getElementById('port-alloc-core').style.width = `${corePct}%`;
+            document.getElementById('port-alloc-sat').style.width = `${satPct}%`;
+
+            const tbody = document.getElementById('port-holdings-table');
+            tbody.innerHTML = '';
+
+            holdings.forEach(h => {
+                let weight = totalInvested > 0 ? ((h.value / totalInvested) * 100).toFixed(1) : 0;
+                let isCore = h.type === 'core';
+                
+                // Mock return
+                let ret = (Math.random() * 5).toFixed(1);
+                let retDkk = (h.value * (ret/100)).toFixed(0);
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="p-4 pl-6">
+                            <div class="font-bold text-on-background">${h.name}</div>
+                            <div class="text-xs text-on-surface-variant">${h.ticker}</div>
+                        </td>
+                        <td class="p-4">
+                            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${isCore ? 'bg-indigo-100 text-deep-indigo' : 'bg-emerald-100 text-emerald-700'}">
+                                ${isCore ? 'Core' : 'Satellit'}
+                            </span>
+                        </td>
+                        <td class="p-4 text-right font-medium text-on-background">
+                            ${h.value.toLocaleString('da-DK')}
+                        </td>
+                        <td class="p-4 text-right font-bold text-on-background">
+                            ${weight}%
+                        </td>
+                        <td class="p-4 text-right font-medium text-emerald-600">
+                            +${ret}% / +${retDkk} DKK
+                        </td>
+                        <td class="p-4 text-center pr-6">
+                            <button onclick="openTeseModal('${h.name}')" class="text-xs font-bold text-deep-indigo bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition-colors border border-indigo-200">
+                                📄 Se Tese
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function simulateRebalance() {
+            let amount = parseFloat(document.getElementById('sim-amount').value);
+            if (!amount || amount <= 0) return;
+
+            let holdings = JSON.parse(localStorage.getItem('bi_portfolio_holdings') || '[]');
+            let coreValue = holdings.filter(h => h.type === 'core').reduce((sum, h) => sum + h.value, 0);
+            let satValue = holdings.filter(h => h.type === 'satellite').reduce((sum, h) => sum + h.value, 0);
+            
+            // Assume we add to core to rebalance upwards
+            let newCoreValue = coreValue + amount;
+            let newTotal = newCoreValue + satValue;
+            
+            let newCorePct = Math.round((newCoreValue / newTotal) * 100);
+            let newSatPct = 100 - newCorePct;
+
+            document.getElementById('sim-alloc-text').textContent = `${newCorePct}% Core / ${newSatPct}% Satellit`;
+            document.getElementById('sim-alloc-core').style.width = `${newCorePct}%`;
+            document.getElementById('sim-alloc-sat').style.width = `${newSatPct}%`;
+        }
+
+        function openTeseModal(name) {
+            document.getElementById('tese-aktiv').textContent = name;
+            document.getElementById('tese-modal').classList.remove('hidden');
+        }
+        function closeTeseModal() {
+            document.getElementById('tese-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+"""
+
+full_html = header_content + main_content
+
+with open('portefoelje.html', 'w') as f:
+    f.write(full_html)
+print("Created portefoelje.html")

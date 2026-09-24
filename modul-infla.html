@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Lektion: Inflation & Renters Rente</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        /* Range slider styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #312E81;
+            cursor: pointer;
+            margin-top: -10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #E2E8F0;
+            border-radius: 2px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-background">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start bg-indigo-900/60 text-white font-semibold shadow-sm">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol (Kun 1 instans) -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar (Eneansvarlig for profil.html) -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+            const elName = document.getElementById('sidebar-name');
+            
+            
+            
+            
+        });
+    </script>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative">
+        <div class="p-4 md:p-8 max-w-[1000px] w-full mx-auto flex flex-col gap-6">
+            
+            <!-- Top Bar -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
+                <a href="laer.html" class="inline-flex items-center gap-2 text-sm font-semibold text-on-surface-variant hover:text-deep-indigo transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    Tilbage til Læringsakademiet
+                </a>
+                <div class="flex items-center gap-3 flex-wrap">
+                    <span class="bg-indigo-100 text-deep-indigo text-xs font-bold px-2.5 py-1 rounded-md border border-indigo-200">
+                        SPOR 1: FUNDAMENT & ALLOKERING
+                    </span>
+                    <span class="text-xs font-medium text-on-surface-variant flex items-center gap-1 bg-white px-2.5 py-1 rounded-md border border-slate-border">
+                        ⏱️ 5 minutter • Interaktiv beregner
+                    </span>
+                </div>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- A. Lektions Hero & Introduktion (Span 2 cols) -->
+                <div class="md:col-span-2 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm flex flex-col">
+                    <h1 class="text-3xl font-bold font-headline-lg text-on-background mb-4">
+                        Hvorfor kontanter taber værdi: Inflationen vs. Renters Rente
+                    </h1>
+                    <p class="text-on-surface-variant text-base leading-relaxed max-w-3xl">
+                        Den største risiko for den langsigtede opsparing er ikke markedsudsving, men den usynlige inflation, der hvert år fjerner en bid af din købekraft. At gemme alle sine penge på en bankkonto føles trygt, men er matematisk set en garanti for, at dine penge bliver mindre værd.
+                    </p>
+                </div>
+
+                <!-- C. Interaktiv Portefølje-Simulator (Span 2 cols) -->
+                <div class="md:col-span-2 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm flex flex-col">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-6">
+                        Interaktiv Købekraftsberegner
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                        <!-- Controls -->
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-on-background mb-2">Din opsparing (DKK)</label>
+                                <div class="flex gap-2 mb-3">
+                                    <input type="number" id="sim-amount" value="100000" step="10000" class="w-full border-slate-border rounded-lg shadow-sm focus:border-deep-indigo focus:ring-deep-indigo text-sm" />
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="sim-quick-btn flex-1 py-1.5 text-xs font-medium border border-slate-border rounded-md hover:bg-slate-50 transition-colors" data-val="50000">50.000</button>
+                                    <button class="sim-quick-btn flex-1 py-1.5 text-xs font-medium border border-slate-border rounded-md bg-indigo-50 text-deep-indigo border-deep-indigo transition-colors active-btn" data-val="100000">100.000</button>
+                                    <button class="sim-quick-btn flex-1 py-1.5 text-xs font-medium border border-slate-border rounded-md hover:bg-slate-50 transition-colors" data-val="250000">250.000</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold text-on-background mb-2">
+                                    <label>Tidshorisont</label>
+                                    <span id="years-label">10 år</span>
+                                </div>
+                                <input type="range" id="sim-slider" min="5" max="20" step="5" value="10" class="w-full" />
+                                <div class="flex justify-between text-xs text-on-surface-variant mt-1">
+                                    <span>5 år</span>
+                                    <span>20 år</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live Display & Feedback -->
+                        <div class="space-y-5">
+                            <div class="flex flex-col gap-4">
+                                <div class="w-full bg-rose-critical/5 p-4 rounded-xl border border-rose-critical/20 relative overflow-hidden">
+                                    <div id="bank-bg-bar" class="absolute left-0 top-0 bottom-0 bg-rose-critical/10 transition-all duration-300" style="width: 82%;"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <p class="text-xs font-medium text-rose-critical mb-1">🏦 Bankkonto (Reel købekraft efter 2% inflation)</p>
+                                            <p class="text-2xl font-bold font-metric-lg text-rose-critical" id="sim-bank-val">82.000 kr.</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <span id="bank-pct-val" class="text-sm font-bold text-rose-critical bg-rose-critical/20 px-2 py-0.5 rounded">-18%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="w-full bg-emerald-success/5 p-4 rounded-xl border border-emerald-success/20 relative overflow-hidden">
+                                    <div id="invest-bg-bar" class="absolute left-0 top-0 bottom-0 bg-emerald-success/10 transition-all duration-300" style="width: 100%;"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <p class="text-xs font-medium text-emerald-success mb-1">📈 Investeret (Nominel værdi, ~7.5% markedsvækst)</p>
+                                            <p class="text-2xl font-bold font-metric-lg text-emerald-success" id="sim-invest-val">206.103 kr.</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <span id="invest-pct-val" class="text-sm font-bold text-emerald-success bg-emerald-success/20 px-2 py-0.5 rounded">+106%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Feedback -->
+                            <div id="sim-feedback" class="bg-indigo-50 border border-indigo-100 rounded-lg p-4 mt-2">
+                                <p class="text-sm text-deep-indigo font-medium" id="sim-feedback-text">
+                                    Kløften mellem at spare op kontant og at investere vokser eksponentielt med tiden.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- D. Refleksion & Mestring (Tjekliste) (Span 2 cols) -->
+                <div class="md:col-span-2 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4">Refleksion & Mestring</h2>
+                    <p class="text-sm text-on-surface-variant mb-4">Bekræft at du har forstået principperne før du fortsætter.</p>
+                    
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg forstår, at 2% inflation reducerer købekraften af 100.000 kr. til ca. 82.000 kr. på 10 år.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg forstår, at 7-8% historisk aktieafkast er den matematiske modgift mod inflation.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg investerer med en tidshorisont på mindst 5-10 år for at lade renters rente virke.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- E. Afslutnings-CTA & Bridge (Span 2 cols) -->
+                <div class="md:col-span-2 flex justify-end pt-4 border-t border-slate-border">
+                    <button id="complete-module-btn" class="bg-deep-indigo text-white font-semibold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                        Gennemfør Modul & Gem Fremskridt
+                    </button>
+                </div>
+
+            </div>
+            
+            <footer class="mt-8 pt-6 border-t border-slate-border text-center pb-8">
+                <p class="text-xs text-on-surface-variant flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-[14px]">info</span>
+                    Denne platform er udelukkende til uddannelses- og simuleringsformål. Indholdet udgør ikke finansiel rådgivning.
+                </p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Success Modal / Toast Overlay for completion choices -->
+    <div id="completion-modal" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden flex flex-col p-8 text-center items-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-success/10 flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-emerald-success text-3xl font-bold">workspace_premium</span>
+            </div>
+            <h3 class="font-headline-md text-2xl font-bold text-deep-indigo mb-2">Lektion gennemført!</h3>
+            <p class="text-on-surface-variant text-sm mb-8">Du forstår nu inflationens effekt på din købekraft og hvordan man bekæmper det.</p>
+            
+            <div class="flex flex-col gap-3 w-full">
+                <a href="laer.html" class="w-full bg-deep-indigo text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center">
+                    Tilbage til Læringsakademiet
+                </a>
+                <a href="analyse.html" class="w-full bg-white text-deep-indigo border border-slate-border font-semibold py-3 rounded-lg hover:bg-slate-50 transition-colors flex items-center justify-center">
+                    Gå til Min Analyse
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulator Logic
+            const amountInput = document.getElementById('sim-amount');
+            const slider = document.getElementById('sim-slider');
+            const quickBtns = document.querySelectorAll('.sim-quick-btn');
+            
+            const updateSimulator = () => {
+                const total = parseInt(amountInput.value) || 0;
+                const years = parseInt(slider.value) || 5;
+                
+                document.getElementById('years-label').textContent = `${years} år`;
+                
+                const inflationRate = 0.02;
+                const marketRate = 0.075;
+                
+                const bankValue = Math.round(total / Math.pow(1 + inflationRate, years));
+                const bankPct = Math.round(((bankValue - total) / total) * 100);
+                
+                const investValue = Math.round(total * Math.pow(1 + marketRate, years));
+                const investPct = Math.round(((investValue - total) / total) * 100);
+                
+                const formatDKK = (num) => num.toLocaleString('da-DK') + ' kr.';
+                document.getElementById('sim-bank-val').textContent = formatDKK(bankValue);
+                document.getElementById('sim-invest-val').textContent = formatDKK(investValue);
+                
+                document.getElementById('bank-pct-val').textContent = bankPct + '%';
+                document.getElementById('invest-pct-val').textContent = '+' + investPct + '%';
+                
+                // Visual bars logic
+                const maxVal = Math.max(total, investValue);
+                document.getElementById('bank-bg-bar').style.width = `${(bankValue/maxVal)*100}%`;
+                document.getElementById('invest-bg-bar').style.width = `${(investValue/maxVal)*100}%`;
+            };
+
+            amountInput.addEventListener('input', updateSimulator);
+            slider.addEventListener('input', updateSimulator);
+            
+            quickBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const val = e.target.dataset.val;
+                    amountInput.value = val;
+                    
+                    // Reset styling
+                    quickBtns.forEach(b => {
+                        b.classList.remove('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-btn');
+                    });
+                    e.target.classList.add('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-btn');
+                    
+                    updateSimulator();
+                });
+            });
+
+            // Initialize simulator
+            updateSimulator();
+
+            // Completion Logic
+            const checkboxes = document.querySelectorAll('.checklist-item');
+            const completeBtn = document.getElementById('complete-module-btn');
+            
+            const checkCompletion = () => {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                completeBtn.disabled = !allChecked;
+            };
+            
+            checkboxes.forEach(cb => cb.addEventListener('change', checkCompletion));
+            checkCompletion(); // Initial check
+            
+            completeBtn.addEventListener('click', () => {
+                // Save progress
+                localStorage.setItem('bi_module_infla_completed', 'true');
+                
+                // Show modal choices
+                document.getElementById('completion-modal').classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

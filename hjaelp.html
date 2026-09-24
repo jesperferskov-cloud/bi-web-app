@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Hjælp & FAQ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-background">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol (Kun 1 instans) -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar (Eneansvarlig for profil.html) -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+            const elName = document.getElementById('sidebar-name');
+            
+            
+            
+            
+        });
+    </script>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative">
+        <div class="p-4 md:p-8 max-w-[1000px] w-full mx-auto flex flex-col gap-6 items-center">
+            
+            <!-- Hero / Header -->
+            <div class="text-center mt-6 w-full">
+                <h1 class="font-headline-lg font-bold text-3xl text-on-background mb-3">Vidensbase & FAQ</h1>
+                <p class="font-body-md text-on-surface-variant max-w-lg mx-auto">Find hurtigt svar på begreber, metoder, simulering og funktioner.</p>
+                
+                <div class="max-w-2xl bg-white border border-slate-border rounded-2xl p-3.5 flex items-center gap-3 shadow-sm my-6 mx-auto">
+                    <span class="material-symbols-outlined text-on-surface-variant">search</span>
+                    <input type="text" id="kb-search-input" placeholder="Søg i vidensbasen... (f.eks. karantæne, 80/20, supporter, P/E, GICS)" class="flex-1 bg-transparent border-none focus:ring-0 outline-none text-on-background text-base" />
+                </div>
+                
+                <!-- Kategori Hurtig-Filtre (Piller) -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-8" id="filter-container">
+                    <button class="filter-btn active px-4 py-2 bg-deep-indigo text-white rounded-full text-sm font-medium transition-colors border border-deep-indigo" data-filter="all">Alle</button>
+                    <button class="filter-btn px-4 py-2 bg-white text-on-surface-variant hover:bg-slate-100 rounded-full text-sm font-medium transition-colors border border-slate-border" data-filter="kom-godt-i-gang">🚀 Kom godt i gang</button>
+                    <button class="filter-btn px-4 py-2 bg-white text-on-surface-variant hover:bg-slate-100 rounded-full text-sm font-medium transition-colors border border-slate-border" data-filter="laering-metodik">📘 Læring & Metodik</button>
+                    <button class="filter-btn px-4 py-2 bg-white text-on-surface-variant hover:bg-slate-100 rounded-full text-sm font-medium transition-colors border border-slate-border" data-filter="simulering-fomo">⏳ Simulering & FOMO</button>
+                    <button class="filter-btn px-4 py-2 bg-white text-on-surface-variant hover:bg-slate-100 rounded-full text-sm font-medium transition-colors border border-slate-border" data-filter="medlemskab">⭐ Medlemskab</button>
+                    <button class="filter-btn px-4 py-2 bg-white text-on-surface-variant hover:bg-slate-100 rounded-full text-sm font-medium transition-colors border border-slate-border" data-filter="sikkerhed-ansvar">⚖️ Sikkerhed & Ansvar</button>
+                </div>
+            </div>
+
+            <!-- FAQ Indhold -->
+            <div class="w-full max-w-3xl space-y-8" id="faq-container">
+                <div id="no-results" class="hidden text-center text-on-surface-variant py-8 border border-dashed border-slate-border rounded-xl bg-white">
+                    <span class="material-symbols-outlined text-4xl mb-2 text-slate-400">search_off</span>
+                    <p>Ingen resultater matcher din søgning</p>
+                </div>
+
+                <!-- Kategori 1 -->
+                <div class="faq-category" data-cat="kom-godt-i-gang">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4 flex items-center gap-2 border-b border-slate-border pb-2">
+                        <span>🚀</span> Kom godt i gang
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Hvad er formålet med Begynder Investor?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Et uafhængigt, struktureret læringslaboratorium og simuleringsmiljø skabt til at opbygge metodisk disciplin før investering af rigtige penge.</p>
+                        </div>
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Hvad dækker de 50.000 kr. på mit Dashboard over?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Fiktiv startkapital i et risikofrit simuleringsmiljø, så du kan træne porteføljestyring og simulere handler.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 2 -->
+                <div class="faq-category" data-cat="laering-metodik">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4 flex items-center gap-2 border-b border-slate-border pb-2">
+                        <span>📘</span> Læring & Metodik
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Hvorfor er universet opdelt i 4 kompetencespor?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">For at give fleksibilitet frem for et stift pensum. Du kan fordybe dig i Fundament (Core), Virksomhedsanalyse (Moat/PE), Mental Disciplin eller Risikostyring.</p>
+                        </div>
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Hvad er 80/20 Core-Satellite modellen?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Mindst 80% placeres i brede, globale indeksfonde (Core) og maks. 20% i analyserede enkeltaktier (Satellit).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 3 -->
+                <div class="faq-category" data-cat="simulering-fomo">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4 flex items-center gap-2 border-b border-slate-border pb-2">
+                        <span>⏳</span> Simulering, Disciplin & Anti-FOMO
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Hvorfor er min aktieordre låst i 48 timers karantæne?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Anti-FOMO funktionen slår koldt vand i blodet og fjerner impulsbeslutninger, så du kan nå at stressteste investeringstesen.</p>
+                        </div>
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Hvad sker der, når karantænen udløber?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Du modtager en bekræftelse på dashboardet og kan derefter vælge endeligt at godkende eller annullere ordren.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 4 -->
+                <div class="faq-category" data-cat="medlemskab">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4 flex items-center gap-2 border-b border-slate-border pb-2">
+                        <span>⭐</span> Supporter & Medlemskab
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Er Begynder Investor gratis at bruge?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Ja, platformen er 100% gratis som Freemium med fuld adgang til moduler og basis-simulering.</p>
+                        </div>
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Hvad dækker 29 kr./md. Supporter-medlemskabet?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Det er et frivilligt bidrag uden binding, der dækker direkte server-, API- og LLM-driftsomkostninger. Giver ubegrænset analyse og gyldent Supporter-badge.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 5 -->
+                <div class="faq-category" data-cat="sikkerhed-ansvar">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4 flex items-center gap-2 border-b border-slate-border pb-2">
+                        <span>⚖️</span> Sikkerhed, Data & Jura
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Bliver mine data solgt til banker eller tredjeparter?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Nej, dine data behandles fortroligt i overensstemmelse med GDPR og videregives eller sælges aldrig.</p>
+                        </div>
+                        
+                        <div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm" data-category="platform">
+                            <h3 class="font-semibold text-on-background faq-q">Hvordan bruger Begynder Investor AI?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Platformens AI-integration fungerer som en transparent "analytisk sparringspartner" frem for en magisk sandhedsegnet løsning. Den hjælper med at afkode komplekse mekanismer og strukturere markedsstøj, men den kildekritiske vurdering ligger altid hos dig.</p>
+                        </div>
+<div class="faq-item bg-white border border-slate-border rounded-xl p-5 shadow-sm">
+                            <h3 class="font-semibold text-on-background faq-q">Yder Begynder Investor individuel investeringsrådgivning?</h3>
+                            <p class="text-on-surface-variant text-sm mt-2 faq-a">Nej, alt indhold og alle værktøjer er udelukkende til generel uddannelse og læringsformål.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="mt-12 pt-6 border-t border-slate-border text-center pb-8 w-full">
+                <p class="text-xs text-on-surface-variant flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-[14px]">info</span>
+                    Begynder Investor · Vidensbase & FAQ
+                </p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('kb-search-input');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const categories = document.querySelectorAll('.faq-category');
+            const noResults = document.getElementById('no-results');
+            let currentFilter = 'all';
+
+            // Filtrer kategori
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-deep-indigo', 'text-white', 'border-deep-indigo');
+                        b.classList.add('bg-white', 'text-on-surface-variant', 'border-slate-border');
+                    });
+                    btn.classList.remove('bg-white', 'text-on-surface-variant', 'border-slate-border');
+                    btn.classList.add('bg-deep-indigo', 'text-white', 'border-deep-indigo');
+                    
+                    currentFilter = btn.dataset.filter;
+                    applyFilters();
+                });
+            });
+
+            // Live search
+            searchInput.addEventListener('input', () => {
+                applyFilters();
+            });
+
+            function applyFilters() {
+                const query = searchInput.value.toLowerCase().trim();
+                let hasVisibleItems = false;
+
+                categories.forEach(category => {
+                    const catId = category.dataset.cat;
+                    const items = category.querySelectorAll('.faq-item');
+                    let categoryHasMatch = false;
+                    
+                    // Filter by category pill
+                    if (currentFilter !== 'all' && currentFilter !== catId) {
+                        category.style.display = 'none';
+                        return;
+                    }
+
+                    items.forEach(item => {
+                        const q = item.querySelector('.faq-q').textContent.toLowerCase();
+                        const a = item.querySelector('.faq-a').textContent.toLowerCase();
+                        
+                        // Show item if query is empty or matches question/answer
+                        if (query === '' || q.includes(query) || a.includes(query)) {
+                            item.style.display = 'block';
+                            categoryHasMatch = true;
+                            hasVisibleItems = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    // Hide entire category if no items match inside it
+                    if (categoryHasMatch) {
+                        category.style.display = 'block';
+                    } else {
+                        category.style.display = 'none';
+                    }
+                });
+
+                // Show "no results" block if nothing matches
+                if (hasVisibleItems || categories.length === 0) {
+                    noResults.classList.add('hidden');
+                } else {
+                    noResults.classList.remove('hidden');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

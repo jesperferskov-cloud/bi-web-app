@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Lektion: Skatteoptimering</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "amber-400": "#FBBF24",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-background">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start bg-indigo-900/60 text-white font-semibold shadow-sm">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group">
+                    <div id="sidebar-initials" class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span id="sidebar-name" class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative">
+        <div class="p-4 md:p-8 max-w-[1000px] w-full mx-auto flex flex-col gap-6">
+            
+            <!-- Top Bar -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
+                <a href="laer.html" class="inline-flex items-center gap-2 text-sm font-semibold text-on-surface-variant hover:text-deep-indigo transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    Tilbage til Læringsakademiet
+                </a>
+                <div class="flex items-center gap-3 flex-wrap">
+                    <span class="bg-indigo-100 text-deep-indigo text-xs font-bold px-2.5 py-1 rounded-md border border-indigo-200">
+                        SPOR 1: FUNDAMENT & ALLOKERING
+                    </span>
+                    <span class="text-xs font-medium text-on-surface-variant flex items-center gap-1 bg-white px-2.5 py-1 rounded-md border border-slate-border">
+                        ⏱️ 6 minutter • Interaktiv beregner
+                    </span>
+                </div>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- A. Lektions Hero & Introduktion (Span 3 cols) -->
+                <div class="md:col-span-3 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm flex flex-col">
+                    <span class="bg-emerald-50 text-emerald-700 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full border border-emerald-200 mb-4 w-fit">
+                        🟢 Gældende skattesatser for 2026
+                    </span>
+                    <h1 class="text-3xl font-bold font-headline-lg text-on-background mb-4">
+                        Skatteoptimering: Få mest muligt ud af dine investeringer (2026)
+                    </h1>
+                    <p class="text-on-surface-variant text-base leading-relaxed max-w-3xl">
+                        Skat er en af de største faktorer for dit langsigtede afkast. Ved at placere dine investeringer i de rigtige depoter – Aktiesparekonto, Aldersopsparing og Frit Depot – kan du lovligt minimere din skatteregning og lade renters rente arbejde hurtigere.
+                    </p>
+                </div>
+
+                <!-- B. De 3 Skatte-Kasser (3 columns) -->
+                <div class="md:col-span-1 bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col">
+                    <h3 class="font-headline-md text-lg font-bold text-deep-indigo mb-2">Aldersopsparing</h3>
+                    <div class="bg-indigo-50 text-deep-indigo text-xs font-bold px-2 py-1 rounded w-fit mb-3">15,3% PAL-skat</div>
+                    <p class="text-sm text-on-surface-variant mb-3 flex-grow">
+                        Danmarks laveste skattesats. Udbetaling modregnes ikke i folkepensionens tillæg.
+                    </p>
+                    <div class="bg-slate-50 p-3 rounded text-xs mb-3 border border-slate-border">
+                        <strong>Faste 2026-lofter:</strong>
+                        <ul class="list-disc pl-4 mt-1 text-on-surface-variant space-y-1">
+                            <li>9.900 kr./år (> 7 år til pension)</li>
+                            <li>64.200 kr./år (≤ 7 år til pension)</li>
+                        </ul>
+                    </div>
+                    <a href="https://skat.dk/borger/pension/aldersopsparing" target="_blank" class="text-deep-indigo text-xs font-semibold hover:underline flex items-center gap-1 mt-auto">
+                        Officielle regler: Skat.dk/aldersopsparing <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+                    </a>
+                </div>
+
+                <div class="md:col-span-1 bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col">
+                    <h3 class="font-headline-md text-lg font-bold text-deep-indigo mb-2">Aktiesparekonto</h3>
+                    <div class="bg-emerald-success/10 text-emerald-success text-xs font-bold px-2 py-1 rounded w-fit mb-3">17% lagerskat</div>
+                    <p class="text-sm text-on-surface-variant mb-3 flex-grow">
+                        Særlig attraktiv konto med årlig lagerskat. Skatten afregnes automatisk via banken.
+                    </p>
+                    <div class="bg-slate-50 p-3 rounded text-xs mb-3 border border-slate-border">
+                        <strong>Fast 2026-indskudsloft:</strong><br/>
+                        <span class="text-on-surface-variant">174.200 kr. (beregnes ud fra samlet saldo pr. 31/12 året før).</span>
+                    </div>
+                    <a href="https://skat.dk/borger/aktier-og-andre-vaerdipapirer/aktiesparekonto" target="_blank" class="text-deep-indigo text-xs font-semibold hover:underline flex items-center gap-1 mt-auto">
+                        Officielle regler: Skat.dk/aktiesparekonto <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+                    </a>
+                </div>
+
+                <div class="md:col-span-1 bg-white rounded-2xl border border-slate-border p-6 shadow-sm flex flex-col">
+                    <h3 class="font-headline-md text-lg font-bold text-deep-indigo mb-2">Frit Depot</h3>
+                    <div class="bg-rose-critical/10 text-rose-critical text-xs font-bold px-2 py-1 rounded w-fit mb-3">27% / 42% realisationsskat</div>
+                    <p class="text-sm text-on-surface-variant mb-3 flex-grow">
+                        Skat betales først ved salg eller udbytte. Tab modregnes automatisk i gevinster.
+                    </p>
+                    <div class="bg-slate-50 p-3 rounded text-xs mb-3 border border-slate-border">
+                        <strong>Faste 2026-progressionsgrænser:</strong>
+                        <ul class="list-disc pl-4 mt-1 text-on-surface-variant space-y-1">
+                            <li>27% op til 79.400 kr. (Enlig)</li>
+                            <li>27% op til 158.800 kr. (Gift)</li>
+                            <li>42% af alt overskydende</li>
+                        </ul>
+                    </div>
+                    <a href="https://skat.dk/borger/aktier-og-andre-vaerdipapirer/aktieindkomst" target="_blank" class="text-deep-indigo text-xs font-semibold hover:underline flex items-center gap-1 mt-auto">
+                        Officielle regler: Skat.dk/aktieindkomst <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+                    </a>
+                </div>
+
+                <!-- C. Interaktiv Skatte-Simulator (Span 3 cols) -->
+                <div class="md:col-span-3 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm flex flex-col">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-6">
+                        Prøv det i praksis: Skattesimulator
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                        <!-- Controls -->
+                        <div class="space-y-6">
+                            <!-- Civilstand Toggle -->
+                            <div>
+                                <label class="block text-sm font-semibold text-on-background mb-2">Civilstand (påvirker Frit Depot progressionsgrænse)</label>
+                                <div class="flex gap-2">
+                                    <button class="sim-civil-btn flex-1 py-2 text-sm font-medium border border-slate-border rounded-md bg-indigo-50 text-deep-indigo border-deep-indigo transition-colors active-civil" data-val="79400">Enlig (79.400 kr.)</button>
+                                    <button class="sim-civil-btn flex-1 py-2 text-sm font-medium border border-slate-border rounded-md hover:bg-slate-50 transition-colors" data-val="158800">Gift (158.800 kr.)</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-on-background mb-2">Opsparingsbeløb (DKK)</label>
+                                <div class="flex gap-2 mb-3">
+                                    <input type="number" id="sim-amount" value="50000" step="10000" class="w-full border-slate-border rounded-lg shadow-sm focus:border-deep-indigo focus:ring-deep-indigo text-sm" />
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="sim-quick-btn flex-1 py-1.5 text-xs font-medium border border-slate-border rounded-md hover:bg-slate-50 transition-colors" data-val="25000">25.000</button>
+                                    <button class="sim-quick-btn flex-1 py-1.5 text-xs font-medium border border-slate-border rounded-md bg-indigo-50 text-deep-indigo border-deep-indigo transition-colors active-btn" data-val="50000">50.000</button>
+                                    <button class="sim-quick-btn flex-1 py-1.5 text-xs font-medium border border-slate-border rounded-md hover:bg-slate-50 transition-colors" data-val="300000">300.000</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-on-background mb-2">Tidshorisont</label>
+                                <div class="flex gap-2 mb-2">
+                                    <button class="sim-time-btn flex-1 py-2 text-sm font-medium border border-slate-border rounded-md bg-indigo-50 text-deep-indigo border-deep-indigo transition-colors active-time" data-val="5">5 år</button>
+                                    <button class="sim-time-btn flex-1 py-2 text-sm font-medium border border-slate-border rounded-md hover:bg-slate-50 transition-colors" data-val="10">10 år</button>
+                                    <button class="sim-time-btn flex-1 py-2 text-sm font-medium border border-slate-border rounded-md hover:bg-slate-50 transition-colors" data-val="20">20 år</button>
+                                </div>
+                                <p id="sim-time-note" class="text-xs text-deep-indigo font-medium bg-indigo-50 p-2 rounded border border-indigo-100">
+                                    Kort horisont: Den lave sats (17% / 15,3%) sikrer det højeste nettoafkast.
+                                </p>
+                            </div>
+                            
+                            <p class="text-xs text-on-surface-variant italic mt-4">
+                                *Beregningen forudsætter et nominelt afkast på 7% årligt. For Frit Depot simuleres en realisering til sidst, og for ASK/Aldersopsparing simuleres løbende lagerskat.
+                            </p>
+                        </div>
+
+                        <!-- Live Display & Feedback -->
+                        <div class="space-y-4">
+                            
+                            <!-- Aldersopsparing -->
+                            <div class="w-full bg-slate-50 p-4 rounded-xl border border-slate-border relative overflow-hidden">
+                                <div class="relative z-10 flex justify-between items-center mb-2">
+                                    <div>
+                                        <p class="text-xs font-bold text-deep-indigo uppercase mb-1">Aldersopsparing (15,3%)</p>
+                                        <p class="text-2xl font-bold font-metric-lg text-on-background" id="sim-alders-val">-- kr.</p>
+                                    </div>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-deep-indigo h-2 rounded-full" id="bar-alders" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <!-- ASK -->
+                            <div class="w-full bg-emerald-success/10 p-4 rounded-xl border border-emerald-success/30 relative overflow-hidden">
+                                <div class="relative z-10 flex justify-between items-center mb-2">
+                                    <div>
+                                        <p class="text-xs font-bold text-emerald-success uppercase mb-1">Aktiesparekonto (17%)</p>
+                                        <p class="text-2xl font-bold font-metric-lg text-emerald-success" id="sim-ask-val">-- kr.</p>
+                                    </div>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-emerald-success h-2 rounded-full" id="bar-ask" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Frit Depot -->
+                            <div class="w-full bg-slate-50 p-4 rounded-xl border border-slate-border relative overflow-hidden">
+                                <div class="relative z-10 flex justify-between items-start mb-2">
+                                    <div>
+                                        <p class="text-xs font-bold text-rose-critical uppercase mb-1">Frit Depot (27/42%)</p>
+                                        <p class="text-2xl font-bold font-metric-lg text-on-background" id="sim-reg-val">-- kr.</p>
+                                        <div id="sim-reg-breakdown" class="text-[11px] text-on-surface-variant font-medium mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-rose-critical h-2 rounded-full" id="bar-reg" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Metodisk Skattegevinst boks -->
+                            <div class="w-full bg-emerald-50 p-4 rounded-xl border border-emerald-200 mt-2">
+                                <p class="text-sm text-emerald-800 font-medium leading-relaxed">
+                                    💡 <strong class="font-bold">Skattegevinst:</strong> Ved at vælge Aktiesparekontoen frem for et Frit Depot sparer du <span id="skat-diff-ask" class="font-bold bg-emerald-200/50 px-1 rounded">0 kr.</span> i skat på dette forløb.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- D. Refleksion & Mestring (Tjekliste) (Span 3 cols) -->
+                <div class="md:col-span-3 bg-white rounded-2xl border border-slate-border p-6 md:p-8 shadow-sm">
+                    <h2 class="font-headline-md text-xl font-semibold text-deep-indigo mb-4">Mestringstjekliste</h2>
+                    <p class="text-sm text-on-surface-variant mb-4">Bekræft at du har forstået principperne før du fortsætter.</p>
+                    
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg forstår fordelen ved at fylde Aktiesparekontoen (17% skat) op først.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg forstår, at Aldersopsparingen tilbyder Danmarks laveste skattesats på 15,3%.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg ved, at et almindeligt frit depot er bedst til enkeltaktier og overskydende formue.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-border rounded-lg cursor-pointer hover:bg-slate-50 transition-colors has-[:checked]:bg-indigo-50 has-[:checked]:border-deep-indigo/30">
+                            <input type="checkbox" class="checklist-item mt-0.5 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo" />
+                            <span class="text-sm text-on-background font-medium">Jeg kender mine personlige indskudslofter for 2026 (f.eks. 174.200 kr. på ASK og 9.900/64.200 kr. på Aldersopsparing).</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- E. Afslutnings-CTA & Bridge (Span 3 cols) -->
+                <div class="md:col-span-3 flex justify-end pt-4 border-t border-slate-border">
+                    <button id="complete-skat-btn" class="bg-deep-indigo text-white font-semibold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                        Gennemfør Modul & Gem Fremskridt
+                    </button>
+                </div>
+
+            </div>
+            
+            <footer class="mt-8 pt-6 border-t border-slate-border text-center pb-8">
+                <p class="text-xs text-on-surface-variant flex items-center justify-center gap-1.5 mb-2">
+                    <span class="material-symbols-outlined text-[14px]">info</span>
+                    Denne platform er udelukkende til uddannelses- og simuleringsformål. Indholdet udgør ikke finansiel rådgivning.
+                </p>
+                <p class="text-xs text-on-surface-variant italic">
+                    Skattesatser og beløbsgrænser reguleres årligt (vist for indkomståret 2026).
+                </p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="completion-modal" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden flex flex-col p-8 text-center items-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-success/10 flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-emerald-success text-3xl font-bold">workspace_premium</span>
+            </div>
+            <h3 class="font-headline-md text-2xl font-bold text-deep-indigo mb-2">Lektion gennemført!</h3>
+            <p class="text-on-surface-variant text-sm mb-8">Du forstår nu fordelen ved skatteoptimering og de 3 kontotyper.</p>
+            
+            <div class="flex flex-col gap-3 w-full">
+                <a href="laer.html" class="w-full bg-deep-indigo text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center">
+                    Tilbage til Læringsakademiet
+                </a>
+                <a href="dashboard.html" class="w-full bg-white text-deep-indigo border border-slate-border font-semibold py-3 rounded-lg hover:bg-slate-50 transition-colors flex items-center justify-center">
+                    Gå til Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load user profile
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            document.getElementById('sidebar-name').textContent = userName;
+            if(userName && userName.length > 0) {
+                document.getElementById('sidebar-initials').textContent = userName.substring(0,2).toUpperCase();
+            }
+
+            // Simulator Logic
+            const amountInput = document.getElementById('sim-amount');
+            const quickBtns = document.querySelectorAll('.sim-quick-btn');
+            const timeBtns = document.querySelectorAll('.sim-time-btn');
+            const civilBtns = document.querySelectorAll('.sim-civil-btn');
+            
+            let currentYears = 5;
+            let currentProgressionThreshold = 79400; // Standard for Enlig i 2026
+            
+            const updateSimulator = () => {
+                const total = parseInt(amountInput.value) || 0;
+                const years = currentYears;
+                const returnRate = 0.07; // 7% afkast p.a.
+                
+                const formatDKK = (num) => Math.round(num).toLocaleString('da-DK') + ' kr.';
+                
+                // 1. Aldersopsparing (15,3% lagerskat)
+                const aldersNetReturnRate = returnRate * (1 - 0.153);
+                const aldersNet = total * Math.pow(1 + aldersNetReturnRate, years);
+                document.getElementById('sim-alders-val').textContent = formatDKK(aldersNet);
+
+                // 2. ASK (17% lagerskat)
+                const askNetReturnRate = returnRate * (1 - 0.17);
+                const askNet = total * Math.pow(1 + askNetReturnRate, years);
+                document.getElementById('sim-ask-val').textContent = formatDKK(askNet);
+                
+                // 3. Frit Depot (Realisationsskat ved salg)
+                const regTotalBeforeTax = total * Math.pow(1 + returnRate, years);
+                const regGain = regTotalBeforeTax - total;
+                let regTax = 0;
+                let breakdownText = "";
+
+                if (regGain <= currentProgressionThreshold) {
+                    regTax = regGain * 0.27;
+                    breakdownText = `Gevinst: ${formatDKK(regGain)}. Skat: 27% (under progressionsgrænsen)`;
+                } else {
+                    const lowTax = currentProgressionThreshold * 0.27;
+                    const overskud = regGain - currentProgressionThreshold;
+                    const highTax = overskud * 0.42;
+                    regTax = lowTax + highTax;
+                    breakdownText = `Gevinst: ${formatDKK(regGain)}. 27% skat af de første ${formatDKK(currentProgressionThreshold)} + 42% af resterende ${formatDKK(overskud)}`;
+                }
+                
+                const regNet = total + regGain - regTax;
+                document.getElementById('sim-reg-val').textContent = formatDKK(regNet);
+                document.getElementById('sim-reg-breakdown').textContent = breakdownText;
+
+                // Opdater Metodisk Tids-Note
+                const timeNoteEl = document.getElementById('sim-time-note');
+                if (years === 5) {
+                    timeNoteEl.textContent = "Kort horisont: Den lave sats (17% / 15,3%) sikrer det højeste nettoafkast.";
+                } else if (years === 10) {
+                    timeNoteEl.textContent = "Mellemlang horisont: Renters rente effekten af en lavere skattesats vokser år for år.";
+                } else if (years === 20) {
+                    timeNoteEl.textContent = "Lang horisont: Selvom lagerskat betales årligt, vinder den lave skattesats markant over 27/42% realisationsskat over tid.";
+                }
+
+                // Opdater Skattegevinst (ASK vs Frit Depot)
+                const savings = askNet - regNet;
+                document.getElementById('skat-diff-ask').textContent = formatDKK(savings);
+
+                // Visual Bars (Max width = Aldersopsparing since it has lowest tax)
+                const maxVal = aldersNet;
+                document.getElementById('bar-alders').style.width = '100%';
+                document.getElementById('bar-ask').style.width = `${(askNet / maxVal) * 100}%`;
+                document.getElementById('bar-reg').style.width = `${(regNet / maxVal) * 100}%`;
+            };
+
+            amountInput.addEventListener('input', updateSimulator);
+            
+            quickBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    amountInput.value = e.target.dataset.val;
+                    quickBtns.forEach(b => b.classList.remove('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-btn'));
+                    e.target.classList.add('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-btn');
+                    updateSimulator();
+                });
+            });
+
+            timeBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    currentYears = parseInt(e.target.dataset.val);
+                    timeBtns.forEach(b => b.classList.remove('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-time'));
+                    e.target.classList.add('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-time');
+                    updateSimulator();
+                });
+            });
+
+            civilBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    currentProgressionThreshold = parseInt(e.target.dataset.val);
+                    civilBtns.forEach(b => b.classList.remove('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-civil'));
+                    e.target.classList.add('bg-indigo-50', 'text-deep-indigo', 'border-deep-indigo', 'active-civil');
+                    updateSimulator();
+                });
+            });
+
+            // Initialize
+            updateSimulator();
+
+            // Completion Checklist Logic
+            const checkboxes = document.querySelectorAll('.checklist-item');
+            const completeBtn = document.getElementById('complete-skat-btn');
+            
+            const checkCompletion = () => {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                completeBtn.disabled = !allChecked;
+            };
+            
+            checkboxes.forEach(cb => cb.addEventListener('change', checkCompletion));
+            checkCompletion();
+            
+            completeBtn.addEventListener('click', () => {
+                localStorage.setItem('bi_module_skat_completed', 'true');
+                document.getElementById('completion-modal').classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

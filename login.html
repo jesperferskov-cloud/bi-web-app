@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Log ind - Begynder Investor</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glow-indigo {
+            box-shadow: 0 10px 25px -5px rgba(49, 46, 129, 0.08), 0 8px 10px -6px rgba(49, 46, 129, 0.04);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-base items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-surface">
+
+    <div class="w-full max-w-[440px] mx-auto bg-white border border-slate-border rounded-2xl p-8 shadow-sm">
+        
+        <!-- Branding -->
+        <div class="flex flex-col items-center mb-8 text-center">
+            <a href="index.html" class="flex items-center gap-2 mb-4 group">
+                <span class="material-symbols-outlined text-deep-indigo group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">pie_chart</span>
+                <span class="text-xl font-bold font-headline-lg text-on-background">Begynder Investor</span>
+            </a>
+            <h1 class="text-2xl font-bold font-headline-md text-on-background mb-2" id="authTitle">Velkommen tilbage</h1>
+            <p class="text-sm text-on-surface-variant" id="authSubtitle">Log ind for at fortsætte din investeringsrejse</p>
+        </div>
+
+        <!-- Tab Toggle -->
+        <div class="flex border-b border-slate-border mb-6">
+            <button id="tabLogin" class="flex-1 py-3 text-sm font-semibold border-b-2 border-deep-indigo text-deep-indigo transition-colors">Log ind</button>
+            <button id="tabRegister" class="flex-1 py-3 text-sm font-medium border-b-2 border-transparent text-on-surface-variant hover:text-deep-indigo transition-colors" onclick="toggleMode('register')">Opret konto</button>
+        </div>
+
+        <form id="authForm" class="space-y-4">
+            
+            <!-- Name (only register) -->
+            <div id="nameField" style="display: none;">
+                <label for="name" class="block text-sm font-medium text-on-background mb-1">Navn</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-on-surface-variant text-lg">person</span>
+                    </div>
+                    <input type="text" id="name" class="block w-full pl-10 pr-3 py-2 border border-slate-border rounded-lg focus:ring-deep-indigo focus:border-deep-indigo text-sm bg-slate-surface text-on-background placeholder-on-surface-variant/50" placeholder="F.eks. Jesper Ferskov">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-on-background mb-1">E-mail</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-on-surface-variant text-lg">mail</span>
+                    </div>
+                    <input type="email" id="email" class="block w-full pl-10 pr-3 py-2 border border-slate-border rounded-lg focus:ring-deep-indigo focus:border-deep-indigo text-sm bg-slate-surface text-on-background placeholder-on-surface-variant/50" placeholder="din@email.dk" required>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div>
+                <div class="flex items-center justify-between mb-1">
+                    <label for="password" class="block text-sm font-medium text-on-background">Adgangskode</label>
+                    <a href="#" id="forgotPassword" class="text-xs font-medium text-deep-indigo hover:underline">Glemt adgangskode?</a>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-on-surface-variant text-lg">lock</span>
+                    </div>
+                    <input type="password" id="password" class="block w-full pl-10 pr-10 py-2 border border-slate-border rounded-lg focus:ring-deep-indigo focus:border-deep-indigo text-sm bg-slate-surface text-on-background placeholder-on-surface-variant/50" placeholder="••••••••" required>
+                    <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="togglePassword()">
+                        <span id="eyeIcon" class="material-symbols-outlined text-on-surface-variant text-lg hover:text-on-background">visibility</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <p class="text-xs text-on-surface-variant leading-relaxed pt-2">
+                Ved at fortsætte bekræfter du, at du forstår, at Begynder Investor udelukkende er en læringsplatform og ikke tilbyder investeringsrådgivning.
+            </p>
+
+            <!-- Submit -->
+            <button type="submit" id="submitBtn" class="bg-deep-indigo text-white font-medium py-3 rounded-lg w-full glow-indigo hover:opacity-90 transition-opacity mt-4">
+                Log ind
+            </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="relative my-6">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-slate-border"></div>
+            </div>
+            <div class="relative flex justify-center text-xs">
+                <span class="px-2 bg-white text-on-surface-variant font-medium">ELLER FORTSÆT MED</span>
+            </div>
+        </div>
+
+        <!-- Social Auth -->
+        <div class="grid grid-cols-2 gap-3 mb-4">
+            <button type="button" class="flex items-center justify-center gap-2 py-2 border border-slate-border rounded-lg bg-slate-surface hover:bg-slate-100 transition-colors text-sm font-medium text-on-background">
+                <svg viewBox="0 0 24 24" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.16v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.16C1.43 8.55 1 10.22 1 12s.43 3.45 1.16 4.93l3.68-2.84z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.16 7.07l3.68 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                Google
+            </button>
+            <button type="button" class="flex items-center justify-center gap-2 py-2 border border-slate-border rounded-lg bg-slate-surface hover:bg-slate-100 transition-colors text-sm font-medium text-on-background">
+                <svg viewBox="0 0 24 24" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.365 7.143c-.878.895-2.316 1.487-3.663 1.428-.159-1.341.524-2.766 1.341-3.63.856-.913 2.37-1.547 3.662-1.467.178 1.395-.49 2.748-1.34 3.669zm2.463 9.489c-.611 1.761-3.23 6.368-5.32 6.368-1.077 0-1.517-.665-2.812-.665-1.317 0-1.84.64-2.811.64-1.921 0-4.041-3.805-5.334-6.046-2.583-4.48-1.879-9.533 1.32-9.533 1.58 0 2.686.96 3.864.96 1.155 0 2.502-.98 4.204-.98 1.258.02 2.973.541 3.978 2.036-3.415 1.942-2.85 6.471.492 7.822-.178.473-.393.946-.581 1.398z" fill="#000000"/>
+                </svg>
+                Apple
+            </button>
+        </div>
+
+        <!-- Guest Mode -->
+        <button type="button" onclick="guestLogin()" class="border border-deep-indigo/30 text-deep-indigo bg-indigo-50/50 hover:bg-indigo-50 py-2.5 rounded-lg w-full text-xs font-semibold flex items-center justify-center gap-2 mt-3 transition-colors">
+            ⚡ Prøv som gæst (Demo)
+        </button>
+
+        <!-- Switch Mode -->
+        <div class="mt-6 text-center text-sm text-on-surface-variant">
+            <span id="switchText">Har du ikke en konto?</span> 
+            <a href="#" id="switchLink" class="font-medium text-deep-indigo hover:underline" onclick="toggleMode(currentMode === 'login' ? 'register' : 'login')">Opret en her</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 text-center text-xs text-on-surface-variant">
+        <div class="space-x-4">
+            <a href="#" class="hover:text-deep-indigo transition-colors">Vilkår for brug</a>
+            <span>&middot;</span>
+            <a href="#" class="hover:text-deep-indigo transition-colors">Privatlivspolitik</a>
+        </div>
+    </footer>
+
+    <script>
+        let currentMode = 'login';
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('mode') === 'signup') {
+                toggleMode('register');
+            }
+        });
+
+        
+        function toggleMode(mode) {
+            currentMode = mode;
+            const tabLogin = document.getElementById('tabLogin');
+            const tabRegister = document.getElementById('tabRegister');
+            const authTitle = document.getElementById('authTitle');
+            const authSubtitle = document.getElementById('authSubtitle');
+            const submitBtn = document.getElementById('submitBtn');
+            const switchText = document.getElementById('switchText');
+            const switchLink = document.getElementById('switchLink');
+            const forgotPassword = document.getElementById('forgotPassword');
+            const nameField = document.getElementById('nameField');
+
+            if (mode === 'login') {
+                tabLogin.className = "flex-1 py-3 text-sm font-semibold border-b-2 border-deep-indigo text-deep-indigo transition-colors";
+                tabRegister.className = "flex-1 py-3 text-sm font-medium border-b-2 border-transparent text-on-surface-variant hover:text-deep-indigo transition-colors";
+                authTitle.textContent = "Velkommen tilbage";
+                authSubtitle.textContent = "Log ind for at fortsætte din investeringsrejse";
+                submitBtn.textContent = "Log ind";
+                switchText.textContent = "Har du ikke en konto?";
+                switchLink.textContent = "Opret en her";
+                forgotPassword.style.display = "block";
+                nameField.style.display = "none";
+            } else {
+                tabRegister.className = "flex-1 py-3 text-sm font-semibold border-b-2 border-deep-indigo text-deep-indigo transition-colors";
+                tabLogin.className = "flex-1 py-3 text-sm font-medium border-b-2 border-transparent text-on-surface-variant hover:text-deep-indigo transition-colors";
+                authTitle.textContent = "Opret konto";
+                authSubtitle.textContent = "Start din investeringsrejse i dag";
+                submitBtn.textContent = "Opret konto";
+                switchText.textContent = "Har du allerede en konto?";
+                switchLink.textContent = "Log ind her";
+                forgotPassword.style.display = "none";
+                nameField.style.display = "block";
+            }
+        }
+        
+        // Make tabs clickable to toggle directly
+        document.getElementById('tabLogin').addEventListener('click', () => toggleMode('login'));
+        document.getElementById('tabRegister').addEventListener('click', () => toggleMode('register'));
+
+        document.getElementById('authForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (currentMode === 'register') {
+                const nameInput = document.getElementById('name').value.trim();
+                const userName = nameInput !== '' ? nameInput : 'Alex';
+                localStorage.setItem('bi_user_name', userName);
+                window.location.href = 'onboarding.html';
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+
+        function guestLogin() {
+            localStorage.setItem('bi_user_name', 'Alex');
+            window.location.href = 'onboarding.html';
+        }
+
+        function togglePassword() {
+            const pwdInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                eyeIcon.textContent = 'visibility_off';
+            } else {
+                pwdInput.type = 'password';
+                eyeIcon.textContent = 'visibility';
+            }
+        }
+    </script>
+</body>
+</html>

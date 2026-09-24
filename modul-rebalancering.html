@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="light" lang="da">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Begynder Investor - Opadgående Rebalancering</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter & IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-indigo": "#312E81",
+                        "background": "#f8f9ff",
+                        "slate-surface": "#F8FAFC",
+                        "slate-border": "#E2E8F0",
+                        "emerald-success": "#059669",
+                        "rose-critical": "#E11D48",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#474651",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "metric-xl": ["IBM Plex Sans", "sans-serif"],
+                        "metric-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-xs": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="flex h-screen font-body-md text-base overflow-hidden bg-background">
+
+    <!-- Left Sidebar -->
+    <aside class="w-16 md:w-64 bg-deep-indigo text-white flex flex-col border-r border-slate-border flex-shrink-0 relative z-20 shadow-xl transition-all duration-300">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-indigo-900/40">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="material-symbols-outlined text-white text-3xl md:text-2xl" style="font-variation-settings: 'FILL' 0, 'wght' 400;">pie_chart</span>
+                <span class="hidden md:inline text-lg font-bold tracking-tight font-headline-md leading-tight">Begynder<br/>Investor</span>
+            </a>
+        </div>
+
+        <!-- Navigation Items -->
+        <nav class="flex-grow px-2 md:px-4 py-6 flex flex-col gap-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">dashboard</span>
+                <span class="hidden md:inline">Dashboard</span>
+            </a>
+            <a href="portefoelje.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                <span class="hidden md:inline">Min Portefølje</span>
+            </a>
+            <a href="maal.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10 dark:text-[#94a3b8] hover:dark:text-white hover:dark:bg-white/5">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+                <span class="hidden md:inline">Målsætning</span>
+            </a>
+            <a href="laer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start bg-indigo-900/60 text-white font-semibold shadow-sm">
+                <span class="material-symbols-outlined text-xl">school</span>
+                <span class="hidden md:inline">Lær at Investere</span>
+            </a>
+            <a href="analyse.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span class="hidden md:inline">Min Analyse</span>
+            </a>
+            <a href="markeder.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">candlestick_chart</span>
+                <span class="hidden md:inline">Marked</span>
+            </a>
+            <a href="vaerktoejer.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all justify-center md:justify-start text-indigo-200 hover:text-white hover:bg-white/10">
+                <span class="material-symbols-outlined text-xl">construction</span>
+                <span class="hidden md:inline">Værktøjer</span>
+            </a>
+        </nav>
+        <div class="px-2 md:px-4 py-4 mt-auto">
+            <div class="border-t border-indigo-900/40 my-3"></div>
+            <div class="flex flex-col gap-1">
+                <!-- Hjælp Link -->
+                <a href="hjaelp.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-indigo-200 hover:text-white hover:bg-white/10 transition-all">
+                    <span class="material-symbols-outlined text-lg">help</span>
+                    <span>Hjælp</span>
+                </a>
+            </div>
+
+            <!-- Admin Konsol (Kun 1 instans) -->
+            <div class="px-1 pt-2">
+                <a href="admin.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-amber-300 hover:text-amber-200 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 transition-all">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-amber-400">shield_person</span>
+                        <span>Admin Konsol</span>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-wider font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.5 rounded">SUPER</span>
+                </a>
+            </div>
+
+            <!-- Brugerprofil / Avatar (Eneansvarlig for profil.html) -->
+            <div class="pt-2">
+                <a href="profil.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-xs text-deep-indigo shrink-0 shadow-sm">
+                        JF
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">Jesper Ferskov</span>
+                        <span class="text-[11px] text-amber-400 font-medium flex items-center gap-1">
+                            ⭐ Supporter
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
+            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+            const elName = document.getElementById('sidebar-name');
+            
+            
+            
+            
+        });
+    </script>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative p-4 md:p-8">
+        <div class="max-w-[800px] w-full mx-auto flex flex-col gap-8 pb-20">
+            
+            <!-- Breadcrumb -->
+            <div>
+                <a href="laer.html" class="inline-flex items-center gap-1 text-sm font-medium text-deep-indigo hover:underline mb-4">
+                    <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                    Tilbage til Læringsakademiet
+                </a>
+            </div>
+
+            <!-- Header -->
+            <div>
+                <div class="inline-block bg-white border border-slate-border px-3 py-1 rounded-md text-xs font-bold text-deep-indigo uppercase tracking-wider mb-4 shadow-sm">
+                    SPOR 4: PORTEFØLJEPLEJE & RISIKOSTYRING • ⏱️ 6 minutter • Interaktiv beregner
+                </div>
+                <h1 class="font-headline-lg font-bold text-3xl text-deep-indigo mb-4">Opadgående Rebalancering: Styr din risiko uden unødig skat</h1>
+                <p class="font-body-lg text-on-surface-variant leading-relaxed">
+                    Når dine enkeltaktier stiger kraftigt, forskydes din porteføljebalance, og risikoen øges. I stedet for at sælge ud og udløse dyr aktieskat og kurtage, bruger vi opadgående rebalancering: Vi styrer balancen tilbage på 80/20 ved klogt at placere næste månedsopsparing i den undervægtede kerne.
+                </p>
+            </div>
+
+            <!-- Sammenligning: 2-kolonne -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Kort A -->
+                <div class="bg-white border border-slate-border rounded-2xl p-6 shadow-sm">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-rose-critical">trending_down</span>
+                        <h3 class="font-headline-md font-bold text-lg text-on-background">Traditionel Rebalancering (Sælg vinderne)</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-on-surface-variant">
+                        <li><strong>Fremgangsmåde:</strong> Sælg dine overvægtede satellit-aktier for at købe Core.</li>
+                        <li><strong>Konsekvens:</strong> Udløser op til 27% / 42% aktieskat på gevinster samt handelsgebyrer. Afbryder renters rente-effekten.</li>
+                    </ul>
+                </div>
+
+                <!-- Kort B -->
+                <div class="bg-white border border-emerald-success/30 rounded-2xl p-6 shadow-md relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-emerald-success text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase">
+                        Bedste Valg
+                    </div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-emerald-success">trending_up</span>
+                        <h3 class="font-headline-md font-bold text-lg text-deep-indigo">Opadgående Rebalancering (Køb ind i kernen)</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-on-surface-variant">
+                        <li><strong>Fremgangsmåde:</strong> Lad vinderne køre, men allokér ny likviditet direkte til Core (MSCI World).</li>
+                        <li><strong>Fordel:</strong> 0 kr. i unødig skat, minimale omkostninger og porteføljen vokser i samlet styrke.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Interaktiv Beregner -->
+            <div class="bg-white border border-slate-border rounded-2xl p-6 sm:p-8 shadow-sm">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-deep-indigo">calculate</span>
+                    <h3 class="text-xl font-bold text-deep-indigo font-headline">Prøv det i praksis: Genopret 80/20 balancen</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    Udgangspunkt i en portefølje på 100.000 kr.: Core værdi: 70.000 kr. (70%) og Satellit værdi: 30.000 kr. (30% - for høj risiko!). Juster din månedlige opsparing for at se, hvordan balancen genoprettes.
+                </p>
+
+                <div class="space-y-6">
+                    <!-- Opsparingsbeløb Vælger -->
+                    <div>
+                        <label class="block text-sm font-bold text-deep-indigo mb-2">Månedligt opsparingsbeløb (kr.)</label>
+                        <div class="grid grid-cols-3 gap-3 mb-4">
+                            <button type="button" class="rebalance-pill-btn py-2.5 px-4 rounded-xl border border-slate-border text-xs sm:text-sm font-semibold text-deep-indigo hover:bg-slate-50 transition-all text-center" data-val="2500">2.500 kr.</button>
+                            <button type="button" class="rebalance-pill-btn py-2.5 px-4 rounded-xl border-2 border-deep-indigo bg-indigo-50/50 text-xs sm:text-sm font-bold text-deep-indigo transition-all text-center" data-val="5000">5.000 kr.</button>
+                            <button type="button" class="rebalance-pill-btn py-2.5 px-4 rounded-xl border border-slate-border text-xs sm:text-sm font-semibold text-deep-indigo hover:bg-slate-50 transition-all text-center" data-val="10000">10.000 kr.</button>
+                        </div>
+
+                        <!-- Range Slider -->
+                        <div class="space-y-2">
+                            <input type="range" id="rebalance-range-input" min="1000" max="25000" step="500" value="5000" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-deep-indigo">
+                            <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+                                <span>1.000 kr.</span>
+                                <span id="rebalance-range-label" class="text-base font-bold text-deep-indigo">5.000 kr.</span>
+                                <span>25.000 kr.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamisk Resultatcontainer -->
+                    <div id="rebalance-live-output" class="bg-indigo-50/40 border border-indigo-100 rounded-xl p-5 transition-all min-h-[220px]">
+                        <!-- Udfyldes dynamisk via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refleksion & Mestring Bento Kort -->
+            <div class="bg-white border border-slate-border rounded-2xl p-6 sm:p-8 shadow-sm mt-8">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-deep-indigo">checklist</span>
+                    <h3 class="text-xl font-bold text-deep-indigo font-headline">Refleksion & Mestring</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-6">Bekræft at du har forstået principperne før du fortsætter.</p>
+
+                <div class="space-y-3">
+                    <label class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-border hover:bg-slate-50/60 transition-colors cursor-pointer">
+                        <input type="checkbox" class="rebalance-check mt-1 w-4 h-4 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo accent-deep-indigo cursor-pointer">
+                        <span class="text-sm text-deep-indigo font-medium leading-relaxed">Jeg forstår, at opadgående rebalancering modvirker unødig skat og handelsomkostninger.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-border hover:bg-slate-50/60 transition-colors cursor-pointer">
+                        <input type="checkbox" class="rebalance-check mt-1 w-4 h-4 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo accent-deep-indigo cursor-pointer">
+                        <span class="text-sm text-deep-indigo font-medium leading-relaxed">Jeg ved, at jeg skal tilføre ny opsparing til Core, hvis Satellit-andelen overstiger 20%.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-border hover:bg-slate-50/60 transition-colors cursor-pointer">
+                        <input type="checkbox" class="rebalance-check mt-1 w-4 h-4 rounded border-slate-300 text-deep-indigo focus:ring-deep-indigo accent-deep-indigo cursor-pointer">
+                        <span class="text-sm text-deep-indigo font-medium leading-relaxed">Jeg lader mine vinderaktier vokse i fred, så længe virksomhedens Moat og fundament er intakt.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Handlingsbjælke under kortet -->
+            <div class="flex justify-end mt-6">
+                <button id="rebalance-submit-btn" class="bg-deep-indigo text-white font-semibold text-sm px-7 py-3 rounded-xl glow-indigo hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer shadow-sm">
+                    <span>Gennemfør Modul & Gem Fremskridt</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal (Skjult som standard) -->
+    <div id="rebalance-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+      <div class="bg-white border border-slate-border rounded-2xl p-6 max-w-md w-full mx-4 shadow-xl text-center">
+        <div class="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-2xl">verified</span>
+        </div>
+        <h3 class="text-xl font-bold text-deep-indigo font-headline mb-1">Modul Gennemført!</h3>
+        <p class="text-sm text-on-surface-variant mb-6">Du mestrer nu opadgående rebalancering og risikostyring uden unødig skat.</p>
+        <div class="space-y-3">
+          <a href="laer.html" class="block w-full py-3 rounded-xl bg-deep-indigo text-white font-bold text-sm hover:opacity-95 transition-all text-center">Tilbage til Læringsakademiet &rarr;</a>
+          <a href="dashboard.html" class="block w-full py-3 rounded-xl border border-slate-border text-deep-indigo font-semibold text-sm hover:bg-slate-50 transition-all text-center">Gå til Dashboard</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('rebalance-range-input');
+      const label = document.getElementById('rebalance-range-label');
+      const output = document.getElementById('rebalance-live-output');
+      const pills = document.querySelectorAll('.rebalance-pill-btn');
+      const submitBtn = document.getElementById('rebalance-submit-btn');
+      const modal = document.getElementById('rebalance-modal');
+      const checks = document.querySelectorAll('.rebalance-check');
+
+      // Checkbox logic for button enable/disable
+      function updateSubmitButton() {
+          if (!submitBtn) return;
+          const allChecked = Array.from(checks).every(c => c.checked);
+          if (allChecked) {
+              submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+              submitBtn.disabled = false;
+          } else {
+              submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+              submitBtn.disabled = true;
+          }
+      }
+      
+      checks.forEach(c => c.addEventListener('change', updateSubmitButton));
+      updateSubmitButton();
+
+      function updateCalculator(val) {
+        const amount = parseInt(val, 10);
+        const coreVal = 70000 + amount;
+        const satVal = 30000;
+        const totalVal = 100000 + amount;
+        const corePct = ((coreVal / totalVal) * 100).toFixed(1);
+        const satPct = ((satVal / totalVal) * 100).toFixed(1);
+
+        // Target: Satellit på maks 20% -> Total skal være 150.000 kr.
+        const totalNeeded = 150000 - 100000; // 50.000 kr.
+        const months = Math.ceil(totalNeeded / amount);
+
+        if (label) label.textContent = amount.toLocaleString('da-DK') + ' kr.';
+
+        if (output) {
+          output.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-indigo-100">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-deep-indigo block">Strategisk Handling</span>
+                  <p class="text-base sm:text-lg font-bold text-deep-indigo">Køb Core (MSCI World) for <span class="text-emerald-success">${amount.toLocaleString('da-DK')} kr.</span></p>
+                </div>
+                <span class="inline-flex items-center gap-1 text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 w-fit">
+                  🛡️ 0 kr. i udløst skat
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="bg-white p-3.5 rounded-xl border border-slate-border">
+                  <span class="text-xs text-on-surface-variant block mb-1">Ny Fordeling (Måned 1)</span>
+                  <span class="font-bold text-sm text-deep-indigo">${corePct}% Core / ${satPct}% Sat</span>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-border">
+                  <span class="text-xs text-on-surface-variant block mb-1">Tid til 80/20 balance</span>
+                  <span class="font-bold text-sm text-deep-indigo">${months} måneder</span>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-border">
+                  <span class="text-xs text-on-surface-variant block mb-1">Sparet aktieskat (est.)</span>
+                  <span class="font-bold text-sm text-emerald-success">+2.700 kr.</span>
+                </div>
+              </div>
+
+              <div class="space-y-1.5 pt-1">
+                <div class="flex justify-between text-xs font-semibold text-slate-500">
+                  <span>Core: ${coreVal.toLocaleString('da-DK')} kr. (${corePct}%)</span>
+                  <span>Satellit: 30.000 kr. (${satPct}%)</span>
+                </div>
+                <div class="h-3 w-full bg-slate-200 rounded-full overflow-hidden flex">
+                  <div class="bg-deep-indigo h-full transition-all duration-300" style="width: ${corePct}%"></div>
+                  <div class="bg-amber-400 h-full transition-all duration-300" style="width: ${satPct}%"></div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      if (slider) {
+        slider.addEventListener('input', (e) => {
+          const v = parseInt(e.target.value, 10);
+          pills.forEach(p => {
+            p.classList.remove('border-2', 'border-deep-indigo', 'bg-indigo-50/50', 'font-bold');
+            p.classList.add('border-slate-border', 'font-semibold');
+            if (parseInt(p.dataset.val, 10) === v) {
+              p.classList.add('border-2', 'border-deep-indigo', 'bg-indigo-50/50', 'font-bold');
+              p.classList.remove('border-slate-border', 'font-semibold');
+            }
+          });
+          updateCalculator(v);
+        });
+      }
+
+      pills.forEach(p => {
+        p.addEventListener('click', () => {
+          const v = parseInt(p.dataset.val, 10);
+          if (slider) slider.value = v;
+          pills.forEach(btn => {
+            btn.classList.remove('border-2', 'border-deep-indigo', 'bg-indigo-50/50', 'font-bold');
+            btn.classList.add('border-slate-border', 'font-semibold');
+          });
+          p.classList.add('border-2', 'border-deep-indigo', 'bg-indigo-50/50', 'font-bold');
+          p.classList.remove('border-slate-border', 'font-semibold');
+          updateCalculator(v);
+        });
+      });
+
+      // Kør initial beregning
+      updateCalculator(5000);
+
+      // Gennemfør-knap
+      if (submitBtn) {
+        submitBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.setItem('bi_module_rebalancering_completed', 'true');
+          localStorage.setItem('bi_module_rebalance_completed', 'true');
+          if (modal) modal.classList.remove('hidden');
+        });
+      }
+    });
+    </script>
+</body>
+</html>
