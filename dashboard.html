@@ -1191,73 +1191,10 @@
         }
     </script>
 
-    <!-- DEV CONTROLS PANEL -->
-    <div id="dev-controls-panel" class="fixed bottom-4 right-4 z-50 bg-white dark:bg-[#1e2330] rounded-xl shadow-2xl border border-slate-200 dark:border-[#2b3245] transition-all duration-300" style="width: 250px;">
-        <div class="flex justify-between items-center p-3 border-b border-slate-200 dark:border-[#2b3245] cursor-pointer" id="dev-controls-header">
-            <span class="font-bold text-sm flex items-center gap-2 dark:text-[#c3c0ff]">🛠️ Dev Controls</span>
-            <span class="material-symbols-outlined text-sm dark:text-[#c3c0ff]" id="dev-controls-toggle">expand_less</span>
-        </div>
-        <div class="p-3 flex flex-col gap-2" id="dev-controls-body" style="display: none;">
-            <button onclick="devResetAll()" class="text-left px-3 py-2 bg-slate-50 hover:bg-slate-100 dark:bg-[#252b3b] dark:hover:bg-[#2c3345] rounded-lg text-sm transition-colors dark:text-white flex items-center gap-2 border border-transparent hover:border-slate-200 dark:hover:border-[#323b52]">
-                🧹 Nulstil alt og log ud
-            </button>
-            <button onclick="devToggleSupporter()" class="text-left px-3 py-2 bg-slate-50 hover:bg-slate-100 dark:bg-[#252b3b] dark:hover:bg-[#2c3345] rounded-lg text-sm transition-colors dark:text-white flex items-center gap-2 border border-transparent hover:border-slate-200 dark:hover:border-[#323b52]">
-                ⭐ Toggle Supporter
-            </button>
-            <button onclick="devCompleteLessons()" class="text-left px-3 py-2 bg-slate-50 hover:bg-slate-100 dark:bg-[#252b3b] dark:hover:bg-[#2c3345] rounded-lg text-sm transition-colors dark:text-white flex items-center gap-2 border border-transparent hover:border-slate-200 dark:hover:border-[#323b52]">
-                🎓 Gennemfør alle lektioner
-            </button>
-        </div>
-    </div>
     
-    <script>
-        document.getElementById('dev-controls-header').addEventListener('click', () => {
-            const body = document.getElementById('dev-controls-body');
-            const icon = document.getElementById('dev-controls-toggle');
-            if (body.style.display === 'none') {
-                body.style.display = 'flex';
-                icon.textContent = 'expand_more';
-            } else {
-                body.style.display = 'none';
-                icon.textContent = 'expand_less';
-            }
-        });
-
-        function devResetAll() {
-            localStorage.clear();
-            window.location.href = 'login.html';
-        }
-
-        function devToggleSupporter() {
-            const isSup = localStorage.getItem('bi_is_supporter') === 'true';
-            localStorage.setItem('bi_is_supporter', !isSup);
-            location.reload();
-        }
-
-        function devCompleteLessons() {
-            const moduleKeys = [
-                'bi_module_core_completed',
-                'bi_module_infla_completed',
-                'bi_module_skat_completed',
-                'bi_module_moat_completed',
-                'bi_module_pe_completed',
-                'bi_module_advokat_completed',
-                'bi_module_fomo_completed',
-                'bi_module_market_completed',
-                'bi_module_preflight_completed',
-                'bi_module_rebalancering_completed',
-                'bi_module_dynamik_completed',
-                'bi_module_exit_completed'
-            ];
-
-            moduleKeys.forEach(k => localStorage.setItem(k, 'true'));
-            
-            alert('Alle 12 lektioner er markeret som gennemført! (Opdaterer siden)');
-            location.reload();
-        }
-    </script>
 
     
 <script src="ai-assistant.js"></script>
+    <script src="dev-panel.js"></script>
 </body>
 </html>
