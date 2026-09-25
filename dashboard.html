@@ -919,20 +919,20 @@
 
         // UI Updater
         function updatePortfolioUI() {
-            document.getElementById('total-value').textContent = formatDKKFull(portfolio.total);
-            document.getElementById('cash-balance').textContent = formatDKKFull(portfolio.cash);
+            if(document.getElementById('total-value')) document.getElementById('total-value').textContent = formatDKKFull(portfolio.total);
+            if(document.getElementById('cash-balance')) document.getElementById('cash-balance').textContent = formatDKKFull(portfolio.cash);
             
-            document.getElementById('core-value').textContent = formatDKK(portfolio.coreValue);
-            document.getElementById('novo-value').textContent = formatDKK(portfolio.satellites.novo);
-            document.getElementById('volvo-value').textContent = formatDKK(portfolio.satellites.volvo);
+            if(document.getElementById('core-value')) document.getElementById('core-value').textContent = formatDKK(portfolio.coreValue);
+            if(document.getElementById('novo-value')) document.getElementById('novo-value').textContent = formatDKK(portfolio.satellites.novo);
+            if(document.getElementById('volvo-value')) document.getElementById('volvo-value').textContent = formatDKK(portfolio.satellites.volvo);
 
             // Calculate ratios for progress bar
             const totalInvested = portfolio.coreValue + portfolio.satellites.novo + portfolio.satellites.volvo;
             if (totalInvested > 0) {
                 const corePct = (portfolio.coreValue / totalInvested) * 100;
                 const satPct = 100 - corePct;
-                document.getElementById('core-bar').style.width = `${corePct}%`;
-                document.getElementById('satellite-bar').style.width = `${satPct}%`;
+                if(document.getElementById('core-bar')) document.getElementById('core-bar').style.width = `${corePct}%`;
+                if(document.getElementById('satellite-bar')) document.getElementById('satellite-bar').style.width = `${satPct}%`;
             }
         }
 

@@ -215,7 +215,7 @@
 
     document.getElementById('bi-dev-btn-modules').onclick = () => {
         for (let i = 1; i <= 12; i++) {
-            localStorage.setItem(\`bi_module_\${i}_completed\`, 'true');
+            localStorage.setItem(`bi_module_${i}_completed`, 'true');
         }
         showToast("Alle moduler gennemført. Genindlæser...");
         setTimeout(() => {
@@ -250,9 +250,9 @@
             document.getElementById('bi-dev-error-list-container').style.display = 'block';
             const listEl = document.getElementById('bi-dev-error-list');
             listEl.innerHTML = logs.slice(-3).reverse().map(l => 
-                \`<div style="margin-bottom: 4px; border-bottom: 1px solid #1e293b; padding-bottom: 2px;">
-                    <span style="color:#94a3b8;">\${new Date(l.timestamp).toLocaleTimeString()}</span>: \${l.note}
-                </div>\`
+                `<div style="margin-bottom: 4px; border-bottom: 1px solid #1e293b; padding-bottom: 2px;">
+                    <span style="color:#94a3b8;">${new Date(l.timestamp).toLocaleTimeString()}</span>: ${l.note}
+                </div>`
             ).join('');
         }
     }
@@ -294,12 +294,12 @@
         const note = document.getElementById('bi-dev-bug-note').value || "(Ingen beskrivelse)";
         const subject = encodeURIComponent("[BI Bug Report] " + window.location.pathname);
         const body = encodeURIComponent(
-            "URL: " + window.location.pathname + "\\n" +
-            "Skærmopløsning: " + window.innerWidth + "x" + window.innerHeight + "\\n" +
-            "User Agent: " + navigator.userAgent + "\\n\\n" +
-            "Beskrivelse:\\n" + note
+            "URL: " + window.location.pathname + "\n" +
+            "Skærmopløsning: " + window.innerWidth + "x" + window.innerHeight + "\n" +
+            "User Agent: " + navigator.userAgent + "\n\n" +
+            "Beskrivelse:\n" + note
         );
-        window.location.href = \`mailto:jesper.ferskov@gmail.com?subject=\${subject}&body=\${body}\`;
+        window.location.href = `mailto:jesper.ferskov@gmail.com?subject=${subject}&body=${body}`;
     };
 
     // Init list
