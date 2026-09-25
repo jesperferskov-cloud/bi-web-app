@@ -176,17 +176,7 @@
             </div>
         </div>
     </aside>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const userName = localStorage.getItem('bi_user_name') || 'Jesper Ferskov';
-            const initials = userName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
-            const elName = document.getElementById('sidebar-name');
-            
-            
-            
-            
-        });
-    </script>
+
 
     <!-- Main Content Area -->
     <main class="flex-1 overflow-y-auto bg-slate-surface flex flex-col relative dark:bg-[#161922]">
@@ -492,7 +482,6 @@
             const isSupporter = localStorage.getItem('bi_is_supporter') === 'true';
             const badgeContainer = document.getElementById('supporter-badge-container');
             const supportBanner = document.getElementById('sidebar-supporter-banner');
-            
             
             if (isSupporter) {
                 if (supportBanner) supportBanner.classList.add('hidden');
